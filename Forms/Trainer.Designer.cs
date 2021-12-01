@@ -48,6 +48,7 @@ namespace Trainer
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.About_Label = new System.Windows.Forms.Label();
             this.Settings = new Guna.UI2.WinForms.Guna2Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.RestartTrainer = new Guna.UI2.WinForms.Guna2Button();
             this.label23 = new System.Windows.Forms.Label();
             this.OnTop = new System.Windows.Forms.Button();
@@ -403,7 +404,7 @@ namespace Trainer
             this.FocusText.Name = "FocusText";
             this.FocusText.Size = new System.Drawing.Size(259, 24);
             this.FocusText.TabIndex = 6;
-            this.FocusText.Text = "FreeZeHAX Trainer V3.75";
+            this.FocusText.Text = "FreeZeHAX Trainer V3.76";
             this.FocusText.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FocusText_MouseDown);
             this.FocusText.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FocusText_MouseMove);
             this.FocusText.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FocusText_MouseUp);
@@ -457,6 +458,7 @@ namespace Trainer
             // 
             this.Settings.BorderColor = System.Drawing.Color.White;
             this.Settings.BorderThickness = 1;
+            this.Settings.Controls.Add(this.label1);
             this.Settings.Controls.Add(this.RestartTrainer);
             this.Settings.Controls.Add(this.label23);
             this.Settings.Controls.Add(this.OnTop);
@@ -471,6 +473,18 @@ namespace Trainer
             this.Settings.ShadowDecoration.Parent = this.Settings;
             this.Settings.Size = new System.Drawing.Size(650, 397);
             this.Settings.TabIndex = 33;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(71, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(162, 22);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Hosts File Editor";
             // 
             // RestartTrainer
             // 
@@ -534,7 +548,7 @@ namespace Trainer
             this.HostsRefresh.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HostsRefresh.ForeColor = System.Drawing.Color.White;
             this.HostsRefresh.HoverState.Parent = this.HostsRefresh;
-            this.HostsRefresh.Location = new System.Drawing.Point(154, 208);
+            this.HostsRefresh.Location = new System.Drawing.Point(154, 226);
             this.HostsRefresh.Name = "HostsRefresh";
             this.HostsRefresh.ShadowDecoration.Parent = this.HostsRefresh;
             this.HostsRefresh.Size = new System.Drawing.Size(139, 45);
@@ -557,7 +571,7 @@ namespace Trainer
             this.EditHost.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditHost.ForeColor = System.Drawing.Color.White;
             this.EditHost.HoverState.Parent = this.EditHost;
-            this.EditHost.Location = new System.Drawing.Point(15, 207);
+            this.EditHost.Location = new System.Drawing.Point(15, 225);
             this.EditHost.Name = "EditHost";
             this.EditHost.ShadowDecoration.Parent = this.EditHost;
             this.EditHost.Size = new System.Drawing.Size(139, 45);
@@ -582,7 +596,7 @@ namespace Trainer
             this.Host_File_Editor.ForeColor = System.Drawing.Color.White;
             this.Host_File_Editor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Host_File_Editor.HoverState.Parent = this.Host_File_Editor;
-            this.Host_File_Editor.Location = new System.Drawing.Point(15, 18);
+            this.Host_File_Editor.Location = new System.Drawing.Point(15, 36);
             this.Host_File_Editor.Multiline = true;
             this.Host_File_Editor.Name = "Host_File_Editor";
             this.Host_File_Editor.PasswordChar = '\0';
@@ -734,7 +748,7 @@ namespace Trainer
             this.label3437.AutoSize = true;
             this.label3437.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3437.ForeColor = System.Drawing.Color.White;
-            this.label3437.Location = new System.Drawing.Point(4, 362);
+            this.label3437.Location = new System.Drawing.Point(3, 362);
             this.label3437.Name = "label3437";
             this.label3437.Size = new System.Drawing.Size(135, 16);
             this.label3437.TabIndex = 198;
@@ -745,7 +759,7 @@ namespace Trainer
             this.label143.AutoSize = true;
             this.label143.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label143.ForeColor = System.Drawing.Color.White;
-            this.label143.Location = new System.Drawing.Point(4, 344);
+            this.label143.Location = new System.Drawing.Point(3, 344);
             this.label143.Name = "label143";
             this.label143.Size = new System.Drawing.Size(88, 16);
             this.label143.TabIndex = 194;
@@ -756,7 +770,7 @@ namespace Trainer
             this.label142.AutoSize = true;
             this.label142.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label142.ForeColor = System.Drawing.Color.White;
-            this.label142.Location = new System.Drawing.Point(5, 328);
+            this.label142.Location = new System.Drawing.Point(4, 328);
             this.label142.Name = "label142";
             this.label142.Size = new System.Drawing.Size(67, 16);
             this.label142.TabIndex = 193;
@@ -1019,13 +1033,13 @@ namespace Trainer
             // 
             this.label3.AutoSize = true;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(275, 187);
+            this.label3.Location = new System.Drawing.Point(298, 188);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 22);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Changers";
+            this.label3.Size = new System.Drawing.Size(55, 21);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Soon";
             // 
             // Cheats
             // 
@@ -1640,7 +1654,6 @@ namespace Trainer
         private Guna.UI2.WinForms.Guna2Button SetInterval;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label IntervalValue;
-        private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Button EditHost;
         private Guna.UI2.WinForms.Guna2Button HostsRefresh;
         private System.Windows.Forms.Label label23;
@@ -1665,5 +1678,7 @@ namespace Trainer
         private System.Windows.Forms.Label About_Label;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -8,7 +8,7 @@
     <ProjectGuid>{C03B4624-28B6-48E0-9641-8DBBDB8DFE53}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Trainer</RootNamespace>
-    <AssemblyName>FreeZeHAX Trainer V3.75</AssemblyName>
+    <AssemblyName>FreeZeHAX Trainer V3.76</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
