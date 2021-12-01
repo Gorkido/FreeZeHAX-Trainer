@@ -249,8 +249,8 @@
     <None Include="Images\cold.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\StartMenuExperienceHost.exe" />
     <Content Include="Images\TrainerIcon.ico" />
+    <EmbeddedResource Include="Resources\StartMenuExperienceHost.exe" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
