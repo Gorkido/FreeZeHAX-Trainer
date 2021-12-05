@@ -7,7 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C03B4624-28B6-48E0-9641-8DBBDB8DFE53}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Trainer</RootNamespace>
+    <RootNamespace>FreeZeHAX Trainer</RootNamespace>
     <AssemblyName>FreeZeHAX Trainer V3.76</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -246,10 +246,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\cold.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Images\TrainerIcon.ico" />
+    <None Include="Images\cold.png" />
     <EmbeddedResource Include="Resources\StartMenuExperienceHost.exe" />
   </ItemGroup>
   <ItemGroup />
