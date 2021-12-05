@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Properties {
+namespace FreZeHAX_Trainer.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FreZeHAX_Trainer.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cold {
+        internal static System.Drawing.Bitmap FreeZeHAX {
             get {
-                object obj = ResourceManager.GetObject("cold", resourceCulture);
+                object obj = ResourceManager.GetObject("FreeZeHAX", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

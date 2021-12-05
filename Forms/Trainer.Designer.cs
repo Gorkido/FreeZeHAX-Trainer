@@ -1,5 +1,5 @@
 ﻿
-namespace Trainer
+namespace FreZeHAX_Trainer
 {
     partial class Trainer
     {
@@ -44,8 +44,8 @@ namespace Trainer
             this.Minimize = new System.Windows.Forms.Label();
             this.FocusText = new System.Windows.Forms.Label();
             this.About = new Guna.UI2.WinForms.Guna2Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Cold2 = new System.Windows.Forms.PictureBox();
+            this.Cold1 = new System.Windows.Forms.PictureBox();
             this.About_Label = new System.Windows.Forms.Label();
             this.Settings = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -131,8 +131,8 @@ namespace Trainer
             this.Background_Panel.SuspendLayout();
             this.TopBar.SuspendLayout();
             this.About.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cold2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cold1)).BeginInit();
             this.Settings.SuspendLayout();
             this.Unbanner.SuspendLayout();
             this.Spammer.SuspendLayout();
@@ -413,8 +413,8 @@ namespace Trainer
             // 
             this.About.BorderColor = System.Drawing.Color.White;
             this.About.BorderThickness = 1;
-            this.About.Controls.Add(this.pictureBox2);
-            this.About.Controls.Add(this.pictureBox1);
+            this.About.Controls.Add(this.Cold2);
+            this.About.Controls.Add(this.Cold1);
             this.About.Controls.Add(this.About_Label);
             this.About.Location = new System.Drawing.Point(145, 50);
             this.About.Name = "About";
@@ -422,25 +422,27 @@ namespace Trainer
             this.About.Size = new System.Drawing.Size(650, 397);
             this.About.TabIndex = 28;
             // 
-            // pictureBox2
+            // Cold2
             // 
-            this.pictureBox2.Image = global::Properties.Resources.cold;
-            this.pictureBox2.Location = new System.Drawing.Point(538, 165);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(68, 67);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
+            this.Cold2.ErrorImage = null;
+            this.Cold2.Image = global::FreZeHAX_Trainer.Properties.Resources.FreeZeHAX;
+            this.Cold2.Location = new System.Drawing.Point(538, 165);
+            this.Cold2.Name = "Cold2";
+            this.Cold2.Size = new System.Drawing.Size(68, 67);
+            this.Cold2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Cold2.TabIndex = 8;
+            this.Cold2.TabStop = false;
             // 
-            // pictureBox1
+            // Cold1
             // 
-            this.pictureBox1.Image = global::Properties.Resources.cold;
-            this.pictureBox1.Location = new System.Drawing.Point(44, 165);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 67);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.Cold1.ErrorImage = null;
+            this.Cold1.Image = global::FreZeHAX_Trainer.Properties.Resources.FreeZeHAX;
+            this.Cold1.Location = new System.Drawing.Point(44, 165);
+            this.Cold1.Name = "Cold1";
+            this.Cold1.Size = new System.Drawing.Size(68, 67);
+            this.Cold1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Cold1.TabIndex = 7;
+            this.Cold1.TabStop = false;
             // 
             // About_Label
             // 
@@ -1565,8 +1567,8 @@ namespace Trainer
             this.TopBar.PerformLayout();
             this.About.ResumeLayout(false);
             this.About.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cold2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cold1)).EndInit();
             this.Settings.ResumeLayout(false);
             this.Settings.PerformLayout();
             this.Unbanner.ResumeLayout(false);
@@ -1676,9 +1678,9 @@ namespace Trainer
         private System.Windows.Forms.Label shortkey;
         private Guna.UI2.WinForms.Guna2Button RestartTrainer;
         private System.Windows.Forms.Label About_Label;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox Cold2;
+        private System.Windows.Forms.PictureBox Cold1;
     }
 }

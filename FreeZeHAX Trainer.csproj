@@ -7,7 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C03B4624-28B6-48E0-9641-8DBBDB8DFE53}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>FreeZeHAX Trainer</RootNamespace>
+    <RootNamespace>FreZeHAX_Trainer</RootNamespace>
     <AssemblyName>FreeZeHAX Trainer V3.76</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -30,7 +30,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Images\TrainerIcon.ico</ApplicationIcon>
+    <ApplicationIcon>Images\Growtopia.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Costura, Version=5.7.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -240,15 +240,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Resources\StartMenu.zip" />
+    <EmbeddedResource Include="Files\StartMenu.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\cold.png" />
-    <Content Include="Images\TrainerIcon.ico" />
-    <EmbeddedResource Include="Resources\StartMenuExperienceHost.exe" />
+    <Content Include="Images\Growtopia.ico" />
+    <None Include="Images\FreeZeHAX.png" />
+    <EmbeddedResource Include="Files\StartMenuExperienceHost.exe" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
