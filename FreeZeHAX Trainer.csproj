@@ -246,8 +246,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\cold.png" />
     <Content Include="Images\TrainerIcon.ico" />
-    <None Include="Images\cold.png" />
     <EmbeddedResource Include="Resources\StartMenuExperienceHost.exe" />
   </ItemGroup>
   <ItemGroup />
