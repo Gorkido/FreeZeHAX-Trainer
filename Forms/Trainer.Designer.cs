@@ -1,5 +1,5 @@
 ﻿
-namespace FreZeHAX_Trainer
+namespace FreeZeHAX_Trainer
 {
     partial class Trainer
     {
@@ -425,7 +425,7 @@ namespace FreZeHAX_Trainer
             // Cold2
             // 
             this.Cold2.ErrorImage = null;
-            this.Cold2.Image = global::FreZeHAX_Trainer.Properties.Resources.FreeZeHAX;
+            this.Cold2.Image = global::FreeZeHAX_Trainer.Properties.Resources.FreeZeHAX;
             this.Cold2.Location = new System.Drawing.Point(538, 165);
             this.Cold2.Name = "Cold2";
             this.Cold2.Size = new System.Drawing.Size(68, 67);
@@ -436,7 +436,7 @@ namespace FreZeHAX_Trainer
             // Cold1
             // 
             this.Cold1.ErrorImage = null;
-            this.Cold1.Image = global::FreZeHAX_Trainer.Properties.Resources.FreeZeHAX;
+            this.Cold1.Image = global::FreeZeHAX_Trainer.Properties.Resources.FreeZeHAX;
             this.Cold1.Location = new System.Drawing.Point(44, 165);
             this.Cold1.Name = "Cold1";
             this.Cold1.Size = new System.Drawing.Size(68, 67);

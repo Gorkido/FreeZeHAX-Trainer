@@ -4,7 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace FreZeHAX_Trainer
+namespace FreeZeHAX_Trainer
 {
     internal class Others
     {

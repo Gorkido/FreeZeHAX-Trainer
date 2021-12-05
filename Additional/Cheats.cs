@@ -1,4 +1,4 @@
-﻿namespace FreZeHAX_Trainer
+﻿namespace FreeZeHAX_Trainer
 {
     internal class Cheats
     {

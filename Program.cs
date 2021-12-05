@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace FreZeHAX_Trainer
+namespace FreeZeHAX_Trainer
 {
     internal class Program
     {
