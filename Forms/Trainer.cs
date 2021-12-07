@@ -114,7 +114,6 @@ namespace FreeZeHAX_Trainer
             }
 
             AdaptersComboBox.SelectedIndex = 0;
-            Update.Start();
             foreach (string subkeyname2 in Registry.CurrentUser.GetSubKeyNames())
             {
                 if (subkeyname2.StartsWith("1") || subkeyname2.StartsWith("2") || subkeyname2.StartsWith("3") || subkeyname2.StartsWith("4") || subkeyname2.StartsWith("5") || subkeyname2.StartsWith("6") || subkeyname2.StartsWith("7") || subkeyname2.StartsWith("8") || subkeyname2.StartsWith("9"))
@@ -1060,26 +1059,6 @@ namespace FreeZeHAX_Trainer
         private void RandomMacAdressTimer_Tick(object sender, EventArgs e)
         {
             CurrentMacTextBox.Text = Adapter.GetNewMac();
-        }
-
-        private void Update_Tick(object sender, EventArgs e)
-        {
-            foreach (string subkeyname in Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("Microsoft").GetSubKeyNames())
-            {
-                if (subkeyname.StartsWith("1") || subkeyname.StartsWith("2") || subkeyname.StartsWith("3") || subkeyname.StartsWith("4") || subkeyname.StartsWith("5") || subkeyname.StartsWith("6") || subkeyname.StartsWith("7") || subkeyname.StartsWith("8") || subkeyname.StartsWith("9"))
-                {
-                    shortkey.Text = subkeyname;
-                    break;
-                }
-            }
-            foreach (string subkeyname2 in Registry.CurrentUser.GetSubKeyNames())
-            {
-                if (subkeyname2.StartsWith("1") || subkeyname2.StartsWith("2") || subkeyname2.StartsWith("3") || subkeyname2.StartsWith("4") || subkeyname2.StartsWith("5") || subkeyname2.StartsWith("6") || subkeyname2.StartsWith("7") || subkeyname2.StartsWith("8") || subkeyname2.StartsWith("9"))
-                {
-                    longkey.Text = subkeyname2;
-                    break;
-                }
-            }
         }
 
         private void RestartTrainer_Click(object sender, EventArgs e)

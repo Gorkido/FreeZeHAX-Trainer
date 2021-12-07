@@ -126,7 +126,6 @@ namespace FreeZeHAX_Trainer
             this.TextTimer = new System.Windows.Forms.Timer(this.components);
             this.UnbanLogElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.AdaptersComboElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.Update = new System.Windows.Forms.Timer(this.components);
             this.RandomMacAdressTimer = new System.Windows.Forms.Timer(this.components);
             this.Background_Panel.SuspendLayout();
             this.TopBar.SuspendLayout();
@@ -1540,10 +1539,6 @@ namespace FreeZeHAX_Trainer
             this.AdaptersComboElipse.BorderRadius = 13;
             this.AdaptersComboElipse.TargetControl = this.AdaptersComboBox;
             // 
-            // Update
-            // 
-            this.Update.Tick += new System.EventHandler(this.Update_Tick);
-            // 
             // RandomMacAdressTimer
             // 
             this.RandomMacAdressTimer.Interval = 200;
@@ -1665,7 +1660,6 @@ namespace FreeZeHAX_Trainer
         private Guna.UI2.WinForms.Guna2TextBox UnbanLog;
         private Guna.UI2.WinForms.Guna2ComboBox AdaptersComboBox;
         private Guna.UI2.WinForms.Guna2Elipse AdaptersComboElipse;
-        private System.Windows.Forms.Timer Update;
         private System.Windows.Forms.Label label146;
         private System.Windows.Forms.Label label3437;
         private System.Windows.Forms.Label label143;
