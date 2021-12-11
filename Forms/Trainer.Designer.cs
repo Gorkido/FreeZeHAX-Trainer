@@ -198,7 +198,7 @@ namespace FreeZeHAX_Trainer
             this.Settings_Button.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.Settings_Button.PressedDepth = 10;
             this.Settings_Button.ShadowDecoration.Parent = this.Settings_Button;
-            this.Settings_Button.Size = new System.Drawing.Size(145, 66);
+            this.Settings_Button.Size = new System.Drawing.Size(145, 67);
             this.Settings_Button.TabIndex = 26;
             this.Settings_Button.Text = "Settings";
             this.Settings_Button.Click += new System.EventHandler(this.Settings_Button_Click);
