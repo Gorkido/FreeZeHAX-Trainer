@@ -225,7 +225,7 @@
       <DependentUpon>Trainer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
-    <EmbeddedResource Include="Files\StartMenu.zip" />
+    <None Include="Files\StartMenu.zip" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
