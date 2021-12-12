@@ -138,5 +138,39 @@ namespace FreeZeHAX_Trainer
             catch (Exception) { }
         }
         #endregion
+
+        #region Cheat Engine Names
+        public string[] CE =
+        {
+            "cheatengine-x86_64",
+            "draqxorengine-x86_64",
+            "fixedengine-x86_64",
+            "engine-x86_64",
+            "-x86_64",
+            "Fixed Engine",
+            "FixedEngine",
+            "Fixed-Engine",
+            "fixed-engine",
+            "Fixed-engine",
+            "fixedengine",
+            "fixed engine",
+            "cheatengine",
+            "cheat-engine",
+            "Cheat-Engine",
+            "Cheat-engine",
+            "draqxorengine",
+            "DraqxorEngine",
+            "Draqxorengine",
+            "Draqxor-Engine",
+            "Draqxor-engine",
+            "draqxor-engine",
+            "Cheat Engine",
+            "fixed engine",
+            "cheat engine",
+            "draqxor",
+            "Cheat *",
+            "Cheat*",
+        };
+        #endregion
     }
 }

