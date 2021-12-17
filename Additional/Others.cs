@@ -68,7 +68,7 @@ namespace FreeZeHAX_Trainer
         }
         #endregion
 
-        #region Cleaning Folders \\
+        #region Cleaning Folder
         public void ClearFolder(string FolderName)
         {
             DirectoryInfo dir = new DirectoryInfo(FolderName);
@@ -170,6 +170,10 @@ namespace FreeZeHAX_Trainer
             "draqxor",
             "Cheat *",
             "Cheat*",
+            "Fiddler.exe",
+            "Fiddler",
+            "Wireshark.exe",
+            "Wireshark"
         };
         #endregion
     }
