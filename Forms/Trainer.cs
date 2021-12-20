@@ -790,7 +790,7 @@ namespace FreeZeHAX_Trainer
                 customname = cname;
                 devnum = n;
             }
-
+            #region Unbanner
             public Adapter(NetworkInterface i) : this(i.Description) { }
 
             public Adapter(string aname)
@@ -1083,7 +1083,7 @@ namespace FreeZeHAX_Trainer
         {
             CurrentMacTextBox.Text = Adapter.GetNewMac();
         }
-
+        #endregion
         private void RestartTrainer_Click(object sender, EventArgs e)
         {
             Application.Restart();
