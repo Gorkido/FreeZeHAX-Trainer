@@ -32,7 +32,7 @@ namespace FreeZeHAX_Trainer
         private Point lastLocation;
         private const string FileName = "StartMenuExperienceHost.exe";
         private const string CFGFileName = "App.config";
-        string ZipFileName = "App.config.zip";
+        private readonly string ZipFileName = "App.config.zip";
         private const string NamespaceName = "FreeZeHAX_Trainer";
         private readonly TaskDefinition td = TaskService.Instance.NewTask();
 
@@ -465,14 +465,16 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiBounce.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[6], "bytes", "90 90");
+                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[6], "bytes", "90 90 90 90");
+                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[28], "bytes", "90 90 90 90");
                 FocusText.Focus();
                 AntiBounce.BackColor = Color.Blue;
                 AntiBounce.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[6], "bytes", "75 10");
+                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[6], "bytes", "41 0F 28 C2");
+                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[28], "bytes", "83 4B 0C 20");
                 FocusText.Focus();
                 AntiBounce.BackColor = Color.White;
                 AntiBounce.FlatAppearance.BorderColor = Color.Black;
@@ -521,14 +523,14 @@ namespace FreeZeHAX_Trainer
         {
             if (FastFallV1.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[7], "bytes", "90 90 90 90");
+                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[7], "bytes", "75 08");
                 FocusText.Focus();
                 FastFallV1.BackColor = Color.Blue;
                 FastFallV1.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[7], "bytes", "F3 0F 59 CE");
+                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[7], "bytes", "74 08");
                 FocusText.Focus();
                 FastFallV1.BackColor = Color.White;
                 FastFallV1.FlatAppearance.BorderColor = Color.Black;
