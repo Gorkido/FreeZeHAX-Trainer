@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
@@ -91,34 +90,6 @@ namespace FreeZeHAX_Trainer
                 }
                 catch (Exception) { } // Ignore all exceptions
             }
-        }
-        #endregion
-
-        #region Disable | CMD
-        public void DisableCommandPrompt()
-        {
-            //Key path :
-            //HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows
-            Registry.SetValue(
-                @"HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\System",
-                "DisableCMD",
-                1,
-                RegistryValueKind.DWord
-                );
-        }
-        #endregion
-
-        #region Disable | Task Manager
-        public void DisableTaskManager()
-        {
-            //Path to registry key...
-            //HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies
-            Registry.SetValue(
-                @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System",
-                "DisableTaskMgr",
-                1,
-                RegistryValueKind.DWord
-            );
         }
         #endregion
 

