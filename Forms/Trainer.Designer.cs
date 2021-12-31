@@ -156,12 +156,12 @@ namespace FreeZeHAX_Trainer
             this.Background_Panel.Controls.Add(this.Cheat_Button);
             this.Background_Panel.Controls.Add(this.About_Button);
             this.Background_Panel.Controls.Add(this.TopBar);
-            this.Background_Panel.Controls.Add(this.Cheats);
             this.Background_Panel.Controls.Add(this.About);
             this.Background_Panel.Controls.Add(this.Settings);
             this.Background_Panel.Controls.Add(this.Unbanner);
             this.Background_Panel.Controls.Add(this.Spammer);
             this.Background_Panel.Controls.Add(this.Changers);
+            this.Background_Panel.Controls.Add(this.Cheats);
             this.Background_Panel.CustomBorderColor = System.Drawing.Color.White;
             this.Background_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Background_Panel.FillColor = System.Drawing.Color.MidnightBlue;
