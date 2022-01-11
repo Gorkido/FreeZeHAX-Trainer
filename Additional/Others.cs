@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace FreeZeHAX_Trainer
@@ -30,21 +29,6 @@ namespace FreeZeHAX_Trainer
             while (timer1.Enabled)
             {
                 Application.DoEvents();
-            }
-        }
-        #endregion
-
-        #region Extracting Files From The Solution
-        public void Extract(string nameSpace, string outDirectory, string internalFilePath, string resourceName)
-        {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-
-            using (Stream s = assembly.GetManifestResourceStream(nameSpace + "." + (internalFilePath == "" ? "" : internalFilePath + ".") + resourceName))
-            using (BinaryReader r = new BinaryReader(s))
-            using (FileStream fs = new FileStream(outDirectory + "\\" + resourceName, FileMode.OpenOrCreate))
-            using (BinaryWriter w = new BinaryWriter(fs))
-            {
-                w.Write(r.ReadBytes((int)s.Length));
             }
         }
         #endregion
