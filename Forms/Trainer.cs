@@ -288,7 +288,7 @@ namespace FreeZeHAX_Trainer
                     mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[5], "bytes", "90 90");
                     mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[2], "string", cheats.GTCheats[4]);
                 }
-                catch (Exception Ex) { MessageBox.Show(Ex.Message); }
+                catch (Exception Ex) { }
             }
         }
 
