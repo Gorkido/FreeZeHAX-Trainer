@@ -8,7 +8,7 @@
             "3CE884", // Ban Bypass | 1 Y
             "87DA70", // FPS String | 2 Y
             "52E207", // Mod Fly V1 | 3 Y
-            "\n \nFreeZeHAX Trainer V3.76 \nTrainer: ACTIVE \nBan Bypass: ON \nFps:%d                                   ", //FPS String's Text | 4 Y
+            "\n \nFreeZeHAX Trainer V3.77 \nTrainer: ACTIVE \nBan Bypass: ON \nFps:%d                                   ", //FPS String's Text | 4 Y
             "4C0F23", // Anti int check | 5 X
             "52F1BA", // Anti Bounce V3 | 6 Y
             "4DA824", // Fast Fall V1 | 7 Y

