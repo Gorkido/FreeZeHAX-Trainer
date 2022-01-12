@@ -51,6 +51,7 @@
     <EmbeddedResource Include="Forms\Trainer.resx">
       <DependentUpon>Trainer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="app.manifest" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
@@ -78,11 +79,11 @@
     <Reference Include="Costura, Version=3.3.3.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
       <HintPath>packages\Costura.Fody.3.3.3\lib\net40\Costura.dll</HintPath>
     </Reference>
-    <Reference Include="Guna.UI2, Version=2.0.2.6, Culture=neutral, PublicKeyToken=e4b9cdd7b4cde4b4, processorArchitecture=MSIL">
-      <HintPath>packages\Guna.UI2.WinForms.2.0.2.6\lib\net40\Guna.UI2.dll</HintPath>
+    <Reference Include="Guna.UI2, Version=2.0.2.8, Culture=neutral, PublicKeyToken=e4b9cdd7b4cde4b4, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.2.8\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
-    <Reference Include="Memory, Version=1.2.21.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>packages\Memory.dll.x64.1.2.21\lib\netstandard2.0\Memory.dll</HintPath>
+    <Reference Include="Memory, Version=1.2.23.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Memory.dll.x64.1.2.23\lib\netstandard2.0\Memory.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
