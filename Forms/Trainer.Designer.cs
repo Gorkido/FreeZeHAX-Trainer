@@ -404,7 +404,7 @@ namespace FreeZeHAX_Trainer
             this.FocusText.Name = "FocusText";
             this.FocusText.Size = new System.Drawing.Size(259, 24);
             this.FocusText.TabIndex = 6;
-            this.FocusText.Text = "FreeZeHAX Trainer V3.77";
+            this.FocusText.Text = "FreeZeHAX Trainer V3.78";
             this.FocusText.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FocusText_MouseDown);
             this.FocusText.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FocusText_MouseMove);
             this.FocusText.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FocusText_MouseUp);

