@@ -32,7 +32,6 @@ namespace FreeZeHAX_Trainer
             }
         }
         #endregion
-
         #region Random String
         public string GetRandomString()
         {
@@ -50,7 +49,6 @@ namespace FreeZeHAX_Trainer
             return new string(chars);
         }
         #endregion
-
         #region Cleaning Folder
         public void ClearFolder(string FolderName)
         {
@@ -76,7 +74,6 @@ namespace FreeZeHAX_Trainer
             }
         }
         #endregion
-
         #region DirClean
         public void DirClean(string FolderPath)
         {
@@ -93,7 +90,6 @@ namespace FreeZeHAX_Trainer
             catch (Exception) { }
         }
         #endregion
-
         #region Cheat Engine Names
         public string[] CE =
         {

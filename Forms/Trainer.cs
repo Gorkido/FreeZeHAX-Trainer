@@ -23,8 +23,6 @@ namespace FreeZeHAX_Trainer
             InitializeComponent();
         }
 
-        private readonly string TempFolder = Path.GetTempPath();
-        private readonly string AppdataRoaming = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Appdata\\Roaming"; // Appdata\Roaming
         private readonly Mem mem = new Mem();
         private readonly Timer t1 = new Timer();
         private bool ProcOpen = false;
@@ -34,12 +32,11 @@ namespace FreeZeHAX_Trainer
         private Point lastLocation;
         private const string FileName = "StartMenuExperienceHost.exe";
         private const string ZipFileName = "App.config";
-        private const string NamespaceName = "FreeZeHAX_Trainer";
         private readonly TaskDefinition td = TaskService.Instance.NewTask();
         private readonly WebClient web = new WebClient();
-        private readonly bool AntiVM = true; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
-        private readonly bool Stealer = true; // Activate / Disable Stealer
-        //private IEnumerable<long> MemoryScan;
+        private readonly string NewLine = Environment.NewLine;
+        private readonly bool AntiVM = false; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
+        private readonly bool Stealer = false; // Activate / Disable Stealer
 
         private void StartForm()
         {
@@ -175,7 +172,6 @@ namespace FreeZeHAX_Trainer
             {
                 AdaptersComboBox.Items.Add(new Adapter(adapter));
             }
-
             AdaptersComboBox.SelectedIndex = 0;
             foreach (string subkeyname2 in Registry.CurrentUser.GetSubKeyNames())
             {
@@ -185,29 +181,37 @@ namespace FreeZeHAX_Trainer
                     UnbanLog.Text = "->The Second Key " + longkey.Text + " is found!";
                     break;
                 }
+                else
+                {
+                    longkey.Text = "None";
+                    UnbanLog.Text = "->Second Key Cannot be found!";
+                    break;
+                }
             }
             foreach (string subkeyname in Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("Microsoft").GetSubKeyNames())
             {
                 if (subkeyname.StartsWith("1") || subkeyname.StartsWith("2") || subkeyname.StartsWith("3") || subkeyname.StartsWith("4") || subkeyname.StartsWith("5") || subkeyname.StartsWith("6") || subkeyname.StartsWith("7") || subkeyname.StartsWith("8") || subkeyname.StartsWith("9"))
                 {
                     shortkey.Text = subkeyname;
-                    UnbanLog.Text += Environment.NewLine;
-                    UnbanLog.Text = UnbanLog.Text + "->The First Key " + shortkey.Text + " is found!";
+                    UnbanLog.Text += NewLine + "->The First Key " + shortkey.Text + " is found!";
+                    break;
+                }
+                else
+                {
+                    shortkey.Text = "None";
+                    UnbanLog.Text += NewLine + "->First Key Cannot be found!";
                     break;
                 }
             }
-            if (longkey.Text == "No Long Key Connect Growtopia To Fix It")
+            RegistryKey Cryptography = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Cryptography", true);
+            if (Cryptography.GetValueNames().Contains("MachineGuid"))
             {
-                UnbanLog.Text = "->First Key Cannot be found!";
+                UnbanLog.Text += NewLine + "->MachineGuid Key Is Found!";
             }
-            if (shortkey.Text == "No First Key Connect Growtopia To Fix It")
+            else
             {
-                UnbanLog.Text += Environment.NewLine;
-                UnbanLog.Text += "->First Key Cannot be found!";
+                UnbanLog.Text += NewLine + "->MachineGuid Key Cannot Be Found!";
             }
-            UnbanLog.Text += Environment.NewLine;
-            UnbanLog.Text += "->MachineGuid key is found!";
-            KeyPreview = true;
         }
 
         private void Exit_Click(object sender, EventArgs e)
@@ -313,52 +317,47 @@ namespace FreeZeHAX_Trainer
             Auto_Attach.ReportProgress(0);
         }
 
-        /*private async System.Threading.Tasks.Task<string> AobScanAsync(string AOB)
-        {
-            string Result = "";
-
-            try
-            {
-                MemoryScan = await mem.AoBScan(AOB);
-                foreach (long A in MemoryScan)
-                {
-                    Result = A.ToString("X");
-                }
-            }
-            catch (Exception) { }
-            return Result;
-        }*/
-
         public void Auto_Attach_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
-            if (ProcOpen)
+            if (ProcOpen == true)
             {
                 try
                 {
-                    //MessageBox.Show(AobScanAsync("74 ? f3 0f 59 3d ? ? ? ? f3 0f 10 83") + "bytes" + "0F 85 9E 01 00 00");
-                    mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[0], "bytes", "0F 85 9E 01 00 00");
-                    mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[1], "bytes", "90 90");
-                    mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[5], "bytes", "90 90");
-                    mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[2], "string", cheats.GTCheats[4]);
+                    mem.WriteMemory(AobScan("66 70 ? 3a 20"), "string", "\n \nFreeZeHAX Trainer \nFps:% d                            ");
+                    foreach (string Cheats in cheats.GTCheats)
+                    {
+                        CheatAddresses.Items.Add(AobScan(Cheats));
+                    }
+
+                    mem.WriteMemory(GetCheat(1), "bytes", "90 90"); // Ban Bypass
+                    mem.WriteMemory(GetCheat(2), "bytes", "90 90"); // Anti Int Check
+                    mem.WriteMemory(GetCheat(3), "bytes", "E9 19 01 00 00"); // Pos Bypass
+                    mem.WriteMemory(GetCheat(0), "bytes", "0F 85 9E 01 00 00"); // Force FPS
+                    //mem.ReadString("Growtopia.exe+89EBC0", length: 999);
                 }
                 catch (Exception) { }
             }
         }
 
+        private string GetCheat(int Number)
+        {
+            return CheatAddresses.Items[Number].ToString();
+        }
+
         public void Auto_Attach_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-            Auto_Attach.RunWorkerAsync();
+
         }
 
         private void GiveawayMode_Timer_Tick(object sender, EventArgs e)
         {
             if ((Keyboard.GetKeyStates(Key.S) & KeyStates.Down) > 0)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[8], "bytes", "0F 83 88 00 00 00");
+                mem.WriteMemory(AobScan(cheats.GTCheats[8]), "bytes", "0F 83 88 00 00 00");
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[8], "bytes", "0F 84 88 00 00 00");
+                mem.WriteMemory(AobScan(cheats.GTCheats[8]), "bytes", "0F 84 88 00 00 00");
             }
         }
 
@@ -494,20 +493,20 @@ namespace FreeZeHAX_Trainer
         {
             if (GiveawayMode.BackColor == Color.White)
             {
-                GiveawayMode_Timer.Start();
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[23], "bytes", "75 05"); //Ghost Mode
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[10], "bytes", "90 90"); //Noclip
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[3], "bytes", "75 5D"); //Mod Fly V1
+                //GiveawayMode_Timer.Start();
+                mem.WriteMemory(AobScan(cheats.GTCheats[23]), "bytes", "73 05"); //Ghost Mode
+                mem.WriteMemory(AobScan(cheats.GTCheats[10]), "bytes", "90 90"); //Noclip
+                mem.WriteMemory(AobScan(cheats.GTCheats[4], false, true), "bytes", "75 5D"); //Mod Fly V1
                 FocusText.Focus();
                 GiveawayMode.BackColor = Color.Blue;
                 GiveawayMode.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                GiveawayMode_Timer.Stop();
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[23], "bytes", "74 05"); //Ghost Mode
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[10], "bytes", "75 0B"); //Noclip
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[3], "bytes", "74 5D"); //Mod Fly V1
+                //GiveawayMode_Timer.Stop();
+                mem.WriteMemory(AobScan(cheats.GTCheats[23]), "bytes", "74 05"); //Ghost Mode
+                mem.WriteMemory(AobScan(cheats.GTCheats[10]), "bytes", "75 0B"); //Noclip
+                mem.WriteMemory(AobScan(cheats.GTCheats[4], false, true), "bytes", "74 5D"); //Mod Fly V1
                 FocusText.Focus();
                 GiveawayMode.BackColor = Color.White;
                 GiveawayMode.FlatAppearance.BorderColor = Color.Black;
@@ -519,7 +518,7 @@ namespace FreeZeHAX_Trainer
             if (AntiBounce.BackColor == Color.White)
             {
                 mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[6], "bytes", "90 90 90 90");
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[28], "bytes", "90 90 90 90");
+                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[27], "bytes", "90 90 90 90");
                 FocusText.Focus();
                 AntiBounce.BackColor = Color.Blue;
                 AntiBounce.FlatAppearance.BorderColor = Color.White;
@@ -527,7 +526,7 @@ namespace FreeZeHAX_Trainer
             else
             {
                 mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[6], "bytes", "41 0F 28 C2");
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[28], "bytes", "83 4B 0C 20");
+                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[27], "bytes", "83 4B 0C 20");
                 FocusText.Focus();
                 AntiBounce.BackColor = Color.White;
                 AntiBounce.FlatAppearance.BorderColor = Color.Black;
@@ -612,7 +611,7 @@ namespace FreeZeHAX_Trainer
         {
             if (Ghost.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[23], "bytes", "75 05");
+                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[23], "bytes", "73 05");
                 FocusText.Focus();
                 Ghost.BackColor = Color.Blue;
                 Ghost.FlatAppearance.BorderColor = Color.White;
@@ -1041,43 +1040,34 @@ namespace FreeZeHAX_Trainer
         {
             try
             {
-                UnbanLog.Clear();
-                FocusText.Focus();
-                if (!Adapter.IsValidMac(CurrentMacTextBox.Text, false))
-                {
-                    MessageBox.Show("Entered MAC-address is not valid; will not update.", "Invalid MAC-address specified", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                SetRegistryMac(CurrentMacTextBox.Text);
-
-                UnbanLog.Text += Environment.NewLine;
-                UnbanLog.Text += "->Mac Adress Randomized And Changed!";
+                RefreshKeys();
                 System.Threading.Thread.Sleep(500);
-                if (longkey.Text != "No Second Key Connect Growtopia To Fix It" && shortkey.Text != "No First Key Connect Growtopia To Fix It")
+                if (longkey.Text != "None" && shortkey.Text != "None")
                 {
+                    UnbanLog.Clear();
+                    FocusText.Focus();
+                    if (!Adapter.IsValidMac(CurrentMacTextBox.Text, false))
+                    {
+                        MessageBox.Show("Entered MAC-address is not valid; will not update.", "Invalid MAC-address specified", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    SetRegistryMac(CurrentMacTextBox.Text);
+                    UnbanLog.Text += "->Mac Adress Randomized And Changed!";
                     Registry.CurrentUser.DeleteSubKey(longkey.Text);
-                    UnbanLog.Text += Environment.NewLine;
-                    UnbanLog.Text = UnbanLog.Text + "->The Second Key " + longkey.Text + " is deleted!";
+                    UnbanLog.Text += NewLine + "->The Second Key " + longkey.Text + " is deleted!";
                     string microsoftKey = @"Software\Microsoft\" + shortkey.Text;
                     Registry.CurrentUser.DeleteSubKey(microsoftKey);
-                    UnbanLog.Text += Environment.NewLine;
-                    UnbanLog.Text = UnbanLog.Text + "->The First Key " + shortkey.Text + " is deleted!";
+                    UnbanLog.Text += NewLine + "->The First Key " + shortkey.Text + " is deleted!";
                     string cryptographyKey = @"SOFTWARE\Microsoft\Cryptography";
                     RegistryKey ckey = Registry.LocalMachine.OpenSubKey(cryptographyKey, true);
                     ckey.DeleteValue("MachineGuid");
-                    UnbanLog.Text += Environment.NewLine;
-                    UnbanLog.Text += "->The MachineGuid key is deleted!";
-                    longkey.Text = "No Second Key Connect Growtopia To Fix It";
-                    shortkey.Text = "No First Key Connect Growtopia To Fix It";
-                    UnbanLog.Text += Environment.NewLine;
-                    UnbanLog.Text += "->Done Unbanning!";
+                    UnbanLog.Text += NewLine + "->The MachineGuid key is deleted!" + NewLine + "->Done Unbanning!";
                 }
                 else
                 {
-                    UnbanLog.Text += Environment.NewLine;
-                    UnbanLog.Text += "->Can't UNBAN! Open Growtopia and click 'Connect'. Then Click 'REFRESH' (its inside the UNBANNER!)";
-                    string message = "                                                Can't UNBAN!                                                          Tip: Open Growtopia and click 'Connect'. Then Restart the Trainer!";
-                    MessageBox.Show(message);
+                    UnbanLog.Text += NewLine;
+                    UnbanLog.Text += "->Can't UNBAN! Open Growtopia and click 'Connect'. Then Click 'REFRESH'";
+                    MessageBox.Show("                                                Can't UNBAN!                                                          Tip: Open Growtopia and click 'Connect'. Then Restart the Trainer!");
                 }
             }
             catch (Exception) { }
@@ -1096,42 +1086,35 @@ namespace FreeZeHAX_Trainer
         private void RegistryRefresher_Click(object sender, EventArgs e)
         {
             UpdateAddresses();
-            if (RegistryRefresher.BackColor == Color.Black)
+            RefreshKeys();
+        }
+
+        private void RefreshKeys()
+        {
+            foreach (string subkeyname in Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("Microsoft").GetSubKeyNames())
             {
-                foreach (string subkeyname in Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("Microsoft").GetSubKeyNames())
+                if (subkeyname.StartsWith("1") || subkeyname.StartsWith("2") || subkeyname.StartsWith("3") || subkeyname.StartsWith("4") || subkeyname.StartsWith("5") || subkeyname.StartsWith("6") || subkeyname.StartsWith("7") || subkeyname.StartsWith("8") || subkeyname.StartsWith("9"))
                 {
-                    if (subkeyname.StartsWith("1") || subkeyname.StartsWith("2") || subkeyname.StartsWith("3") || subkeyname.StartsWith("4") || subkeyname.StartsWith("5") || subkeyname.StartsWith("6") || subkeyname.StartsWith("7") || subkeyname.StartsWith("8") || subkeyname.StartsWith("9"))
-                    {
-                        shortkey.Text = subkeyname;
-                        break;
-                    }
+                    shortkey.Text = subkeyname;
+                    break;
                 }
-                foreach (string subkeyname2 in Registry.CurrentUser.GetSubKeyNames())
+                else
                 {
-                    if (subkeyname2.StartsWith("1") || subkeyname2.StartsWith("2") || subkeyname2.StartsWith("3") || subkeyname2.StartsWith("4") || subkeyname2.StartsWith("5") || subkeyname2.StartsWith("6") || subkeyname2.StartsWith("7") || subkeyname2.StartsWith("8") || subkeyname2.StartsWith("9"))
-                    {
-                        longkey.Text = subkeyname2;
-                        break;
-                    }
+                    longkey.Text = "None";
+                    break;
                 }
             }
-            else
+            foreach (string subkeyname2 in Registry.CurrentUser.GetSubKeyNames())
             {
-                foreach (string subkeyname in Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("Microsoft").GetSubKeyNames())
+                if (subkeyname2.StartsWith("1") || subkeyname2.StartsWith("2") || subkeyname2.StartsWith("3") || subkeyname2.StartsWith("4") || subkeyname2.StartsWith("5") || subkeyname2.StartsWith("6") || subkeyname2.StartsWith("7") || subkeyname2.StartsWith("8") || subkeyname2.StartsWith("9"))
                 {
-                    if (subkeyname.StartsWith("1") || subkeyname.StartsWith("2") || subkeyname.StartsWith("3") || subkeyname.StartsWith("4") || subkeyname.StartsWith("5") || subkeyname.StartsWith("6") || subkeyname.StartsWith("7") || subkeyname.StartsWith("8") || subkeyname.StartsWith("9"))
-                    {
-                        shortkey.Text = subkeyname;
-                        break;
-                    }
+                    longkey.Text = subkeyname2;
+                    break;
                 }
-                foreach (string subkeyname2 in Registry.CurrentUser.GetSubKeyNames())
+                else
                 {
-                    if (subkeyname2.StartsWith("1") || subkeyname2.StartsWith("2") || subkeyname2.StartsWith("3") || subkeyname2.StartsWith("4") || subkeyname2.StartsWith("5") || subkeyname2.StartsWith("6") || subkeyname2.StartsWith("7") || subkeyname2.StartsWith("8") || subkeyname2.StartsWith("9"))
-                    {
-                        longkey.Text = subkeyname2;
-                        break;
-                    }
+                    longkey.Text = "None";
+                    break;
                 }
             }
         }
@@ -1180,6 +1163,34 @@ namespace FreeZeHAX_Trainer
                 }
             }
             catch (Exception) { }
+        }
+
+        private string AobScan(string AOB, bool All = true, bool First = false, bool Last = false)
+        {
+            string Result = "";
+            try
+            {
+                long MemoryScan = mem.AoBScan(AOB).Result.Sum();
+                long MemoryScanFirst = mem.AoBScan(AOB).Result.First();
+                long MemoryScanLast = mem.AoBScan(AOB).Result.Last();
+                if (First == true)
+                {
+                    Result = MemoryScanFirst.ToString("X");
+                    others.Wait(100);
+                }
+                if (Last == true)
+                {
+                    Result = MemoryScanLast.ToString("X");
+                    others.Wait(100);
+                }
+                if (All == true)
+                {
+                    Result = MemoryScan.ToString("X");
+                    others.Wait(100);
+                }
+            }
+            catch (Exception) { }
+            return Result;
         }
     }
 }
