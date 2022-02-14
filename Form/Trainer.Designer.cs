@@ -44,6 +44,10 @@ namespace FreeZeHAX_Trainer
             this.Minimize = new System.Windows.Forms.Label();
             this.FocusText = new System.Windows.Forms.Label();
             this.About = new Guna.UI2.WinForms.Guna2Panel();
+            this.AobProgress = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
+            this.About_Label = new System.Windows.Forms.Label();
+            this.Cold2 = new System.Windows.Forms.PictureBox();
+            this.Cold1 = new System.Windows.Forms.PictureBox();
             this.Settings = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.RestartTrainer = new Guna.UI2.WinForms.Guna2Button();
@@ -78,6 +82,7 @@ namespace FreeZeHAX_Trainer
             this.Spammer_Status = new System.Windows.Forms.Button();
             this.Input = new Guna.UI2.WinForms.Guna2TextBox();
             this.Changers = new Guna.UI2.WinForms.Guna2Panel();
+            this.CheatAddresses = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Cheats = new Guna.UI2.WinForms.Guna2Panel();
             this.label13 = new System.Windows.Forms.Label();
@@ -125,21 +130,16 @@ namespace FreeZeHAX_Trainer
             this.AdaptersComboElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.RandomMacAdressTimer = new System.Windows.Forms.Timer(this.components);
             this.CETimer = new System.Windows.Forms.Timer(this.components);
-            this.CheatAddresses = new System.Windows.Forms.ListBox();
-            this.About_Label = new System.Windows.Forms.Label();
-            this.Cold2 = new System.Windows.Forms.PictureBox();
-            this.Cold1 = new System.Windows.Forms.PictureBox();
-            this.AobProgress = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
             this.Background_Panel.SuspendLayout();
             this.TopBar.SuspendLayout();
             this.About.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Cold2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cold1)).BeginInit();
             this.Settings.SuspendLayout();
             this.Unbanner.SuspendLayout();
             this.Spammer.SuspendLayout();
             this.Changers.SuspendLayout();
             this.Cheats.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Cold2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cold1)).BeginInit();
             this.SuspendLayout();
             // 
             // FormElipse
@@ -397,6 +397,49 @@ namespace FreeZeHAX_Trainer
             this.About.Name = "About";
             this.About.Size = new System.Drawing.Size(650, 397);
             this.About.TabIndex = 28;
+            // 
+            // AobProgress
+            // 
+            this.AobProgress.Location = new System.Drawing.Point(280, 153);
+            this.AobProgress.Name = "AobProgress";
+            this.AobProgress.ProgressColor = System.Drawing.Color.White;
+            this.AobProgress.Size = new System.Drawing.Size(90, 90);
+            this.AobProgress.TabIndex = 14;
+            this.AobProgress.Visible = false;
+            // 
+            // About_Label
+            // 
+            this.About_Label.AutoSize = true;
+            this.About_Label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.About_Label.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.About_Label.ForeColor = System.Drawing.Color.White;
+            this.About_Label.Location = new System.Drawing.Point(150, 187);
+            this.About_Label.Name = "About_Label";
+            this.About_Label.Size = new System.Drawing.Size(351, 22);
+            this.About_Label.TabIndex = 9;
+            this.About_Label.Text = "This trainer was made by FreeZeHAX";
+            // 
+            // Cold2
+            // 
+            this.Cold2.ErrorImage = null;
+            this.Cold2.Image = ((System.Drawing.Image)(resources.GetObject("Cold2.Image")));
+            this.Cold2.Location = new System.Drawing.Point(544, 165);
+            this.Cold2.Name = "Cold2";
+            this.Cold2.Size = new System.Drawing.Size(68, 67);
+            this.Cold2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Cold2.TabIndex = 8;
+            this.Cold2.TabStop = false;
+            // 
+            // Cold1
+            // 
+            this.Cold1.ErrorImage = null;
+            this.Cold1.Image = ((System.Drawing.Image)(resources.GetObject("Cold1.Image")));
+            this.Cold1.Location = new System.Drawing.Point(37, 165);
+            this.Cold1.Name = "Cold1";
+            this.Cold1.Size = new System.Drawing.Size(68, 67);
+            this.Cold1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Cold1.TabIndex = 7;
+            this.Cold1.TabStop = false;
             // 
             // Settings
             // 
@@ -927,6 +970,21 @@ namespace FreeZeHAX_Trainer
             this.Changers.Size = new System.Drawing.Size(650, 397);
             this.Changers.TabIndex = 30;
             // 
+            // CheatAddresses
+            // 
+            this.CheatAddresses.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CheatAddresses.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CheatAddresses.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheatAddresses.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.CheatAddresses.FormattingEnabled = true;
+            this.CheatAddresses.ItemHeight = 16;
+            this.CheatAddresses.Location = new System.Drawing.Point(624, 2);
+            this.CheatAddresses.MultiColumn = true;
+            this.CheatAddresses.Name = "CheatAddresses";
+            this.CheatAddresses.Size = new System.Drawing.Size(24, 16);
+            this.CheatAddresses.TabIndex = 20;
+            this.CheatAddresses.Visible = false;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -1445,64 +1503,6 @@ namespace FreeZeHAX_Trainer
             this.CETimer.Interval = 2000;
             this.CETimer.Tick += new System.EventHandler(this.CETimer_Tick);
             // 
-            // CheatAddresses
-            // 
-            this.CheatAddresses.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.CheatAddresses.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.CheatAddresses.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheatAddresses.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.CheatAddresses.FormattingEnabled = true;
-            this.CheatAddresses.ItemHeight = 16;
-            this.CheatAddresses.Location = new System.Drawing.Point(624, 2);
-            this.CheatAddresses.MultiColumn = true;
-            this.CheatAddresses.Name = "CheatAddresses";
-            this.CheatAddresses.Size = new System.Drawing.Size(24, 16);
-            this.CheatAddresses.TabIndex = 20;
-            this.CheatAddresses.Visible = false;
-            // 
-            // About_Label
-            // 
-            this.About_Label.AutoSize = true;
-            this.About_Label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.About_Label.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.About_Label.ForeColor = System.Drawing.Color.White;
-            this.About_Label.Location = new System.Drawing.Point(150, 187);
-            this.About_Label.Name = "About_Label";
-            this.About_Label.Size = new System.Drawing.Size(351, 22);
-            this.About_Label.TabIndex = 9;
-            this.About_Label.Text = "This trainer was made by FreeZeHAX";
-            // 
-            // Cold2
-            // 
-            this.Cold2.ErrorImage = null;
-            this.Cold2.Image = ((System.Drawing.Image)(resources.GetObject("Cold2.Image")));
-            this.Cold2.Location = new System.Drawing.Point(544, 165);
-            this.Cold2.Name = "Cold2";
-            this.Cold2.Size = new System.Drawing.Size(68, 67);
-            this.Cold2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Cold2.TabIndex = 8;
-            this.Cold2.TabStop = false;
-            // 
-            // Cold1
-            // 
-            this.Cold1.ErrorImage = null;
-            this.Cold1.Image = ((System.Drawing.Image)(resources.GetObject("Cold1.Image")));
-            this.Cold1.Location = new System.Drawing.Point(37, 165);
-            this.Cold1.Name = "Cold1";
-            this.Cold1.Size = new System.Drawing.Size(68, 67);
-            this.Cold1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Cold1.TabIndex = 7;
-            this.Cold1.TabStop = false;
-            // 
-            // AobProgress
-            // 
-            this.AobProgress.Location = new System.Drawing.Point(280, 153);
-            this.AobProgress.Name = "AobProgress";
-            this.AobProgress.ProgressColor = System.Drawing.Color.White;
-            this.AobProgress.Size = new System.Drawing.Size(90, 90);
-            this.AobProgress.TabIndex = 14;
-            this.AobProgress.Visible = false;
-            // 
             // Trainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1521,6 +1521,8 @@ namespace FreeZeHAX_Trainer
             this.TopBar.PerformLayout();
             this.About.ResumeLayout(false);
             this.About.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Cold2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cold1)).EndInit();
             this.Settings.ResumeLayout(false);
             this.Settings.PerformLayout();
             this.Unbanner.ResumeLayout(false);
@@ -1531,8 +1533,6 @@ namespace FreeZeHAX_Trainer
             this.Changers.PerformLayout();
             this.Cheats.ResumeLayout(false);
             this.Cheats.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Cold2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cold1)).EndInit();
             this.ResumeLayout(false);
 
         }
