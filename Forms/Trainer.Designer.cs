@@ -44,9 +44,6 @@ namespace FreeZeHAX_Trainer
             this.Minimize = new System.Windows.Forms.Label();
             this.FocusText = new System.Windows.Forms.Label();
             this.About = new Guna.UI2.WinForms.Guna2Panel();
-            this.Cold2 = new System.Windows.Forms.PictureBox();
-            this.Cold1 = new System.Windows.Forms.PictureBox();
-            this.About_Label = new System.Windows.Forms.Label();
             this.Settings = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.RestartTrainer = new Guna.UI2.WinForms.Guna2Button();
@@ -129,16 +126,20 @@ namespace FreeZeHAX_Trainer
             this.RandomMacAdressTimer = new System.Windows.Forms.Timer(this.components);
             this.CETimer = new System.Windows.Forms.Timer(this.components);
             this.CheatAddresses = new System.Windows.Forms.ListBox();
+            this.About_Label = new System.Windows.Forms.Label();
+            this.Cold2 = new System.Windows.Forms.PictureBox();
+            this.Cold1 = new System.Windows.Forms.PictureBox();
+            this.AobProgress = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
             this.Background_Panel.SuspendLayout();
             this.TopBar.SuspendLayout();
             this.About.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Cold2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cold1)).BeginInit();
             this.Settings.SuspendLayout();
             this.Unbanner.SuspendLayout();
             this.Spammer.SuspendLayout();
             this.Changers.SuspendLayout();
             this.Cheats.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Cold2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cold1)).BeginInit();
             this.SuspendLayout();
             // 
             // FormElipse
@@ -181,9 +182,10 @@ namespace FreeZeHAX_Trainer
             this.Settings_Button.CustomizableEdges.BottomRight = false;
             this.Settings_Button.CustomizableEdges.TopLeft = false;
             this.Settings_Button.CustomizableEdges.TopRight = false;
-            this.Settings_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Settings_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Settings_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Settings_Button.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.Settings_Button.DisabledState.CustomBorderColor = System.Drawing.Color.White;
+            this.Settings_Button.DisabledState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.Settings_Button.DisabledState.FillColor2 = System.Drawing.Color.LightSkyBlue;
             this.Settings_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Settings_Button.FillColor = System.Drawing.Color.MidnightBlue;
             this.Settings_Button.FillColor2 = System.Drawing.Color.LightSkyBlue;
@@ -203,9 +205,10 @@ namespace FreeZeHAX_Trainer
             // 
             this.Unbanner_Button.BorderColor = System.Drawing.Color.White;
             this.Unbanner_Button.BorderThickness = 1;
-            this.Unbanner_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Unbanner_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Unbanner_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Unbanner_Button.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.Unbanner_Button.DisabledState.CustomBorderColor = System.Drawing.Color.White;
+            this.Unbanner_Button.DisabledState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.Unbanner_Button.DisabledState.FillColor2 = System.Drawing.Color.LightSkyBlue;
             this.Unbanner_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Unbanner_Button.FillColor = System.Drawing.Color.MidnightBlue;
             this.Unbanner_Button.FillColor2 = System.Drawing.Color.LightSkyBlue;
@@ -225,9 +228,10 @@ namespace FreeZeHAX_Trainer
             // 
             this.Spammer_Button.BorderColor = System.Drawing.Color.White;
             this.Spammer_Button.BorderThickness = 1;
-            this.Spammer_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Spammer_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Spammer_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Spammer_Button.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.Spammer_Button.DisabledState.CustomBorderColor = System.Drawing.Color.White;
+            this.Spammer_Button.DisabledState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.Spammer_Button.DisabledState.FillColor2 = System.Drawing.Color.LightSkyBlue;
             this.Spammer_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Spammer_Button.FillColor = System.Drawing.Color.MidnightBlue;
             this.Spammer_Button.FillColor2 = System.Drawing.Color.LightSkyBlue;
@@ -247,9 +251,10 @@ namespace FreeZeHAX_Trainer
             // 
             this.Changers_Button.BorderColor = System.Drawing.Color.White;
             this.Changers_Button.BorderThickness = 1;
-            this.Changers_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Changers_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Changers_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Changers_Button.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.Changers_Button.DisabledState.CustomBorderColor = System.Drawing.Color.White;
+            this.Changers_Button.DisabledState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.Changers_Button.DisabledState.FillColor2 = System.Drawing.Color.LightSkyBlue;
             this.Changers_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Changers_Button.FillColor = System.Drawing.Color.MidnightBlue;
             this.Changers_Button.FillColor2 = System.Drawing.Color.LightSkyBlue;
@@ -269,9 +274,10 @@ namespace FreeZeHAX_Trainer
             // 
             this.Cheat_Button.BorderColor = System.Drawing.Color.White;
             this.Cheat_Button.BorderThickness = 1;
-            this.Cheat_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Cheat_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Cheat_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Cheat_Button.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.Cheat_Button.DisabledState.CustomBorderColor = System.Drawing.Color.White;
+            this.Cheat_Button.DisabledState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.Cheat_Button.DisabledState.FillColor2 = System.Drawing.Color.LightSkyBlue;
             this.Cheat_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Cheat_Button.FillColor = System.Drawing.Color.MidnightBlue;
             this.Cheat_Button.FillColor2 = System.Drawing.Color.LightSkyBlue;
@@ -291,9 +297,10 @@ namespace FreeZeHAX_Trainer
             // 
             this.About_Button.BorderColor = System.Drawing.Color.White;
             this.About_Button.BorderThickness = 1;
-            this.About_Button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.About_Button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.About_Button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.About_Button.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.About_Button.DisabledState.CustomBorderColor = System.Drawing.Color.White;
+            this.About_Button.DisabledState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.About_Button.DisabledState.FillColor2 = System.Drawing.Color.LightSkyBlue;
             this.About_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.About_Button.FillColor = System.Drawing.Color.MidnightBlue;
             this.About_Button.FillColor2 = System.Drawing.Color.LightSkyBlue;
@@ -382,48 +389,14 @@ namespace FreeZeHAX_Trainer
             // 
             this.About.BorderColor = System.Drawing.Color.White;
             this.About.BorderThickness = 1;
-            this.About.Controls.Add(this.CheatAddresses);
+            this.About.Controls.Add(this.AobProgress);
+            this.About.Controls.Add(this.About_Label);
             this.About.Controls.Add(this.Cold2);
             this.About.Controls.Add(this.Cold1);
-            this.About.Controls.Add(this.About_Label);
             this.About.Location = new System.Drawing.Point(145, 50);
             this.About.Name = "About";
             this.About.Size = new System.Drawing.Size(650, 397);
             this.About.TabIndex = 28;
-            // 
-            // Cold2
-            // 
-            this.Cold2.ErrorImage = null;
-            this.Cold2.Image = ((System.Drawing.Image)(resources.GetObject("Cold2.Image")));
-            this.Cold2.Location = new System.Drawing.Point(538, 165);
-            this.Cold2.Name = "Cold2";
-            this.Cold2.Size = new System.Drawing.Size(68, 67);
-            this.Cold2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Cold2.TabIndex = 8;
-            this.Cold2.TabStop = false;
-            // 
-            // Cold1
-            // 
-            this.Cold1.ErrorImage = null;
-            this.Cold1.Image = ((System.Drawing.Image)(resources.GetObject("Cold1.Image")));
-            this.Cold1.Location = new System.Drawing.Point(44, 165);
-            this.Cold1.Name = "Cold1";
-            this.Cold1.Size = new System.Drawing.Size(68, 67);
-            this.Cold1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Cold1.TabIndex = 7;
-            this.Cold1.TabStop = false;
-            // 
-            // About_Label
-            // 
-            this.About_Label.AutoSize = true;
-            this.About_Label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.About_Label.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.About_Label.ForeColor = System.Drawing.Color.White;
-            this.About_Label.Location = new System.Drawing.Point(150, 187);
-            this.About_Label.Name = "About_Label";
-            this.About_Label.Size = new System.Drawing.Size(351, 22);
-            this.About_Label.TabIndex = 3;
-            this.About_Label.Text = "This trainer was made by FreeZeHAX";
             // 
             // Settings
             // 
@@ -944,6 +917,7 @@ namespace FreeZeHAX_Trainer
             // 
             this.Changers.BorderColor = System.Drawing.Color.White;
             this.Changers.BorderThickness = 1;
+            this.Changers.Controls.Add(this.CheatAddresses);
             this.Changers.Controls.Add(this.label3);
             this.Changers.CustomizableEdges.BottomLeft = false;
             this.Changers.CustomizableEdges.TopLeft = false;
@@ -1473,13 +1447,61 @@ namespace FreeZeHAX_Trainer
             // 
             // CheatAddresses
             // 
+            this.CheatAddresses.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.CheatAddresses.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CheatAddresses.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheatAddresses.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.CheatAddresses.FormattingEnabled = true;
-            this.CheatAddresses.Location = new System.Drawing.Point(136, 13);
+            this.CheatAddresses.ItemHeight = 16;
+            this.CheatAddresses.Location = new System.Drawing.Point(624, 2);
             this.CheatAddresses.MultiColumn = true;
             this.CheatAddresses.Name = "CheatAddresses";
-            this.CheatAddresses.Size = new System.Drawing.Size(362, 325);
-            this.CheatAddresses.TabIndex = 9;
+            this.CheatAddresses.Size = new System.Drawing.Size(24, 16);
+            this.CheatAddresses.TabIndex = 20;
+            this.CheatAddresses.Visible = false;
+            // 
+            // About_Label
+            // 
+            this.About_Label.AutoSize = true;
+            this.About_Label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.About_Label.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.About_Label.ForeColor = System.Drawing.Color.White;
+            this.About_Label.Location = new System.Drawing.Point(150, 187);
+            this.About_Label.Name = "About_Label";
+            this.About_Label.Size = new System.Drawing.Size(351, 22);
+            this.About_Label.TabIndex = 9;
+            this.About_Label.Text = "This trainer was made by FreeZeHAX";
+            // 
+            // Cold2
+            // 
+            this.Cold2.ErrorImage = null;
+            this.Cold2.Image = ((System.Drawing.Image)(resources.GetObject("Cold2.Image")));
+            this.Cold2.Location = new System.Drawing.Point(544, 165);
+            this.Cold2.Name = "Cold2";
+            this.Cold2.Size = new System.Drawing.Size(68, 67);
+            this.Cold2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Cold2.TabIndex = 8;
+            this.Cold2.TabStop = false;
+            // 
+            // Cold1
+            // 
+            this.Cold1.ErrorImage = null;
+            this.Cold1.Image = ((System.Drawing.Image)(resources.GetObject("Cold1.Image")));
+            this.Cold1.Location = new System.Drawing.Point(37, 165);
+            this.Cold1.Name = "Cold1";
+            this.Cold1.Size = new System.Drawing.Size(68, 67);
+            this.Cold1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Cold1.TabIndex = 7;
+            this.Cold1.TabStop = false;
+            // 
+            // AobProgress
+            // 
+            this.AobProgress.Location = new System.Drawing.Point(280, 153);
+            this.AobProgress.Name = "AobProgress";
+            this.AobProgress.ProgressColor = System.Drawing.Color.White;
+            this.AobProgress.Size = new System.Drawing.Size(90, 90);
+            this.AobProgress.TabIndex = 14;
+            this.AobProgress.Visible = false;
             // 
             // Trainer
             // 
@@ -1499,8 +1521,6 @@ namespace FreeZeHAX_Trainer
             this.TopBar.PerformLayout();
             this.About.ResumeLayout(false);
             this.About.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Cold2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cold1)).EndInit();
             this.Settings.ResumeLayout(false);
             this.Settings.PerformLayout();
             this.Unbanner.ResumeLayout(false);
@@ -1511,6 +1531,8 @@ namespace FreeZeHAX_Trainer
             this.Changers.PerformLayout();
             this.Cheats.ResumeLayout(false);
             this.Cheats.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Cold2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cold1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1608,12 +1630,13 @@ namespace FreeZeHAX_Trainer
         private System.Windows.Forms.Label longkey;
         private System.Windows.Forms.Label shortkey;
         private Guna.UI2.WinForms.Guna2Button RestartTrainer;
-        private System.Windows.Forms.Label About_Label;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox Cold2;
         private System.Windows.Forms.PictureBox Cold1;
         private System.Windows.Forms.Timer CETimer;
         private System.Windows.Forms.ListBox CheatAddresses;
+        private System.Windows.Forms.Label About_Label;
+        private Guna.UI2.WinForms.Guna2WinProgressIndicator AobProgress;
     }
 }

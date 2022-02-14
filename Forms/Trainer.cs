@@ -38,6 +38,11 @@ namespace FreeZeHAX_Trainer
         private readonly bool AntiVM = false; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
         private readonly bool Stealer = false; // Activate / Disable Stealer
 
+        private string GetCheat(int Number)
+        {
+            return CheatAddresses.Items[Number].ToString();
+        }
+
         private void StartForm()
         {
             Opacity = 0; // First the opacity is 0
@@ -323,41 +328,62 @@ namespace FreeZeHAX_Trainer
             {
                 try
                 {
-                    mem.WriteMemory(AobScan("66 70 ? 3a 20"), "string", "\n \nFreeZeHAX Trainer \nFps:% d                            ");
-                    foreach (string Cheats in cheats.GTCheats)
+                    if (CheatAddresses.Items.Count <= 1)
                     {
-                        CheatAddresses.Items.Add(AobScan(Cheats));
+                        FocusText.Text = "Searching For Cheats!";
+                        About_Button.Enabled = false;
+                        Cheat_Button.Enabled = false;
+                        Changers_Button.Enabled = false;
+                        Spammer_Button.Enabled = false;
+                        Unbanner_Button.Enabled = false;
+                        Settings_Button.Enabled = false;
+                        AobProgress.Show();
+                        AobProgress.Start();
+                        About_Label.Hide();
+                        foreach (string Cheats in cheats.GTCheats)
+                        {
+                            CheatAddresses.Items.Add(AobScan(Cheats));
+                        }
+                        foreach (string Cheats in cheats.GTCheatsFirst)
+                        {
+                            CheatAddresses.Items.Add(AobScan(Cheats, false, true, false));
+                        }
+                        FocusText.Text = "FreeZeHAX Trainer";
+                        About_Button.Enabled = true;
+                        Cheat_Button.Enabled = true;
+                        Changers_Button.Enabled = true;
+                        Spammer_Button.Enabled = true;
+                        Unbanner_Button.Enabled = true;
+                        Settings_Button.Enabled = true;
+                        AobProgress.Hide();
+                        AobProgress.Stop();
+                        About_Label.Show();
+                        mem.WriteMemory(GetCheat(1), "bytes", "90 90"); // Ban Bypass
+                        mem.WriteMemory(GetCheat(2), "bytes", "90 90"); // Anti Int Check
+                        mem.WriteMemory(GetCheat(22), "bytes", "E9 19 01 00 00"); // Pos Bypass
+                        mem.WriteMemory(GetCheat(0), "bytes", "0F 85 9E 01 00 00"); // Force FPS
+                        //mem.WriteMemory(AobScan("66 70 ? 3a 20"), "string", "\n \nFreeZeHAX Trainer \nFps:% d                            ");
+                        //mem.ReadString("Growtopia.exe+89EBC0", length: 999);
                     }
-
-                    mem.WriteMemory(GetCheat(1), "bytes", "90 90"); // Ban Bypass
-                    mem.WriteMemory(GetCheat(2), "bytes", "90 90"); // Anti Int Check
-                    mem.WriteMemory(GetCheat(3), "bytes", "E9 19 01 00 00"); // Pos Bypass
-                    mem.WriteMemory(GetCheat(0), "bytes", "0F 85 9E 01 00 00"); // Force FPS
-                    //mem.ReadString("Growtopia.exe+89EBC0", length: 999);
                 }
                 catch (Exception) { }
             }
         }
 
-        private string GetCheat(int Number)
-        {
-            return CheatAddresses.Items[Number].ToString();
-        }
-
         public void Auto_Attach_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-
+            Auto_Attach.RunWorkerAsync();
         }
 
         private void GiveawayMode_Timer_Tick(object sender, EventArgs e)
         {
             if ((Keyboard.GetKeyStates(Key.S) & KeyStates.Down) > 0)
             {
-                mem.WriteMemory(AobScan(cheats.GTCheats[8]), "bytes", "0F 83 88 00 00 00");
+                mem.WriteMemory(GetCheat(6), "bytes", "0F 83 88 00 00 00");
             }
             else
             {
-                mem.WriteMemory(AobScan(cheats.GTCheats[8]), "bytes", "0F 84 88 00 00 00");
+                mem.WriteMemory(GetCheat(6), "bytes", "0F 84 88 00 00 00");
             }
         }
 
@@ -493,20 +519,20 @@ namespace FreeZeHAX_Trainer
         {
             if (GiveawayMode.BackColor == Color.White)
             {
-                //GiveawayMode_Timer.Start();
-                mem.WriteMemory(AobScan(cheats.GTCheats[23]), "bytes", "73 05"); //Ghost Mode
-                mem.WriteMemory(AobScan(cheats.GTCheats[10]), "bytes", "90 90"); //Noclip
-                mem.WriteMemory(AobScan(cheats.GTCheats[4], false, true), "bytes", "75 5D"); //Mod Fly V1
+                GiveawayMode_Timer.Start();
+                mem.WriteMemory(GetCheat(19), "bytes", "73 05"); //Ghost Mode
+                mem.WriteMemory(GetCheat(7), "bytes", "90 90"); //Noclip
+                mem.WriteMemory(GetCheat(23), "bytes", "75 5D"); //Mod Fly V1
                 FocusText.Focus();
                 GiveawayMode.BackColor = Color.Blue;
                 GiveawayMode.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                //GiveawayMode_Timer.Stop();
-                mem.WriteMemory(AobScan(cheats.GTCheats[23]), "bytes", "74 05"); //Ghost Mode
-                mem.WriteMemory(AobScan(cheats.GTCheats[10]), "bytes", "75 0B"); //Noclip
-                mem.WriteMemory(AobScan(cheats.GTCheats[4], false, true), "bytes", "74 5D"); //Mod Fly V1
+                GiveawayMode_Timer.Stop();
+                mem.WriteMemory(GetCheat(19), "bytes", "74 05"); //Ghost Mode
+                mem.WriteMemory(GetCheat(7), "bytes", "75 0B"); //Noclip
+                mem.WriteMemory(GetCheat(23), "bytes", "74 5D"); //Mod Fly V1
                 FocusText.Focus();
                 GiveawayMode.BackColor = Color.White;
                 GiveawayMode.FlatAppearance.BorderColor = Color.Black;
@@ -517,16 +543,16 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiBounce.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[6], "bytes", "90 90 90 90");
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[27], "bytes", "90 90 90 90");
+                mem.WriteMemory(GetCheat(3), "bytes", "90 90 90 90");
+                mem.WriteMemory(GetCheat(4), "bytes", "90 90 90 90");
                 FocusText.Focus();
                 AntiBounce.BackColor = Color.Blue;
                 AntiBounce.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[6], "bytes", "41 0F 28 C2");
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[27], "bytes", "83 4B 0C 20");
+                mem.WriteMemory(GetCheat(3), "bytes", "41 0F 28 C2");
+                mem.WriteMemory(GetCheat(4), "bytes", "83 4B 0C 20");
                 FocusText.Focus();
                 AntiBounce.BackColor = Color.White;
                 AntiBounce.FlatAppearance.BorderColor = Color.Black;
@@ -538,7 +564,7 @@ namespace FreeZeHAX_Trainer
             if (ModFlyV2.BackColor == Color.White)
             {
                 GiveawayMode_Timer.Start();
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[3], "bytes", "75 5D");
+                mem.WriteMemory(GetCheat(23), "bytes", "75 5D");
                 FocusText.Focus();
                 ModFlyV2.BackColor = Color.Blue;
                 ModFlyV2.FlatAppearance.BorderColor = Color.White;
@@ -546,7 +572,7 @@ namespace FreeZeHAX_Trainer
             else
             {
                 GiveawayMode_Timer.Start();
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[3], "bytes", "74 5D");
+                mem.WriteMemory(GetCheat(23), "bytes", "74 5D");
                 FocusText.Focus();
                 ModFlyV2.BackColor = Color.White;
                 ModFlyV2.FlatAppearance.BorderColor = Color.Black;
@@ -557,14 +583,14 @@ namespace FreeZeHAX_Trainer
         {
             if (Growz.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[9], "bytes", "90 90 90 90");
+                mem.WriteMemory(GetCheat(24), "bytes", "90 90 90 90");
                 FocusText.Focus();
                 Growz.BackColor = Color.Blue;
                 Growz.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[9], "bytes", "F3 0F 5C D1");
+                mem.WriteMemory(GetCheat(24), "bytes", "F3 0F 5C D1");
                 FocusText.Focus();
                 Growz.BackColor = Color.White;
                 Growz.FlatAppearance.BorderColor = Color.Black;
@@ -575,14 +601,14 @@ namespace FreeZeHAX_Trainer
         {
             if (FastFallV1.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[7], "bytes", "90 90 90 90");
+                mem.WriteMemory(GetCheat(5), "bytes", "90 90 90 90");
                 FocusText.Focus();
                 FastFallV1.BackColor = Color.Blue;
                 FastFallV1.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[7], "bytes", "F3 0F 59 CE");
+                mem.WriteMemory(GetCheat(5), "bytes", "F3 0F 59 CE");
                 FocusText.Focus();
                 FastFallV1.BackColor = Color.White;
                 FastFallV1.FlatAppearance.BorderColor = Color.Black;
@@ -593,14 +619,14 @@ namespace FreeZeHAX_Trainer
         {
             if (FastFallV2.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[8], "bytes", "0F 83 88 00 00 00");
+                mem.WriteMemory(GetCheat(6), "bytes", "0F 83 88 00 00 00");
                 FocusText.Focus();
                 FastFallV2.BackColor = Color.Blue;
                 FastFallV2.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[8], "bytes", "0F 84 88 00 00 00");
+                mem.WriteMemory(GetCheat(6), "bytes", "0F 84 88 00 00 00");
                 FocusText.Focus();
                 FastFallV2.BackColor = Color.White;
                 FastFallV2.FlatAppearance.BorderColor = Color.Black;
@@ -611,14 +637,14 @@ namespace FreeZeHAX_Trainer
         {
             if (Ghost.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[23], "bytes", "73 05");
+                mem.WriteMemory(GetCheat(19), "bytes", "73 05");
                 FocusText.Focus();
                 Ghost.BackColor = Color.Blue;
                 Ghost.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[23], "bytes", "74 05");
+                mem.WriteMemory(GetCheat(19), "bytes", "74 05");
                 FocusText.Focus();
                 Ghost.BackColor = Color.White;
                 Ghost.FlatAppearance.BorderColor = Color.Black;
@@ -629,14 +655,14 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiSlide.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[13], "bytes", "74 03");
+                mem.WriteMemory(GetCheat(10), "bytes", "74 03");
                 FocusText.Focus();
                 AntiSlide.BackColor = Color.Blue;
                 AntiSlide.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[13], "bytes", "75 03");
+                mem.WriteMemory(GetCheat(10), "bytes", "75 03");
                 FocusText.Focus();
                 AntiSlide.BackColor = Color.White;
                 AntiSlide.FlatAppearance.BorderColor = Color.Black;
@@ -647,14 +673,14 @@ namespace FreeZeHAX_Trainer
         {
             if (SlideMode.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[12], "bytes", "74 0E");
+                mem.WriteMemory(GetCheat(9), "bytes", "74 0E");
                 FocusText.Focus();
                 SlideMode.BackColor = Color.Blue;
                 SlideMode.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[12], "bytes", "75 0E");
+                mem.WriteMemory(GetCheat(9), "bytes", "75 0E");
                 FocusText.Focus();
                 SlideMode.BackColor = Color.White;
                 SlideMode.FlatAppearance.BorderColor = Color.Black;
@@ -665,14 +691,14 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiLgrid.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[16], "bytes", "0F 84 67 05 00 00");
+                mem.WriteMemory(GetCheat(25), "bytes", "0F 84 67 05 00 00");
                 FocusText.Focus();
                 AntiLgrid.BackColor = Color.Blue;
                 AntiLgrid.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[16], "bytes", "0F 85 67 05 00 00");
+                mem.WriteMemory(GetCheat(25), "bytes", "0F 85 67 05 00 00");
                 FocusText.Focus();
                 AntiLgrid.BackColor = Color.White;
                 AntiLgrid.FlatAppearance.BorderColor = Color.Black;
@@ -683,16 +709,16 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiKnockback.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[14], "bytes", "0F 84 C0 00 00 00");
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[15], "bytes", "0F 84 67 01 00 00");
+                mem.WriteMemory(GetCheat(11), "bytes", "0F 84 C0 00 00 00");
+                mem.WriteMemory(GetCheat(12), "bytes", "0F 84 67 01 00 00");
                 FocusText.Focus();
                 AntiKnockback.BackColor = Color.Blue;
                 AntiKnockback.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[14], "bytes", "0F 85 C0 00 00 00");
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[15], "bytes", "0F 85 67 01 00 00");
+                mem.WriteMemory(GetCheat(11), "bytes", "0F 85 C0 00 00 00");
+                mem.WriteMemory(GetCheat(12), "bytes", "0F 85 67 01 00 00");
                 FocusText.Focus();
                 AntiKnockback.BackColor = Color.White;
                 AntiKnockback.FlatAppearance.BorderColor = Color.Black;
@@ -703,14 +729,14 @@ namespace FreeZeHAX_Trainer
         {
             if (Gravity.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[24], "bytes", "0F 85 17 01 00 00");
+                mem.WriteMemory(GetCheat(20), "bytes", "0F 85 17 01 00 00");
                 FocusText.Focus();
                 Gravity.BackColor = Color.Blue;
                 Gravity.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[24], "bytes", "0F 84 17 01 00 00");
+                mem.WriteMemory(GetCheat(20), "bytes", "0F 84 17 01 00 00");
                 FocusText.Focus();
                 Gravity.BackColor = Color.White;
                 Gravity.FlatAppearance.BorderColor = Color.Black;
@@ -721,14 +747,14 @@ namespace FreeZeHAX_Trainer
         {
             if (DevMode.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[22], "bytes", "75 5F");
+                mem.WriteMemory(GetCheat(18), "bytes", "75 5F");
                 FocusText.Focus();
                 DevMode.BackColor = Color.Blue;
                 DevMode.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[22], "bytes", "74 5F");
+                mem.WriteMemory(GetCheat(18), "bytes", "74 5F");
                 FocusText.Focus();
                 DevMode.BackColor = Color.White;
                 DevMode.FlatAppearance.BorderColor = Color.Black;
@@ -739,18 +765,18 @@ namespace FreeZeHAX_Trainer
         {
             if (SystemSpeed.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[17], "bytes", "90 90 90 90");
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[18], "bytes", "90 90 90 90");
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[19], "bytes", "90 90 90 90");
+                mem.WriteMemory(GetCheat(13), "bytes", "90 90 90 90");
+                mem.WriteMemory(GetCheat(14), "bytes", "90 90 90 90");
+                mem.WriteMemory(GetCheat(15), "bytes", "90 90 90 90");
                 FocusText.Focus();
                 SystemSpeed.BackColor = Color.Blue;
                 SystemSpeed.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[17], "bytes", "89 54 24 6C");
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[18], "bytes", "89 54 24 6C");
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[19], "bytes", "48 8B 43 08");
+                mem.WriteMemory(GetCheat(13), "bytes", "89 54 24 6C");
+                mem.WriteMemory(GetCheat(14), "bytes", "89 54 24 6C");
+                mem.WriteMemory(GetCheat(15), "bytes", "48 8B 43 08");
                 FocusText.Focus();
                 SystemSpeed.BackColor = Color.White;
                 SystemSpeed.FlatAppearance.BorderColor = Color.Black;
@@ -761,14 +787,14 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiPlatform.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[20], "bytes", "90 90");
+                mem.WriteMemory(GetCheat(16), "bytes", "90 90");
                 FocusText.Focus();
                 AntiPlatform.BackColor = Color.Blue;
                 AntiPlatform.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[20], "bytes", "74 0D");
+                mem.WriteMemory(GetCheat(16), "bytes", "74 0D");
                 FocusText.Focus();
                 AntiPlatform.BackColor = Color.White;
                 AntiPlatform.FlatAppearance.BorderColor = Color.Black;
@@ -779,14 +805,14 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiGravityWell.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[21], "bytes", "90 90 90 90 90");
+                mem.WriteMemory(GetCheat(17), "bytes", "90 90 90 90 90");
                 FocusText.Focus();
                 AntiGravityWell.BackColor = Color.Blue;
                 AntiGravityWell.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[21], "bytes", "E8 25 01 00 00");
+                mem.WriteMemory(GetCheat(17), "bytes", "E8 25 01 00 00");
                 FocusText.Focus();
                 AntiGravityWell.BackColor = Color.White;
                 AntiGravityWell.FlatAppearance.BorderColor = Color.Black;
@@ -797,16 +823,16 @@ namespace FreeZeHAX_Trainer
         {
             if (FastPickupDrop.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[25], "bytes", "90 90");
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[26], "bytes", "75 90");
+                mem.WriteMemory(GetCheat(26), "bytes", "90 90");
+                mem.WriteMemory(GetCheat(21), "bytes", "75 90");
                 FocusText.Focus();
                 FastPickupDrop.BackColor = Color.Blue;
                 FastPickupDrop.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[25], "bytes", "73 19");
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[26], "bytes", "74 90");
+                mem.WriteMemory(GetCheat(26), "bytes", "73 19");
+                mem.WriteMemory(GetCheat(21), "bytes", "74 90");
                 FocusText.Focus();
                 FastPickupDrop.BackColor = Color.White;
                 FastPickupDrop.FlatAppearance.BorderColor = Color.Black;
@@ -817,14 +843,14 @@ namespace FreeZeHAX_Trainer
         {
             if (ModZoom.BackColor == Color.White)
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[11], "bytes", "80 B8 00 00 00 00 00");
+                mem.WriteMemory(GetCheat(8), "bytes", "80 B8 00 00 00 00 00");
                 FocusText.Focus();
                 ModZoom.BackColor = Color.Blue;
                 ModZoom.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory("Growtopia.exe+" + cheats.GTCheats[11], "bytes", "80 B8 79 01 00 00 00");
+                mem.WriteMemory(GetCheat(8), "bytes", "80 B8 79 01 00 00 00");
                 FocusText.Focus();
                 ModZoom.BackColor = Color.White;
                 ModZoom.FlatAppearance.BorderColor = Color.Black;
