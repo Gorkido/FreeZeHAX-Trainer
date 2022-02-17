@@ -3,7 +3,7 @@
     public class Cheats
     {
         public string[] GTCheats =
-        {
+        { // Needed aobs and their names
             "0f 84 ? ? ? ? e8 ? ? ? ? 48 8b d8 8b be", // Force FPS | 0 Y
             "75 ? 85 c9 0f 85 ? ? ? ? c7 05", // Ban Bypass | 1 Y
             "76 ? 32 c0 48 83 c4 ? 5b c3 f3 0f 10 05", // Anti int check | 2 Y
@@ -30,7 +30,7 @@
         };
 
         public string[] GTCheatsFirst =
-        {
+        { // These cheats require MemoryScanFirst
             "0f 85 ? ? ? ? c7 86", // Pos Bypass | 22 Y | 1st Result
             "74 ? 8b 4f ? 83 f9", // Mod Fly V1 | 23 Y | 1st Result
             "f3 0f 5c d1 0f 28 f2", // Growz | 24 Y | 1st Result

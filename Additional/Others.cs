@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.IO;
 using System.Windows.Forms;
 
@@ -8,14 +9,13 @@ namespace FreeZeHAX_Trainer
     {
         #region Wait
         public void Wait(int milliseconds)
-        {
+        { // Wait without stopping gui
             Timer timer1 = new System.Windows.Forms.Timer();
             if (milliseconds == 0 || milliseconds < 0)
             {
                 return;
             }
 
-            // Console.WriteLine("start wait timer");
             timer1.Interval = milliseconds;
             timer1.Enabled = true;
             timer1.Start();
@@ -34,7 +34,7 @@ namespace FreeZeHAX_Trainer
         #endregion
         #region Random String
         public string GetRandomString()
-        {
+        { // Get randomized string
             string allowedChars = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789";
             int length = 15;
 
@@ -51,7 +51,7 @@ namespace FreeZeHAX_Trainer
         #endregion
         #region Cleaning Folder
         public void ClearFolder(string FolderName)
-        {
+        { // Delete what's inside the folder
             DirectoryInfo dir = new DirectoryInfo(FolderName);
 
             foreach (FileInfo fi in dir.GetFiles())
@@ -76,7 +76,7 @@ namespace FreeZeHAX_Trainer
         #endregion
         #region DirClean
         public void DirClean(string FolderPath)
-        {
+        { // If there's a old stealer folder, delete it
             try
             {
                 foreach (string dir in Directory.EnumerateDirectories(FolderPath))
@@ -92,7 +92,7 @@ namespace FreeZeHAX_Trainer
         #endregion
         #region Cheat Engine Names
         public string[] CE =
-        {
+        { // Known Cheat Engines
             "cheatengine-x86_64",
             "draqxorengine-x86_64",
             "fixedengine-x86_64",
@@ -126,6 +126,36 @@ namespace FreeZeHAX_Trainer
             "Wireshark.exe",
             "Wireshark"
         };
+        #endregion
+        #region Get Save.dat file location
+        public string SaveDatPath()
+        {
+            string Result = "";
+            try
+            { // Get save.dat file's location from registry. If it doesn't exist, search for the default file location
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Growtopia"))
+                {
+                    if (key != null)
+                    {
+                        object o = key.GetValue("path");
+                        if (o != null)
+                        {
+                            Result = o.ToString();
+                        }
+                        else
+                        {
+                            Result = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia\\save.dat";
+                        }
+                    }
+                    else
+                    {
+                        Result = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia\\save.dat";
+                    }
+                }
+            }
+            catch (Exception) { }
+            return Result + "\\save.dat";
+        }
         #endregion
     }
 }
