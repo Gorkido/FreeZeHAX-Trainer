@@ -1234,7 +1234,7 @@ namespace FreeZeHAX_Trainer
                     others.Wait(100);
                 }
             }
-            catch (Exception) { }
+            catch (Exception ex) { MessageBox.Show("Cannot find sig:" + AOB, "Error:" + ex.Message); }
             return Result;
         }
     }
