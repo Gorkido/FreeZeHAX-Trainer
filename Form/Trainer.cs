@@ -1243,7 +1243,7 @@ namespace FreeZeHAX_Trainer
                     others.Wait(100);
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Cannot find sig:" + AOB, "Error:" + ex.Message); /* If can't find aob, show which aob failed*/}
+            catch (Exception ex) { MessageBox.Show("Cannot find sig: " + AOB, "Error: " + ex.Message); }
             return Result;
         }
     }
