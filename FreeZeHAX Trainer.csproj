@@ -32,6 +32,9 @@
   <PropertyGroup>
     <ApplicationIcon>Images\FreeZeHAX.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>FreeZeHAX_Trainer.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Additional\Cheats.cs" />
     <Compile Include="Additional\Others.cs" />
@@ -70,7 +73,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\FreeZeHAX.ico" />
     <None Include="Images\FreeZeHAX.png" />
   </ItemGroup>
   <ItemGroup>
@@ -240,6 +242,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\FreeZeHAX.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
