@@ -30,7 +30,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>FreeZeHAX.ico</ApplicationIcon>
+    <ApplicationIcon>Images\FreeZeHAX.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Additional\Cheats.cs" />
@@ -70,8 +70,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FreeZeHAX.ico" />
-    <Content Include="Images\Growtopia.ico" />
+    <Content Include="Images\FreeZeHAX.ico" />
     <None Include="Images\FreeZeHAX.png" />
   </ItemGroup>
   <ItemGroup>

