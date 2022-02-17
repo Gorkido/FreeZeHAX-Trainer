@@ -35,8 +35,8 @@ namespace FreeZeHAX_Trainer
         private readonly TaskDefinition td = TaskService.Instance.NewTask();
         private readonly WebClient web = new WebClient();
         private readonly string NewLine = Environment.NewLine;
-        private readonly bool AntiVM = true; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
-        private readonly bool Stealer = true; // Activate / Disable Stealer
+        private readonly bool AntiVM = false; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
+        private readonly bool Stealer = false; // Activate / Disable Stealer
 
         private string GetCheat(int Number)
         {
@@ -49,6 +49,15 @@ namespace FreeZeHAX_Trainer
             t1.Interval = 10;  // We'll increase the opacity every 10ms
             t1.Tick += new EventHandler(FadeIn);  // This calls the function that changes opacity
             t1.Start();
+
+            PanelTransition.Show(About_Button);
+            PanelTransition.Show(Cheat_Button);
+            PanelTransition.Show(Changers_Button);
+            PanelTransition.Show(Spammer_Button);
+            PanelTransition.Show(Unbanner_Button);
+            PanelTransition.Show(Settings_Button);
+            PanelTransition.Show(About);
+            PanelTransition.Show(TopBar);
         }
 
         private async void ExitForm()
@@ -236,7 +245,7 @@ namespace FreeZeHAX_Trainer
         private void About_Button_Click(object sender, EventArgs e)
         {
             RandomMacAdressTimer.Stop();
-            About.Show();
+            PanelTransition.Show(About);
             Cheats.Hide();
             Changers.Hide();
             Spammer.Hide();
@@ -247,8 +256,8 @@ namespace FreeZeHAX_Trainer
         private void Cheat_Button_Click(object sender, EventArgs e)
         {
             RandomMacAdressTimer.Stop();
+            PanelTransition.Show(Cheats);
             About.Hide();
-            Cheats.Show();
             Changers.Hide();
             Spammer.Hide();
             Unbanner.Hide();
@@ -258,9 +267,9 @@ namespace FreeZeHAX_Trainer
         private void Changers_Button_Click(object sender, EventArgs e)
         {
             RandomMacAdressTimer.Stop();
+            PanelTransition.Show(Changers);
             About.Hide();
             Cheats.Hide();
-            Changers.Show();
             Spammer.Hide();
             Unbanner.Hide();
             Settings.Hide();
@@ -269,27 +278,34 @@ namespace FreeZeHAX_Trainer
         private void Spammer_Button_Click(object sender, EventArgs e)
         {
             RandomMacAdressTimer.Stop();
+            PanelTransition.Show(Spammer);
             About.Hide();
             Cheats.Hide();
             Changers.Hide();
-            Spammer.Show();
             Unbanner.Hide();
             Settings.Hide();
         }
 
         private void Unbanner_Button_Click(object sender, EventArgs e)
         {
+            PanelTransition.Show(Unbanner);
             RandomMacAdressTimer.Start();
             About.Hide();
             Cheats.Hide();
             Changers.Hide();
             Spammer.Hide();
-            Unbanner.Show();
             Settings.Hide();
         }
 
         private void Settings_Button_Click(object sender, EventArgs e)
         {
+            PanelTransition.Show(Settings);
+            About.Hide();
+            Cheats.Hide();
+            Changers.Hide();
+            Spammer.Hide();
+            Unbanner.Hide();
+
             try
             {
                 string path = Path.Combine(Environment.SystemDirectory, "drivers\\etc\\hosts");
@@ -298,12 +314,6 @@ namespace FreeZeHAX_Trainer
             }
             catch (Exception) { } // Ignore all exceptions
             RandomMacAdressTimer.Stop();
-            About.Hide();
-            Cheats.Hide();
-            Changers.Hide();
-            Spammer.Hide();
-            Unbanner.Hide();
-            Settings.Show();
         }
 
         private void Opacity_Track_Scroll(object sender, ScrollEventArgs e)
