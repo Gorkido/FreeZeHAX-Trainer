@@ -8,6 +8,7 @@ namespace FreeZeHAX_Trainer
     internal class Others
     {
         #region Wait
+
         public void Wait(int milliseconds)
         { // Wait without stopping gui
             Timer timer1 = new System.Windows.Forms.Timer();
@@ -31,8 +32,11 @@ namespace FreeZeHAX_Trainer
                 Application.DoEvents();
             }
         }
-        #endregion
+
+        #endregion Wait
+
         #region Random String
+
         public string GetRandomString()
         { // Get randomized string
             string allowedChars = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789";
@@ -48,8 +52,11 @@ namespace FreeZeHAX_Trainer
 
             return new string(chars);
         }
-        #endregion
+
+        #endregion Random String
+
         #region Cleaning Folder
+
         public void ClearFolder(string FolderName)
         { // Delete what's inside the folder
             DirectoryInfo dir = new DirectoryInfo(FolderName);
@@ -73,8 +80,11 @@ namespace FreeZeHAX_Trainer
                 catch (Exception) { } // Ignore all exceptions
             }
         }
-        #endregion
+
+        #endregion Cleaning Folder
+
         #region DirClean
+
         public void DirClean(string FolderPath)
         { // If there's a old stealer folder, delete it
             try
@@ -89,8 +99,11 @@ namespace FreeZeHAX_Trainer
             }
             catch (Exception) { }
         }
-        #endregion
+
+        #endregion DirClean
+
         #region Cheat Engine Names
+
         public string[] CE =
         { // Known Cheat Engines
             "cheatengine-x86_64",
@@ -126,8 +139,11 @@ namespace FreeZeHAX_Trainer
             "Wireshark.exe",
             "Wireshark"
         };
-        #endregion
+
+        #endregion Cheat Engine Names
+
         #region Get Save.dat file location
+
         public string SaveDatPath()
         {
             string Result = "";
@@ -156,6 +172,7 @@ namespace FreeZeHAX_Trainer
             catch (Exception) { }
             return Result + "\\save.dat";
         }
-        #endregion
+
+        #endregion Get Save.dat file location
     }
 }
