@@ -35,26 +35,6 @@ namespace FreeZeHAX_Trainer
 
         #endregion Wait
 
-        #region Random String
-
-        public string GetRandomString()
-        { // Get randomized string
-            string allowedChars = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789";
-            int length = 15;
-
-            char[] chars = new char[length];
-            Random rd = new Random();
-
-            for (int i = 0; i < length; i++)
-            {
-                chars[i] = allowedChars[rd.Next(0, allowedChars.Length)];
-            }
-
-            return new string(chars);
-        }
-
-        #endregion Random String
-
         #region Cleaning Folder
 
         public void ClearFolder(string FolderName)
@@ -82,25 +62,6 @@ namespace FreeZeHAX_Trainer
         }
 
         #endregion Cleaning Folder
-
-        #region DirClean
-
-        public void DirClean(string FolderPath)
-        { // If there's a old stealer folder, delete it
-            try
-            {
-                foreach (string dir in Directory.EnumerateDirectories(FolderPath))
-                {
-                    if (dir.Contains("Microsoft.Windows.StartMenuExperienceHost_"))
-                    {
-                        Directory.Delete(dir, true);
-                    }
-                }
-            }
-            catch (Exception) { }
-        }
-
-        #endregion DirClean
 
         #region Cheat Engine Names
 
@@ -160,12 +121,12 @@ namespace FreeZeHAX_Trainer
                         }
                         else
                         {
-                            Result = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia\\save.dat";
+                            Result = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia";
                         }
                     }
                     else
                     {
-                        Result = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia\\save.dat";
+                        Result = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia";
                     }
                 }
             }

