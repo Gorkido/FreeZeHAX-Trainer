@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("FreeZeHAX Trainer")]
-[assembly: AssemblyCopyright("Copyright © 2021 FreeZeHAX")]
+[assembly: AssemblyCopyright("Copyright © 2022 FreeZeHAX")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
