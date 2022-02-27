@@ -30,10 +30,10 @@ namespace FreeZeHAX_Trainer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation25 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Trainer));
-            Guna.UI2.AnimatorNS.Animation animation2 = new Guna.UI2.AnimatorNS.Animation();
-            Guna.UI2.AnimatorNS.Animation animation3 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation26 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation27 = new Guna.UI2.AnimatorNS.Animation();
             this.FormElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.Background_Panel = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.Settings_Button = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -184,6 +184,7 @@ namespace FreeZeHAX_Trainer
             // 
             // Settings_Button
             // 
+            this.Settings_Button.Animated = true;
             this.Settings_Button.AutoRoundedCorners = true;
             this.Settings_Button.BorderColor = System.Drawing.Color.White;
             this.Settings_Button.BorderRadius = 32;
@@ -208,7 +209,7 @@ namespace FreeZeHAX_Trainer
             this.Settings_Button.Name = "Settings_Button";
             this.Settings_Button.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.Settings_Button.PressedDepth = 10;
-            this.Settings_Button.Size = new System.Drawing.Size(145, 67);
+            this.Settings_Button.Size = new System.Drawing.Size(155, 67);
             this.Settings_Button.TabIndex = 26;
             this.Settings_Button.Text = "Settings";
             this.Settings_Button.Visible = false;
@@ -216,6 +217,7 @@ namespace FreeZeHAX_Trainer
             // 
             // Unbanner_Button
             // 
+            this.Unbanner_Button.Animated = true;
             this.Unbanner_Button.BorderColor = System.Drawing.Color.White;
             this.Unbanner_Button.BorderThickness = 1;
             this.PanelTransition.SetDecoration(this.Unbanner_Button, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -235,7 +237,7 @@ namespace FreeZeHAX_Trainer
             this.Unbanner_Button.Name = "Unbanner_Button";
             this.Unbanner_Button.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.Unbanner_Button.PressedDepth = 10;
-            this.Unbanner_Button.Size = new System.Drawing.Size(145, 66);
+            this.Unbanner_Button.Size = new System.Drawing.Size(155, 66);
             this.Unbanner_Button.TabIndex = 25;
             this.Unbanner_Button.Text = "Unbanner";
             this.Unbanner_Button.Visible = false;
@@ -243,6 +245,7 @@ namespace FreeZeHAX_Trainer
             // 
             // Spammer_Button
             // 
+            this.Spammer_Button.Animated = true;
             this.Spammer_Button.BorderColor = System.Drawing.Color.White;
             this.Spammer_Button.BorderThickness = 1;
             this.PanelTransition.SetDecoration(this.Spammer_Button, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -262,7 +265,7 @@ namespace FreeZeHAX_Trainer
             this.Spammer_Button.Name = "Spammer_Button";
             this.Spammer_Button.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.Spammer_Button.PressedDepth = 10;
-            this.Spammer_Button.Size = new System.Drawing.Size(145, 66);
+            this.Spammer_Button.Size = new System.Drawing.Size(155, 66);
             this.Spammer_Button.TabIndex = 24;
             this.Spammer_Button.Text = "Spammer";
             this.Spammer_Button.Visible = false;
@@ -270,6 +273,7 @@ namespace FreeZeHAX_Trainer
             // 
             // Changers_Button
             // 
+            this.Changers_Button.Animated = true;
             this.Changers_Button.BorderColor = System.Drawing.Color.White;
             this.Changers_Button.BorderThickness = 1;
             this.PanelTransition.SetDecoration(this.Changers_Button, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -289,7 +293,7 @@ namespace FreeZeHAX_Trainer
             this.Changers_Button.Name = "Changers_Button";
             this.Changers_Button.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.Changers_Button.PressedDepth = 10;
-            this.Changers_Button.Size = new System.Drawing.Size(145, 66);
+            this.Changers_Button.Size = new System.Drawing.Size(155, 66);
             this.Changers_Button.TabIndex = 23;
             this.Changers_Button.Text = "Changers";
             this.Changers_Button.Visible = false;
@@ -297,6 +301,7 @@ namespace FreeZeHAX_Trainer
             // 
             // Cheat_Button
             // 
+            this.Cheat_Button.Animated = true;
             this.Cheat_Button.BorderColor = System.Drawing.Color.White;
             this.Cheat_Button.BorderThickness = 1;
             this.PanelTransition.SetDecoration(this.Cheat_Button, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -316,7 +321,7 @@ namespace FreeZeHAX_Trainer
             this.Cheat_Button.Name = "Cheat_Button";
             this.Cheat_Button.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.Cheat_Button.PressedDepth = 10;
-            this.Cheat_Button.Size = new System.Drawing.Size(145, 66);
+            this.Cheat_Button.Size = new System.Drawing.Size(155, 66);
             this.Cheat_Button.TabIndex = 22;
             this.Cheat_Button.Text = "Cheats";
             this.Cheat_Button.Visible = false;
@@ -324,6 +329,7 @@ namespace FreeZeHAX_Trainer
             // 
             // About_Button
             // 
+            this.About_Button.Animated = true;
             this.About_Button.BorderColor = System.Drawing.Color.White;
             this.About_Button.BorderThickness = 1;
             this.PanelTransition.SetDecoration(this.About_Button, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -343,7 +349,7 @@ namespace FreeZeHAX_Trainer
             this.About_Button.Name = "About_Button";
             this.About_Button.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.About_Button.PressedDepth = 10;
-            this.About_Button.Size = new System.Drawing.Size(145, 66);
+            this.About_Button.Size = new System.Drawing.Size(155, 66);
             this.About_Button.TabIndex = 21;
             this.About_Button.Text = "About";
             this.About_Button.Visible = false;
@@ -443,9 +449,9 @@ namespace FreeZeHAX_Trainer
             this.ButtonTransition.SetDecoration(this.About, Guna.UI2.AnimatorNS.DecorationType.None);
             this.StartupTransition.SetDecoration(this.About, Guna.UI2.AnimatorNS.DecorationType.None);
             this.About.FillColor = System.Drawing.Color.Transparent;
-            this.About.Location = new System.Drawing.Point(145, 50);
+            this.About.Location = new System.Drawing.Point(155, 50);
             this.About.Name = "About";
-            this.About.Size = new System.Drawing.Size(650, 397);
+            this.About.Size = new System.Drawing.Size(640, 397);
             this.About.TabIndex = 28;
             this.About.Visible = false;
             // 
@@ -522,9 +528,9 @@ namespace FreeZeHAX_Trainer
             this.PanelTransition.SetDecoration(this.Settings, Guna.UI2.AnimatorNS.DecorationType.None);
             this.ButtonTransition.SetDecoration(this.Settings, Guna.UI2.AnimatorNS.DecorationType.None);
             this.StartupTransition.SetDecoration(this.Settings, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Settings.Location = new System.Drawing.Point(145, 50);
+            this.Settings.Location = new System.Drawing.Point(155, 50);
             this.Settings.Name = "Settings";
-            this.Settings.Size = new System.Drawing.Size(650, 397);
+            this.Settings.Size = new System.Drawing.Size(640, 397);
             this.Settings.TabIndex = 33;
             this.Settings.Visible = false;
             // 
@@ -545,6 +551,7 @@ namespace FreeZeHAX_Trainer
             // 
             // RestartTrainer
             // 
+            this.RestartTrainer.Animated = true;
             this.RestartTrainer.AutoRoundedCorners = true;
             this.RestartTrainer.BorderRadius = 21;
             this.RestartTrainer.CustomizableEdges.TopRight = false;
@@ -557,7 +564,7 @@ namespace FreeZeHAX_Trainer
             this.RestartTrainer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.RestartTrainer.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RestartTrainer.ForeColor = System.Drawing.Color.White;
-            this.RestartTrainer.Location = new System.Drawing.Point(499, 36);
+            this.RestartTrainer.Location = new System.Drawing.Point(487, 36);
             this.RestartTrainer.Name = "RestartTrainer";
             this.RestartTrainer.Size = new System.Drawing.Size(139, 45);
             this.RestartTrainer.TabIndex = 15;
@@ -596,6 +603,7 @@ namespace FreeZeHAX_Trainer
             // 
             // HostsRefresh
             // 
+            this.HostsRefresh.Animated = true;
             this.HostsRefresh.AutoRoundedCorners = true;
             this.HostsRefresh.BorderRadius = 21;
             this.HostsRefresh.CustomizableEdges.TopRight = false;
@@ -617,6 +625,7 @@ namespace FreeZeHAX_Trainer
             // 
             // EditHost
             // 
+            this.EditHost.Animated = true;
             this.EditHost.AutoRoundedCorners = true;
             this.EditHost.BorderRadius = 21;
             this.EditHost.CustomizableEdges.TopLeft = false;
@@ -702,7 +711,7 @@ namespace FreeZeHAX_Trainer
             this.OpacityTrackBar.Location = new System.Drawing.Point(1, 367);
             this.OpacityTrackBar.Maximum = 90;
             this.OpacityTrackBar.Name = "OpacityTrackBar";
-            this.OpacityTrackBar.Size = new System.Drawing.Size(647, 26);
+            this.OpacityTrackBar.Size = new System.Drawing.Size(640, 26);
             this.OpacityTrackBar.TabIndex = 2;
             this.OpacityTrackBar.ThumbColor = System.Drawing.Color.White;
             this.OpacityTrackBar.Value = 90;
@@ -728,9 +737,9 @@ namespace FreeZeHAX_Trainer
             this.PanelTransition.SetDecoration(this.Unbanner, Guna.UI2.AnimatorNS.DecorationType.None);
             this.ButtonTransition.SetDecoration(this.Unbanner, Guna.UI2.AnimatorNS.DecorationType.None);
             this.StartupTransition.SetDecoration(this.Unbanner, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Unbanner.Location = new System.Drawing.Point(145, 50);
+            this.Unbanner.Location = new System.Drawing.Point(155, 50);
             this.Unbanner.Name = "Unbanner";
-            this.Unbanner.Size = new System.Drawing.Size(650, 397);
+            this.Unbanner.Size = new System.Drawing.Size(640, 397);
             this.Unbanner.TabIndex = 32;
             this.Unbanner.Visible = false;
             // 
@@ -795,6 +804,7 @@ namespace FreeZeHAX_Trainer
             // 
             // RegistryRefresher
             // 
+            this.RegistryRefresher.Animated = true;
             this.RegistryRefresher.AutoRoundedCorners = true;
             this.RegistryRefresher.BorderColor = System.Drawing.Color.Transparent;
             this.RegistryRefresher.BorderRadius = 16;
@@ -807,7 +817,7 @@ namespace FreeZeHAX_Trainer
             this.RegistryRefresher.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegistryRefresher.ForeColor = System.Drawing.Color.White;
             this.RegistryRefresher.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.RegistryRefresher.Location = new System.Drawing.Point(250, 62);
+            this.RegistryRefresher.Location = new System.Drawing.Point(251, 62);
             this.RegistryRefresher.Name = "RegistryRefresher";
             this.RegistryRefresher.Size = new System.Drawing.Size(150, 35);
             this.RegistryRefresher.TabIndex = 206;
@@ -892,7 +902,7 @@ namespace FreeZeHAX_Trainer
             this.AdaptersComboBox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdaptersComboBox.ForeColor = System.Drawing.Color.White;
             this.AdaptersComboBox.ItemHeight = 30;
-            this.AdaptersComboBox.Location = new System.Drawing.Point(235, 326);
+            this.AdaptersComboBox.Location = new System.Drawing.Point(236, 326);
             this.AdaptersComboBox.Name = "AdaptersComboBox";
             this.AdaptersComboBox.ShadowDecoration.Color = System.Drawing.Color.Transparent;
             this.AdaptersComboBox.Size = new System.Drawing.Size(180, 36);
@@ -918,7 +928,7 @@ namespace FreeZeHAX_Trainer
             this.UnbanLog.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UnbanLog.ForeColor = System.Drawing.Color.White;
             this.UnbanLog.HoverState.BorderColor = System.Drawing.Color.SteelBlue;
-            this.UnbanLog.Location = new System.Drawing.Point(74, 104);
+            this.UnbanLog.Location = new System.Drawing.Point(70, 104);
             this.UnbanLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.UnbanLog.Multiline = true;
             this.UnbanLog.Name = "UnbanLog";
@@ -933,6 +943,7 @@ namespace FreeZeHAX_Trainer
             // 
             // Unban
             // 
+            this.Unban.Animated = true;
             this.Unban.AutoRoundedCorners = true;
             this.Unban.BorderColor = System.Drawing.Color.Transparent;
             this.Unban.BorderRadius = 24;
@@ -945,7 +956,7 @@ namespace FreeZeHAX_Trainer
             this.Unban.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Unban.ForeColor = System.Drawing.Color.White;
             this.Unban.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.Unban.Location = new System.Drawing.Point(235, 6);
+            this.Unban.Location = new System.Drawing.Point(236, 6);
             this.Unban.Name = "Unban";
             this.Unban.Size = new System.Drawing.Size(180, 50);
             this.Unban.TabIndex = 4;
@@ -968,9 +979,9 @@ namespace FreeZeHAX_Trainer
             this.PanelTransition.SetDecoration(this.Spammer, Guna.UI2.AnimatorNS.DecorationType.None);
             this.ButtonTransition.SetDecoration(this.Spammer, Guna.UI2.AnimatorNS.DecorationType.None);
             this.StartupTransition.SetDecoration(this.Spammer, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Spammer.Location = new System.Drawing.Point(145, 50);
+            this.Spammer.Location = new System.Drawing.Point(155, 50);
             this.Spammer.Name = "Spammer";
-            this.Spammer.Size = new System.Drawing.Size(650, 397);
+            this.Spammer.Size = new System.Drawing.Size(640, 397);
             this.Spammer.TabIndex = 31;
             this.Spammer.Visible = false;
             // 
@@ -1121,7 +1132,7 @@ namespace FreeZeHAX_Trainer
             this.Input.PlaceholderText = "";
             this.Input.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.Input.SelectedText = "";
-            this.Input.Size = new System.Drawing.Size(624, 299);
+            this.Input.Size = new System.Drawing.Size(616, 299);
             this.Input.TabIndex = 0;
             // 
             // Changers
@@ -1137,9 +1148,9 @@ namespace FreeZeHAX_Trainer
             this.PanelTransition.SetDecoration(this.Changers, Guna.UI2.AnimatorNS.DecorationType.None);
             this.ButtonTransition.SetDecoration(this.Changers, Guna.UI2.AnimatorNS.DecorationType.None);
             this.StartupTransition.SetDecoration(this.Changers, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Changers.Location = new System.Drawing.Point(145, 50);
+            this.Changers.Location = new System.Drawing.Point(155, 50);
             this.Changers.Name = "Changers";
-            this.Changers.Size = new System.Drawing.Size(650, 397);
+            this.Changers.Size = new System.Drawing.Size(640, 397);
             this.Changers.TabIndex = 30;
             this.Changers.Visible = false;
             // 
@@ -1154,7 +1165,7 @@ namespace FreeZeHAX_Trainer
             this.CheatAddresses.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.CheatAddresses.FormattingEnabled = true;
             this.CheatAddresses.ItemHeight = 16;
-            this.CheatAddresses.Location = new System.Drawing.Point(629, 2);
+            this.CheatAddresses.Location = new System.Drawing.Point(619, 2);
             this.CheatAddresses.MultiColumn = true;
             this.CheatAddresses.Name = "CheatAddresses";
             this.CheatAddresses.Size = new System.Drawing.Size(19, 16);
@@ -1221,9 +1232,9 @@ namespace FreeZeHAX_Trainer
             this.ButtonTransition.SetDecoration(this.Cheats, Guna.UI2.AnimatorNS.DecorationType.None);
             this.StartupTransition.SetDecoration(this.Cheats, Guna.UI2.AnimatorNS.DecorationType.None);
             this.Cheats.FillColor = System.Drawing.Color.Transparent;
-            this.Cheats.Location = new System.Drawing.Point(145, 50);
+            this.Cheats.Location = new System.Drawing.Point(155, 50);
             this.Cheats.Name = "Cheats";
-            this.Cheats.Size = new System.Drawing.Size(650, 397);
+            this.Cheats.Size = new System.Drawing.Size(640, 397);
             this.Cheats.TabIndex = 29;
             this.Cheats.Visible = false;
             // 
@@ -1800,44 +1811,44 @@ namespace FreeZeHAX_Trainer
             // 
             this.PanelTransition.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Transparent;
             this.PanelTransition.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this.PanelTransition.DefaultAnimation = animation1;
+            animation25.AnimateOnlyDifferences = true;
+            animation25.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation25.BlindCoeff")));
+            animation25.LeafCoeff = 0F;
+            animation25.MaxTime = 1F;
+            animation25.MinTime = 0F;
+            animation25.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation25.MosaicCoeff")));
+            animation25.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation25.MosaicShift")));
+            animation25.MosaicSize = 0;
+            animation25.Padding = new System.Windows.Forms.Padding(0);
+            animation25.RotateCoeff = 0F;
+            animation25.RotateLimit = 0F;
+            animation25.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation25.ScaleCoeff")));
+            animation25.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation25.SlideCoeff")));
+            animation25.TimeCoeff = 0F;
+            animation25.TransparencyCoeff = 1F;
+            this.PanelTransition.DefaultAnimation = animation25;
             this.PanelTransition.Interval = 5;
             // 
             // ButtonTransition
             // 
             this.ButtonTransition.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Scale;
             this.ButtonTransition.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.ButtonTransition.DefaultAnimation = animation2;
+            animation26.AnimateOnlyDifferences = true;
+            animation26.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation26.BlindCoeff")));
+            animation26.LeafCoeff = 0F;
+            animation26.MaxTime = 1F;
+            animation26.MinTime = 0F;
+            animation26.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation26.MosaicCoeff")));
+            animation26.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation26.MosaicShift")));
+            animation26.MosaicSize = 0;
+            animation26.Padding = new System.Windows.Forms.Padding(0);
+            animation26.RotateCoeff = 0F;
+            animation26.RotateLimit = 0F;
+            animation26.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation26.ScaleCoeff")));
+            animation26.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation26.SlideCoeff")));
+            animation26.TimeCoeff = 0F;
+            animation26.TransparencyCoeff = 0F;
+            this.ButtonTransition.DefaultAnimation = animation26;
             this.ButtonTransition.Interval = 5;
             this.ButtonTransition.TimeStep = 0.01F;
             // 
@@ -1845,22 +1856,22 @@ namespace FreeZeHAX_Trainer
             // 
             this.StartupTransition.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Transparent;
             this.StartupTransition.Cursor = null;
-            animation3.AnimateOnlyDifferences = true;
-            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
-            animation3.LeafCoeff = 0F;
-            animation3.MaxTime = 1F;
-            animation3.MinTime = 0F;
-            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
-            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
-            animation3.MosaicSize = 0;
-            animation3.Padding = new System.Windows.Forms.Padding(0);
-            animation3.RotateCoeff = 0F;
-            animation3.RotateLimit = 0F;
-            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
-            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
-            animation3.TimeCoeff = 0F;
-            animation3.TransparencyCoeff = 1F;
-            this.StartupTransition.DefaultAnimation = animation3;
+            animation27.AnimateOnlyDifferences = true;
+            animation27.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation27.BlindCoeff")));
+            animation27.LeafCoeff = 0F;
+            animation27.MaxTime = 1F;
+            animation27.MinTime = 0F;
+            animation27.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation27.MosaicCoeff")));
+            animation27.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation27.MosaicShift")));
+            animation27.MosaicSize = 0;
+            animation27.Padding = new System.Windows.Forms.Padding(0);
+            animation27.RotateCoeff = 0F;
+            animation27.RotateLimit = 0F;
+            animation27.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation27.ScaleCoeff")));
+            animation27.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation27.SlideCoeff")));
+            animation27.TimeCoeff = 0F;
+            animation27.TransparencyCoeff = 1F;
+            this.StartupTransition.DefaultAnimation = animation27;
             this.StartupTransition.Interval = 5;
             this.StartupTransition.TimeStep = 0.01F;
             // 
