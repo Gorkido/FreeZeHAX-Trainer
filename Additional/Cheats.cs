@@ -31,11 +31,11 @@
 
         public string[] GTCheatsFirst =
         { // These cheats require MemoryScanFirst
-            "0f 85 ? ? ? ? c7 86", // Pos Bypass | 22 Y | 1st Result
-            "74 ? 8b 4f ? 83 f9", // Mod Fly V1 | 23 Y | 1st Result
-            "f3 0f 5c d1 0f 28 f2", // Growz | 24 Y | 1st Result
-            "0f 85 ? ? ? ? 48 85 d2 74 ? 48 8b ca", // Anti Lgrid | 25 Y | 1st Result
-            "73 ? 80 63", // Fast Pickup | 26 Y | 1st Result
+            "0f 85 ? ? ? ? c7 86", // Pos Bypass | 1st Result
+            "74 ? 8b 4f ? 83 f9", // Mod Fly V1 | 1st Result
+            "f3 0f 5c d1 0f 28 f2", // Growz | 1st Result
+            "0f 85 ? ? ? ? 48 85 d2 74 ? 48 8b ca", // Anti Lgrid | 1st Result
+            "73 ? 80 63", // Fast Pickup | 1st Result
         };
     }
 }

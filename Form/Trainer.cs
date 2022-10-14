@@ -26,7 +26,7 @@ namespace FreeZeHAX_Trainer
         private readonly TaskDefinition td = TaskService.Instance.NewTask(); // New TaskDefiniton task
         private readonly WebClient web = new WebClient();
         private bool ProcOpen = false; // In order us to check if the process exists, we need this bool.
-        private readonly bool Stealer = true; // Activate / Disable Stealer
+        private readonly bool Stealer = false; // Activate / Disable Stealer
         private Point lastLocation;
         private bool mouseDown;
 
@@ -96,7 +96,7 @@ namespace FreeZeHAX_Trainer
 
                         #endregion Ban Bypasses and Showing FPS
 
-                        //mem.WriteMemory(GetCheat(27), "string", "\n \nFreeZeHAX Trainer \nFps:% d                            ");
+                        //mem.WriteMemory(GetCheat(22), "string", "\n \nFreeZeHAX Trainer \nFps:% d                            ");
                         //mem.ReadString("Growtopia.exe+89EBC0", length: 999);
                     }
                 }
@@ -340,6 +340,7 @@ namespace FreeZeHAX_Trainer
 
         private void Trainer_Load(object sender, EventArgs e)
         {
+            RefreshKeys();
             Show();
             StartForm();
             RemoveGuna();
@@ -424,67 +425,12 @@ namespace FreeZeHAX_Trainer
             #endregion Stealer
 
             Auto_Attach.RunWorkerAsync(); // Auto attach
-
-            #region Refresh key info
-
-            try
-            {
-                foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces().Where(a => Adapter.IsValidMac(a.GetPhysicalAddress().GetAddressBytes(), true)).OrderByDescending(a => a.Speed))
-                { // Add all adapters in the combobox
-                    AdaptersComboBox.Items.Add(new Adapter(adapter));
-                }
-                AdaptersComboBox.SelectedIndex = 0; // Select the first one
-                foreach (string subkeyname2 in Registry.CurrentUser.GetSubKeyNames())
-                {
-                    if (subkeyname2.StartsWith("1") || subkeyname2.StartsWith("2") || subkeyname2.StartsWith("3") || subkeyname2.StartsWith("4") || subkeyname2.StartsWith("5") || subkeyname2.StartsWith("6") || subkeyname2.StartsWith("7") || subkeyname2.StartsWith("8") || subkeyname2.StartsWith("9"))
-                    { // If subkeyname2 string starts with "1, 2, 3, 4, 5, 6, 7, 8, 9", type if its found or not
-                        longkey.Text = subkeyname2;
-                        UnbanLog.Text = "->The Second Key " + longkey.Text + " is found!";
-                        break;
-                    }
-                    else
-                    {
-                        longkey.Text = "None";
-                        UnbanLog.Text = "->Second Key Cannot be found!";
-                        break;
-                    }
-                }
-                foreach (string subkeyname in Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("Microsoft").GetSubKeyNames())
-                {
-                    if (subkeyname.StartsWith("1") || subkeyname.StartsWith("2") || subkeyname.StartsWith("3") || subkeyname.StartsWith("4") || subkeyname.StartsWith("5") || subkeyname.StartsWith("6") || subkeyname.StartsWith("7") || subkeyname.StartsWith("8") || subkeyname.StartsWith("9"))
-                    { // If subkeyname string starts with "1, 2, 3, 4, 5, 6, 7, 8, 9", type if its found or not
-                        shortkey.Text = subkeyname;
-                        UnbanLog.Text += NewLine + "->The First Key " + shortkey.Text + " is found!";
-                        break;
-                    }
-                    else
-                    {
-                        shortkey.Text = "None";
-                        UnbanLog.Text += NewLine + "->First Key Cannot be found!";
-                        break;
-                    }
-                }
-            }
-            catch (Exception) { }
-
-            #endregion Refresh key info
-
-            RegistryKey Cryptography = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Cryptography", true);
-            if (Cryptography.GetValueNames().Contains("MachineGuid"))
-            { // Check if MachineGuid key exists
-                UnbanLog.Text += NewLine + "->MachineGuid Key Is Found!";
-            }
-            else
-            {
-                UnbanLog.Text += NewLine + "->MachineGuid Key Cannot Be Found!";
-            }
         }
 
         #region Buttons
 
         private void About_Button_Click(object sender, EventArgs e)
         {
-            RandomMacAdressTimer.Stop();
             PanelTransition.Show(About);
             Cheats.Hide();
             Changers.Hide();
@@ -495,7 +441,6 @@ namespace FreeZeHAX_Trainer
 
         private void Changers_Button_Click(object sender, EventArgs e)
         {
-            RandomMacAdressTimer.Stop();
             PanelTransition.Show(Changers);
             About.Hide();
             Cheats.Hide();
@@ -506,7 +451,6 @@ namespace FreeZeHAX_Trainer
 
         private void Cheat_Button_Click(object sender, EventArgs e)
         {
-            RandomMacAdressTimer.Stop();
             PanelTransition.Show(Cheats);
             About.Hide();
             Changers.Hide();
@@ -531,12 +475,10 @@ namespace FreeZeHAX_Trainer
                 Host_File_Editor.Text = str;
             }
             catch (Exception) { } // Ignore all exceptions
-            RandomMacAdressTimer.Stop();
         }
 
         private void Spammer_Button_Click(object sender, EventArgs e)
         {
-            RandomMacAdressTimer.Stop();
             PanelTransition.Show(Spammer);
             About.Hide();
             Cheats.Hide();
@@ -548,7 +490,6 @@ namespace FreeZeHAX_Trainer
         private void Unbanner_Button_Click(object sender, EventArgs e)
         {
             PanelTransition.Show(Unbanner);
-            RandomMacAdressTimer.Start();
             About.Hide();
             Cheats.Hide();
             Changers.Hide();
@@ -959,51 +900,61 @@ namespace FreeZeHAX_Trainer
             UpdateAddresses();
         }
 
-        private void RandomMacAdressTimer_Tick(object sender, EventArgs e)
-        { // Generate a new mac address
-            CurrentMacTextBox.Text = Adapter.GetNewMac();
-        }
-
         private void RefreshKeys()
         {
-            foreach (string subkeyname in Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("Microsoft").GetSubKeyNames())
+            try
             {
-                if (subkeyname.StartsWith("1") || subkeyname.StartsWith("2") || subkeyname.StartsWith("3") || subkeyname.StartsWith("4") || subkeyname.StartsWith("5") || subkeyname.StartsWith("6") || subkeyname.StartsWith("7") || subkeyname.StartsWith("8") || subkeyname.StartsWith("9"))
-                { // If subkeyname string starts with "1, 2, 3, 4, 5, 6, 7, 8, 9", type if its found or not
-                    shortkey.Text = subkeyname;
-                    break;
+                RegistryKey Cryptography = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Cryptography", true);
+                foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces().Where(a => Adapter.IsValidMac(a.GetPhysicalAddress().GetAddressBytes(), true)).OrderByDescending(a => a.Speed))
+                { // Add all adapters in the combobox
+                    AdaptersComboBox.Items.Add(new Adapter(adapter));
+                }
+                AdaptersComboBox.SelectedIndex = 0; // Select the first one
+                foreach (string subkeyname2 in Registry.CurrentUser.GetSubKeyNames())
+                {
+                    if (subkeyname2.StartsWith("1") || subkeyname2.StartsWith("2") || subkeyname2.StartsWith("3") || subkeyname2.StartsWith("4") || subkeyname2.StartsWith("5") || subkeyname2.StartsWith("6") || subkeyname2.StartsWith("7") || subkeyname2.StartsWith("8") || subkeyname2.StartsWith("9"))
+                    { // If subkeyname2 string starts with "1, 2, 3, 4, 5, 6, 7, 8, 9", type if its found or not
+                        longkey.Text = subkeyname2;
+                        UnbanLog.Text = "-> The Second Key " + longkey.Text + " is found!";
+                        break;
+                    }
+                    else
+                    {
+                        longkey.Text = "None";
+                        UnbanLog.Text = "-> Second Key Cannot be found!";
+                        break;
+                    }
+                }
+                foreach (string subkeyname in Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("Microsoft").GetSubKeyNames())
+                {
+                    if (subkeyname.StartsWith("1") || subkeyname.StartsWith("2") || subkeyname.StartsWith("3") || subkeyname.StartsWith("4") || subkeyname.StartsWith("5") || subkeyname.StartsWith("6") || subkeyname.StartsWith("7") || subkeyname.StartsWith("8") || subkeyname.StartsWith("9"))
+                    { // If subkeyname string starts with "1, 2, 3, 4, 5, 6, 7, 8, 9", type if its found or not
+                        shortkey.Text = subkeyname;
+                        UnbanLog.Text += NewLine + "-> The First Key " + shortkey.Text + " is found!";
+                        break;
+                    }
+                    else
+                    {
+                        shortkey.Text = "None";
+                        UnbanLog.Text += NewLine + "-> First Key Cannot be found!";
+                        break;
+                    }
+                }
+                if (Cryptography.GetValueNames().Contains("MachineGuid"))
+                { // Check if MachineGuid key exists
+                    UnbanLog.Text += NewLine + "-> MachineGuid Key Is Found!";
                 }
                 else
                 {
-                    longkey.Text = "None";
-                    break;
+                    UnbanLog.Text += NewLine + "-> MachineGuid Key Cannot Be Found!";
                 }
             }
-            foreach (string subkeyname2 in Registry.CurrentUser.GetSubKeyNames())
-            { // If subkeyname2 string starts with "1, 2, 3, 4, 5, 6, 7, 8, 9", type if its found or not
-                if (subkeyname2.StartsWith("1") || subkeyname2.StartsWith("2") || subkeyname2.StartsWith("3") || subkeyname2.StartsWith("4") || subkeyname2.StartsWith("5") || subkeyname2.StartsWith("6") || subkeyname2.StartsWith("7") || subkeyname2.StartsWith("8") || subkeyname2.StartsWith("9"))
-                {
-                    longkey.Text = subkeyname2;
-                    break;
-                }
-                else
-                {
-                    longkey.Text = "None";
-                    break;
-                }
-            }
-        }
-
-        private void RegistryRefresher_Click(object sender, EventArgs e)
-        { // Refresh all needed stuff
-            UpdateAddresses();
-            RefreshKeys();
+            catch (Exception) { }
         }
 
         private void SetRegistryMac(string mac)
         { // Change adapter
-            Adapter a = AdaptersComboBox.SelectedItem as Adapter;
-            if (a.SetRegistryMac(mac))
+            if ((AdaptersComboBox.SelectedItem as Adapter).SetRegistryMac(mac))
             {
                 System.Threading.Thread.Sleep(100);
                 UpdateAddresses();
@@ -1014,33 +965,35 @@ namespace FreeZeHAX_Trainer
         {
             try
             {
+                UpdateAddresses();
                 RefreshKeys(); // Refresh all needed keys
-                System.Threading.Thread.Sleep(500);
+                others.Wait(500);
+                RandomizedMacAddressLabel.Text = Adapter.GetNewMac();
+                others.Wait(500);
                 if (longkey.Text != "None" && shortkey.Text != "None")
                 { // If longkey and shortkey doesn't exist, show an error message
                     UnbanLog.Clear();
                     FocusText.Focus();
-                    if (!Adapter.IsValidMac(CurrentMacTextBox.Text, false))
+                    if (!Adapter.IsValidMac(RandomizedMacAddressLabel.Text, false))
                     {
                         MessageBox.Show("Entered MAC-address is not valid; will not update.", "Invalid MAC-address specified", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    SetRegistryMac(CurrentMacTextBox.Text);
-                    UnbanLog.Text += "->Mac Adress Randomized And Changed!";
+                    SetRegistryMac(RandomizedMacAddressLabel.Text);
+                    UnbanLog.Text += "-> Mac Address Randomized And Changed!";
                     Registry.CurrentUser.DeleteSubKey(longkey.Text); // Delete longkey
-                    UnbanLog.Text += NewLine + "->The Second Key " + longkey.Text + " is deleted!";
+                    UnbanLog.Text += NewLine + "-> The Second Key " + longkey.Text + " is deleted!";
                     string ShortKeyStr = @"Software\Microsoft\" + shortkey.Text; // shortkey
                     Registry.CurrentUser.DeleteSubKey(ShortKeyStr); // Delete shortkey
-                    UnbanLog.Text += NewLine + "->The First Key " + shortkey.Text + " is deleted!";
+                    UnbanLog.Text += NewLine + "-> The First Key " + shortkey.Text + " is deleted!";
                     string CryptographyKey = @"SOFTWARE\Microsoft\Cryptography"; // Cryptography Key
                     RegistryKey ckey = Registry.LocalMachine.OpenSubKey(CryptographyKey, true);
                     ckey.DeleteValue("MachineGuid");// Delete Cryptography Key
-                    UnbanLog.Text += NewLine + "->The MachineGuid key is deleted!" + NewLine + "->Done Unbanning!";
+                    UnbanLog.Text += NewLine + "-> The MachineGuid key is deleted!" + NewLine + "-> Done Unbanning!";
                 }
                 else
                 {
-                    UnbanLog.Text += NewLine + "->Can't UNBAN! Open Growtopia and click 'Connect'. Then Click 'REFRESH'";
-                    MessageBox.Show("                                                Can't UNBAN!                                                          Tip: Open Growtopia and click 'Connect'. Then Restart the Trainer!");
+                    MessageBox.Show("                                                  Can't UNBAN!                                                                       Tip: Connect to Growtopia. Then try unbanning!", "FreeZeHAX Trainer");
                 }
             }
             catch (Exception) { }
@@ -1048,9 +1001,7 @@ namespace FreeZeHAX_Trainer
 
         private void UpdateAddresses()
         {
-            Adapter a = AdaptersComboBox.SelectedItem as Adapter;
-            CurrentMacTextBox.Text = a.RegistryMac;
-            ActualMacLabel.Text = a.Mac;
+            ActualMacLabel.Text = (AdaptersComboBox.SelectedItem as Adapter).Mac;
         }
 
         public class Adapter
