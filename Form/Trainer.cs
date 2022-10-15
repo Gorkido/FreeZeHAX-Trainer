@@ -30,10 +30,7 @@ namespace FreeZeHAX_Trainer
         private Point lastLocation;
         private bool mouseDown;
 
-        public Trainer()
-        {
-            InitializeComponent();
-        }
+        public Trainer() => InitializeComponent();
 
         public void Auto_Attach_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         { // Check if Growtopia.exe exists. If it exists make ProcOpen bool true / false
@@ -108,10 +105,7 @@ namespace FreeZeHAX_Trainer
             }
         }
 
-        public void Auto_Attach_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-        {
-            Auto_Attach.RunWorkerAsync(); // Start Auto_Attach background worker
-        }
+        public void Auto_Attach_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e) => Auto_Attach.RunWorkerAsync(); // Start Auto_Attach background worker
 
         private string AobScan(string AOB, bool All = true, bool First = false, bool Last = false)
         {
@@ -164,8 +158,7 @@ namespace FreeZeHAX_Trainer
         { // Get what's inside Host_File_Editor, then save it inside hosts file
             try
             {
-                string path = Path.Combine(Environment.SystemDirectory, "drivers\\etc\\hosts");
-                File.WriteAllText(path, Host_File_Editor.Text);
+                File.WriteAllText(Path.Combine(Environment.SystemDirectory, "drivers\\etc\\hosts"), Host_File_Editor.Text);
             }
             catch (Exception ex)
             {
@@ -216,9 +209,7 @@ namespace FreeZeHAX_Trainer
 
         private void HostsRefresh_Click(object sender, EventArgs e)
         {
-            string path = Path.Combine(Environment.SystemDirectory, "drivers\\etc\\hosts"); // Hosts file's path location
-            string str = File.ReadAllText(path); // Read all the content inside hosts file
-            Host_File_Editor.Text = str; // Viewing hosts file's content
+            Host_File_Editor.Text = File.ReadAllText(Path.Combine(Environment.SystemDirectory, "drivers\\etc\\hosts")); // Viewing hosts file's content
         }
 
         private void Minimize_Click(object sender, EventArgs e)
