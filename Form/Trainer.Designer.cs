@@ -46,18 +46,6 @@ namespace FreeZeHAX_Trainer
             this.Exit = new System.Windows.Forms.Label();
             this.Minimize = new System.Windows.Forms.Label();
             this.FocusText = new System.Windows.Forms.Label();
-            this.Unbanner = new Guna.UI2.WinForms.Guna2Panel();
-            this.longkey = new System.Windows.Forms.Label();
-            this.shortkey = new System.Windows.Forms.Label();
-            this.ActualMacLabel = new System.Windows.Forms.Label();
-            this.RandomizedMacAddressLabel = new System.Windows.Forms.Label();
-            this.label146 = new System.Windows.Forms.Label();
-            this.label3437 = new System.Windows.Forms.Label();
-            this.label143 = new System.Windows.Forms.Label();
-            this.label142 = new System.Windows.Forms.Label();
-            this.AdaptersComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.UnbanLog = new Guna.UI2.WinForms.Guna2TextBox();
-            this.Unban = new Guna.UI2.WinForms.Guna2GradientButton();
             this.Spammer = new Guna.UI2.WinForms.Guna2Panel();
             this.IntervalValue = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -123,6 +111,18 @@ namespace FreeZeHAX_Trainer
             this.label22 = new System.Windows.Forms.Label();
             this.TrackbarText = new System.Windows.Forms.Label();
             this.OpacityTrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.Unbanner = new Guna.UI2.WinForms.Guna2Panel();
+            this.longkey = new System.Windows.Forms.Label();
+            this.shortkey = new System.Windows.Forms.Label();
+            this.ActualMacLabel = new System.Windows.Forms.Label();
+            this.RandomizedMacAddressLabel = new System.Windows.Forms.Label();
+            this.label146 = new System.Windows.Forms.Label();
+            this.label3437 = new System.Windows.Forms.Label();
+            this.label143 = new System.Windows.Forms.Label();
+            this.label142 = new System.Windows.Forms.Label();
+            this.AdaptersComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.UnbanLog = new Guna.UI2.WinForms.Guna2TextBox();
+            this.Unban = new Guna.UI2.WinForms.Guna2GradientButton();
             this.Spammer_Elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.Host_File_Editor_Elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.GiveawayMode_Timer = new System.Windows.Forms.Timer(this.components);
@@ -136,7 +136,6 @@ namespace FreeZeHAX_Trainer
             this.StartupTransition = new Guna.UI2.WinForms.Guna2Transition();
             this.Background_Panel.SuspendLayout();
             this.TopBar.SuspendLayout();
-            this.Unbanner.SuspendLayout();
             this.Spammer.SuspendLayout();
             this.Changers.SuspendLayout();
             this.Cheats.SuspendLayout();
@@ -144,6 +143,7 @@ namespace FreeZeHAX_Trainer
             ((System.ComponentModel.ISupportInitialize)(this.Cold2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cold1)).BeginInit();
             this.Settings.SuspendLayout();
+            this.Unbanner.SuspendLayout();
             this.SuspendLayout();
             // 
             // FormElipse
@@ -433,229 +433,6 @@ namespace FreeZeHAX_Trainer
             this.FocusText.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FocusText_MouseDown);
             this.FocusText.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FocusText_MouseMove);
             this.FocusText.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FocusText_MouseUp);
-            // 
-            // Unbanner
-            // 
-            this.Unbanner.BackColor = System.Drawing.Color.Transparent;
-            this.Unbanner.BorderColor = System.Drawing.Color.White;
-            this.Unbanner.BorderThickness = 1;
-            this.Unbanner.Controls.Add(this.longkey);
-            this.Unbanner.Controls.Add(this.shortkey);
-            this.Unbanner.Controls.Add(this.ActualMacLabel);
-            this.Unbanner.Controls.Add(this.RandomizedMacAddressLabel);
-            this.Unbanner.Controls.Add(this.label146);
-            this.Unbanner.Controls.Add(this.label3437);
-            this.Unbanner.Controls.Add(this.label143);
-            this.Unbanner.Controls.Add(this.label142);
-            this.Unbanner.Controls.Add(this.AdaptersComboBox);
-            this.Unbanner.Controls.Add(this.UnbanLog);
-            this.Unbanner.Controls.Add(this.Unban);
-            this.PanelTransition.SetDecoration(this.Unbanner, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.Unbanner, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.StartupTransition.SetDecoration(this.Unbanner, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Unbanner.Location = new System.Drawing.Point(155, 50);
-            this.Unbanner.Name = "Unbanner";
-            this.Unbanner.Size = new System.Drawing.Size(640, 397);
-            this.Unbanner.TabIndex = 32;
-            this.Unbanner.Visible = false;
-            // 
-            // longkey
-            // 
-            this.longkey.AutoSize = true;
-            this.StartupTransition.SetDecoration(this.longkey, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.longkey, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.longkey, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.longkey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.longkey.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.longkey.ForeColor = System.Drawing.Color.White;
-            this.longkey.Location = new System.Drawing.Point(87, 346);
-            this.longkey.Name = "longkey";
-            this.longkey.Size = new System.Drawing.Size(0, 16);
-            this.longkey.TabIndex = 211;
-            this.longkey.Visible = false;
-            // 
-            // shortkey
-            // 
-            this.shortkey.AutoSize = true;
-            this.StartupTransition.SetDecoration(this.shortkey, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.shortkey, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.shortkey, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.shortkey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.shortkey.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shortkey.ForeColor = System.Drawing.Color.White;
-            this.shortkey.Location = new System.Drawing.Point(67, 329);
-            this.shortkey.Name = "shortkey";
-            this.shortkey.Size = new System.Drawing.Size(0, 16);
-            this.shortkey.TabIndex = 210;
-            this.shortkey.Visible = false;
-            // 
-            // ActualMacLabel
-            // 
-            this.ActualMacLabel.AutoSize = true;
-            this.StartupTransition.SetDecoration(this.ActualMacLabel, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.ActualMacLabel, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.ActualMacLabel, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ActualMacLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ActualMacLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ActualMacLabel.ForeColor = System.Drawing.Color.White;
-            this.ActualMacLabel.Location = new System.Drawing.Point(134, 363);
-            this.ActualMacLabel.Name = "ActualMacLabel";
-            this.ActualMacLabel.Size = new System.Drawing.Size(0, 16);
-            this.ActualMacLabel.TabIndex = 209;
-            this.ActualMacLabel.Visible = false;
-            // 
-            // RandomizedMacAddressLabel
-            // 
-            this.RandomizedMacAddressLabel.AutoSize = true;
-            this.StartupTransition.SetDecoration(this.RandomizedMacAddressLabel, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.RandomizedMacAddressLabel, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.RandomizedMacAddressLabel, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.RandomizedMacAddressLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RandomizedMacAddressLabel.ForeColor = System.Drawing.Color.White;
-            this.RandomizedMacAddressLabel.Location = new System.Drawing.Point(162, 379);
-            this.RandomizedMacAddressLabel.Name = "RandomizedMacAddressLabel";
-            this.RandomizedMacAddressLabel.Size = new System.Drawing.Size(0, 16);
-            this.RandomizedMacAddressLabel.TabIndex = 208;
-            this.RandomizedMacAddressLabel.Visible = false;
-            // 
-            // label146
-            // 
-            this.label146.AutoSize = true;
-            this.StartupTransition.SetDecoration(this.label146, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.label146, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.label146, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label146.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label146.ForeColor = System.Drawing.Color.White;
-            this.label146.Location = new System.Drawing.Point(3, 378);
-            this.label146.Name = "label146";
-            this.label146.Size = new System.Drawing.Size(164, 16);
-            this.label146.TabIndex = 200;
-            this.label146.Text = "Mac Address To Change:";
-            this.label146.Visible = false;
-            // 
-            // label3437
-            // 
-            this.label3437.AutoSize = true;
-            this.StartupTransition.SetDecoration(this.label3437, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.label3437, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.label3437, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label3437.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3437.ForeColor = System.Drawing.Color.White;
-            this.label3437.Location = new System.Drawing.Point(3, 362);
-            this.label3437.Name = "label3437";
-            this.label3437.Size = new System.Drawing.Size(143, 16);
-            this.label3437.TabIndex = 198;
-            this.label3437.Text = "Current Mac Address:";
-            this.label3437.Visible = false;
-            // 
-            // label143
-            // 
-            this.label143.AutoSize = true;
-            this.StartupTransition.SetDecoration(this.label143, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.label143, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.label143, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label143.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label143.ForeColor = System.Drawing.Color.White;
-            this.label143.Location = new System.Drawing.Point(3, 344);
-            this.label143.Name = "label143";
-            this.label143.Size = new System.Drawing.Size(88, 16);
-            this.label143.TabIndex = 194;
-            this.label143.Text = "Second Key:";
-            this.label143.Visible = false;
-            // 
-            // label142
-            // 
-            this.label142.AutoSize = true;
-            this.StartupTransition.SetDecoration(this.label142, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.label142, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.label142, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label142.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label142.ForeColor = System.Drawing.Color.White;
-            this.label142.Location = new System.Drawing.Point(4, 328);
-            this.label142.Name = "label142";
-            this.label142.Size = new System.Drawing.Size(67, 16);
-            this.label142.TabIndex = 193;
-            this.label142.Text = "First Key:";
-            this.label142.Visible = false;
-            // 
-            // AdaptersComboBox
-            // 
-            this.AdaptersComboBox.AutoRoundedCorners = true;
-            this.AdaptersComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.AdaptersComboBox.BorderColor = System.Drawing.Color.Transparent;
-            this.AdaptersComboBox.BorderRadius = 17;
-            this.AdaptersComboBox.BorderThickness = 0;
-            this.PanelTransition.SetDecoration(this.AdaptersComboBox, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.AdaptersComboBox, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.StartupTransition.SetDecoration(this.AdaptersComboBox, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.AdaptersComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.AdaptersComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.AdaptersComboBox.FillColor = System.Drawing.Color.SteelBlue;
-            this.AdaptersComboBox.FocusedColor = System.Drawing.Color.SteelBlue;
-            this.AdaptersComboBox.FocusedState.BorderColor = System.Drawing.Color.SteelBlue;
-            this.AdaptersComboBox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdaptersComboBox.ForeColor = System.Drawing.Color.White;
-            this.AdaptersComboBox.ItemHeight = 30;
-            this.AdaptersComboBox.Location = new System.Drawing.Point(236, 326);
-            this.AdaptersComboBox.Name = "AdaptersComboBox";
-            this.AdaptersComboBox.ShadowDecoration.Color = System.Drawing.Color.Transparent;
-            this.AdaptersComboBox.Size = new System.Drawing.Size(180, 36);
-            this.AdaptersComboBox.TabIndex = 187;
-            this.AdaptersComboBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.AdaptersComboBox.SelectedIndexChanged += new System.EventHandler(this.AdaptersComboBox_SelectedIndexChanged);
-            // 
-            // UnbanLog
-            // 
-            this.UnbanLog.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.UnbanLog.BorderColor = System.Drawing.Color.SteelBlue;
-            this.UnbanLog.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PanelTransition.SetDecoration(this.UnbanLog, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.UnbanLog, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.StartupTransition.SetDecoration(this.UnbanLog, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.UnbanLog.DefaultText = "";
-            this.UnbanLog.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.UnbanLog.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.UnbanLog.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.UnbanLog.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.UnbanLog.FillColor = System.Drawing.Color.SteelBlue;
-            this.UnbanLog.FocusedState.BorderColor = System.Drawing.Color.SteelBlue;
-            this.UnbanLog.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UnbanLog.ForeColor = System.Drawing.Color.White;
-            this.UnbanLog.HoverState.BorderColor = System.Drawing.Color.SteelBlue;
-            this.UnbanLog.Location = new System.Drawing.Point(70, 104);
-            this.UnbanLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.UnbanLog.Multiline = true;
-            this.UnbanLog.Name = "UnbanLog";
-            this.UnbanLog.PasswordChar = '\0';
-            this.UnbanLog.PlaceholderForeColor = System.Drawing.Color.White;
-            this.UnbanLog.PlaceholderText = "";
-            this.UnbanLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.UnbanLog.SelectedText = "";
-            this.UnbanLog.Size = new System.Drawing.Size(503, 188);
-            this.UnbanLog.TabIndex = 6;
-            this.UnbanLog.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Unban
-            // 
-            this.Unban.Animated = true;
-            this.Unban.AutoRoundedCorners = true;
-            this.Unban.BorderColor = System.Drawing.Color.Transparent;
-            this.Unban.BorderRadius = 24;
-            this.Unban.BorderThickness = 1;
-            this.PanelTransition.SetDecoration(this.Unban, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.Unban, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.StartupTransition.SetDecoration(this.Unban, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Unban.FillColor = System.Drawing.Color.MidnightBlue;
-            this.Unban.FillColor2 = System.Drawing.Color.LightSkyBlue;
-            this.Unban.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unban.ForeColor = System.Drawing.Color.White;
-            this.Unban.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.Unban.Location = new System.Drawing.Point(236, 28);
-            this.Unban.Name = "Unban";
-            this.Unban.Size = new System.Drawing.Size(180, 50);
-            this.Unban.TabIndex = 4;
-            this.Unban.Text = "Unban";
-            this.Unban.Click += new System.EventHandler(this.Unban_Click);
             // 
             // Spammer
             // 
@@ -1735,6 +1512,229 @@ namespace FreeZeHAX_Trainer
             this.OpacityTrackBar.Value = 90;
             this.OpacityTrackBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.Opacity_Track_Scroll);
             // 
+            // Unbanner
+            // 
+            this.Unbanner.BackColor = System.Drawing.Color.Transparent;
+            this.Unbanner.BorderColor = System.Drawing.Color.White;
+            this.Unbanner.BorderThickness = 1;
+            this.Unbanner.Controls.Add(this.longkey);
+            this.Unbanner.Controls.Add(this.shortkey);
+            this.Unbanner.Controls.Add(this.ActualMacLabel);
+            this.Unbanner.Controls.Add(this.RandomizedMacAddressLabel);
+            this.Unbanner.Controls.Add(this.label146);
+            this.Unbanner.Controls.Add(this.label3437);
+            this.Unbanner.Controls.Add(this.label143);
+            this.Unbanner.Controls.Add(this.label142);
+            this.Unbanner.Controls.Add(this.AdaptersComboBox);
+            this.Unbanner.Controls.Add(this.UnbanLog);
+            this.Unbanner.Controls.Add(this.Unban);
+            this.PanelTransition.SetDecoration(this.Unbanner, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.Unbanner, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.StartupTransition.SetDecoration(this.Unbanner, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.Unbanner.Location = new System.Drawing.Point(155, 50);
+            this.Unbanner.Name = "Unbanner";
+            this.Unbanner.Size = new System.Drawing.Size(640, 397);
+            this.Unbanner.TabIndex = 32;
+            this.Unbanner.Visible = false;
+            // 
+            // longkey
+            // 
+            this.longkey.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.longkey, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.longkey, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.longkey, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.longkey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.longkey.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.longkey.ForeColor = System.Drawing.Color.White;
+            this.longkey.Location = new System.Drawing.Point(87, 346);
+            this.longkey.Name = "longkey";
+            this.longkey.Size = new System.Drawing.Size(0, 16);
+            this.longkey.TabIndex = 211;
+            this.longkey.Visible = false;
+            // 
+            // shortkey
+            // 
+            this.shortkey.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.shortkey, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.shortkey, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.shortkey, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.shortkey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.shortkey.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shortkey.ForeColor = System.Drawing.Color.White;
+            this.shortkey.Location = new System.Drawing.Point(67, 329);
+            this.shortkey.Name = "shortkey";
+            this.shortkey.Size = new System.Drawing.Size(0, 16);
+            this.shortkey.TabIndex = 210;
+            this.shortkey.Visible = false;
+            // 
+            // ActualMacLabel
+            // 
+            this.ActualMacLabel.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.ActualMacLabel, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.ActualMacLabel, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.ActualMacLabel, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ActualMacLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ActualMacLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActualMacLabel.ForeColor = System.Drawing.Color.White;
+            this.ActualMacLabel.Location = new System.Drawing.Point(134, 363);
+            this.ActualMacLabel.Name = "ActualMacLabel";
+            this.ActualMacLabel.Size = new System.Drawing.Size(0, 16);
+            this.ActualMacLabel.TabIndex = 209;
+            this.ActualMacLabel.Visible = false;
+            // 
+            // RandomizedMacAddressLabel
+            // 
+            this.RandomizedMacAddressLabel.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.RandomizedMacAddressLabel, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.RandomizedMacAddressLabel, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.RandomizedMacAddressLabel, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.RandomizedMacAddressLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RandomizedMacAddressLabel.ForeColor = System.Drawing.Color.White;
+            this.RandomizedMacAddressLabel.Location = new System.Drawing.Point(162, 379);
+            this.RandomizedMacAddressLabel.Name = "RandomizedMacAddressLabel";
+            this.RandomizedMacAddressLabel.Size = new System.Drawing.Size(0, 16);
+            this.RandomizedMacAddressLabel.TabIndex = 208;
+            this.RandomizedMacAddressLabel.Visible = false;
+            // 
+            // label146
+            // 
+            this.label146.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label146, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label146, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label146, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label146.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label146.ForeColor = System.Drawing.Color.White;
+            this.label146.Location = new System.Drawing.Point(3, 378);
+            this.label146.Name = "label146";
+            this.label146.Size = new System.Drawing.Size(164, 16);
+            this.label146.TabIndex = 200;
+            this.label146.Text = "Mac Address To Change:";
+            this.label146.Visible = false;
+            // 
+            // label3437
+            // 
+            this.label3437.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label3437, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label3437, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label3437, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label3437.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3437.ForeColor = System.Drawing.Color.White;
+            this.label3437.Location = new System.Drawing.Point(3, 362);
+            this.label3437.Name = "label3437";
+            this.label3437.Size = new System.Drawing.Size(143, 16);
+            this.label3437.TabIndex = 198;
+            this.label3437.Text = "Current Mac Address:";
+            this.label3437.Visible = false;
+            // 
+            // label143
+            // 
+            this.label143.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label143, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label143, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label143, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label143.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label143.ForeColor = System.Drawing.Color.White;
+            this.label143.Location = new System.Drawing.Point(3, 344);
+            this.label143.Name = "label143";
+            this.label143.Size = new System.Drawing.Size(88, 16);
+            this.label143.TabIndex = 194;
+            this.label143.Text = "Second Key:";
+            this.label143.Visible = false;
+            // 
+            // label142
+            // 
+            this.label142.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label142, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label142, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label142, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label142.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label142.ForeColor = System.Drawing.Color.White;
+            this.label142.Location = new System.Drawing.Point(4, 328);
+            this.label142.Name = "label142";
+            this.label142.Size = new System.Drawing.Size(67, 16);
+            this.label142.TabIndex = 193;
+            this.label142.Text = "First Key:";
+            this.label142.Visible = false;
+            // 
+            // AdaptersComboBox
+            // 
+            this.AdaptersComboBox.AutoRoundedCorners = true;
+            this.AdaptersComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.AdaptersComboBox.BorderColor = System.Drawing.Color.Transparent;
+            this.AdaptersComboBox.BorderRadius = 17;
+            this.AdaptersComboBox.BorderThickness = 0;
+            this.PanelTransition.SetDecoration(this.AdaptersComboBox, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.AdaptersComboBox, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.StartupTransition.SetDecoration(this.AdaptersComboBox, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.AdaptersComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.AdaptersComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AdaptersComboBox.FillColor = System.Drawing.Color.SteelBlue;
+            this.AdaptersComboBox.FocusedColor = System.Drawing.Color.SteelBlue;
+            this.AdaptersComboBox.FocusedState.BorderColor = System.Drawing.Color.SteelBlue;
+            this.AdaptersComboBox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdaptersComboBox.ForeColor = System.Drawing.Color.White;
+            this.AdaptersComboBox.ItemHeight = 30;
+            this.AdaptersComboBox.Location = new System.Drawing.Point(236, 326);
+            this.AdaptersComboBox.Name = "AdaptersComboBox";
+            this.AdaptersComboBox.ShadowDecoration.Color = System.Drawing.Color.Transparent;
+            this.AdaptersComboBox.Size = new System.Drawing.Size(180, 36);
+            this.AdaptersComboBox.TabIndex = 187;
+            this.AdaptersComboBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.AdaptersComboBox.SelectedIndexChanged += new System.EventHandler(this.AdaptersComboBox_SelectedIndexChanged);
+            // 
+            // UnbanLog
+            // 
+            this.UnbanLog.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UnbanLog.BorderColor = System.Drawing.Color.SteelBlue;
+            this.UnbanLog.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PanelTransition.SetDecoration(this.UnbanLog, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.UnbanLog, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.StartupTransition.SetDecoration(this.UnbanLog, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.UnbanLog.DefaultText = "";
+            this.UnbanLog.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.UnbanLog.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.UnbanLog.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.UnbanLog.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.UnbanLog.FillColor = System.Drawing.Color.SteelBlue;
+            this.UnbanLog.FocusedState.BorderColor = System.Drawing.Color.SteelBlue;
+            this.UnbanLog.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UnbanLog.ForeColor = System.Drawing.Color.White;
+            this.UnbanLog.HoverState.BorderColor = System.Drawing.Color.SteelBlue;
+            this.UnbanLog.Location = new System.Drawing.Point(70, 104);
+            this.UnbanLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UnbanLog.Multiline = true;
+            this.UnbanLog.Name = "UnbanLog";
+            this.UnbanLog.PasswordChar = '\0';
+            this.UnbanLog.PlaceholderForeColor = System.Drawing.Color.White;
+            this.UnbanLog.PlaceholderText = "";
+            this.UnbanLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.UnbanLog.SelectedText = "";
+            this.UnbanLog.Size = new System.Drawing.Size(503, 188);
+            this.UnbanLog.TabIndex = 6;
+            this.UnbanLog.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Unban
+            // 
+            this.Unban.Animated = true;
+            this.Unban.AutoRoundedCorners = true;
+            this.Unban.BorderColor = System.Drawing.Color.Transparent;
+            this.Unban.BorderRadius = 24;
+            this.Unban.BorderThickness = 1;
+            this.PanelTransition.SetDecoration(this.Unban, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.Unban, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.StartupTransition.SetDecoration(this.Unban, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.Unban.FillColor = System.Drawing.Color.MidnightBlue;
+            this.Unban.FillColor2 = System.Drawing.Color.LightSkyBlue;
+            this.Unban.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unban.ForeColor = System.Drawing.Color.White;
+            this.Unban.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.Unban.Location = new System.Drawing.Point(236, 28);
+            this.Unban.Name = "Unban";
+            this.Unban.Size = new System.Drawing.Size(180, 50);
+            this.Unban.TabIndex = 4;
+            this.Unban.Text = "Unban";
+            this.Unban.Click += new System.EventHandler(this.Unban_Click);
+            // 
             // Spammer_Elipse
             // 
             this.Spammer_Elipse.BorderRadius = 25;
@@ -1866,8 +1866,6 @@ namespace FreeZeHAX_Trainer
             this.Background_Panel.ResumeLayout(false);
             this.TopBar.ResumeLayout(false);
             this.TopBar.PerformLayout();
-            this.Unbanner.ResumeLayout(false);
-            this.Unbanner.PerformLayout();
             this.Spammer.ResumeLayout(false);
             this.Spammer.PerformLayout();
             this.Changers.ResumeLayout(false);
@@ -1880,6 +1878,8 @@ namespace FreeZeHAX_Trainer
             ((System.ComponentModel.ISupportInitialize)(this.Cold1)).EndInit();
             this.Settings.ResumeLayout(false);
             this.Settings.PerformLayout();
+            this.Unbanner.ResumeLayout(false);
+            this.Unbanner.PerformLayout();
             this.ResumeLayout(false);
 
         }

