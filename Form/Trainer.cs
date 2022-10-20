@@ -58,7 +58,6 @@ namespace FreeZeHAX_Trainer
                         FocusText.Text = "Searching For Cheats!";
                         About_Button.Enabled = false;
                         Cheat_Button.Enabled = false;
-                        Visuals_Button.Enabled = false;
                         Spammer_Button.Enabled = false;
                         Unbanner_Button.Enabled = false;
                         Settings_Button.Enabled = false;
@@ -76,7 +75,6 @@ namespace FreeZeHAX_Trainer
                         FocusText.Text = "FreeZeHAX Trainer";
                         About_Button.Enabled = true;
                         Cheat_Button.Enabled = true;
-                        Visuals_Button.Enabled = true;
                         Spammer_Button.Enabled = true;
                         Unbanner_Button.Enabled = true;
                         Settings_Button.Enabled = true;
@@ -314,7 +312,6 @@ namespace FreeZeHAX_Trainer
 
             PanelTransition.Show(About_Button);
             PanelTransition.Show(Cheat_Button);
-            PanelTransition.Show(Visuals_Button);
             PanelTransition.Show(Spammer_Button);
             PanelTransition.Show(Unbanner_Button);
             PanelTransition.Show(Settings_Button);
@@ -445,7 +442,6 @@ namespace FreeZeHAX_Trainer
         {
             PanelTransition.Show(About);
             Cheats.Hide();
-            Visuals.Hide();
             Spammer.Hide();
             Unbanner.Hide();
             Settings.Hide();
@@ -453,7 +449,6 @@ namespace FreeZeHAX_Trainer
 
         private void Changers_Button_Click(object sender, EventArgs e)
         {
-            PanelTransition.Show(Visuals);
             About.Hide();
             Cheats.Hide();
             Spammer.Hide();
@@ -465,7 +460,6 @@ namespace FreeZeHAX_Trainer
         {
             PanelTransition.Show(Cheats);
             About.Hide();
-            Visuals.Hide();
             Spammer.Hide();
             Unbanner.Hide();
             Settings.Hide();
@@ -476,7 +470,6 @@ namespace FreeZeHAX_Trainer
             PanelTransition.Show(Settings);
             About.Hide();
             Cheats.Hide();
-            Visuals.Hide();
             Spammer.Hide();
             Unbanner.Hide();
 
@@ -494,7 +487,6 @@ namespace FreeZeHAX_Trainer
             PanelTransition.Show(Spammer);
             About.Hide();
             Cheats.Hide();
-            Visuals.Hide();
             Unbanner.Hide();
             Settings.Hide();
         }
@@ -504,7 +496,6 @@ namespace FreeZeHAX_Trainer
             PanelTransition.Show(Unbanner);
             About.Hide();
             Cheats.Hide();
-            Visuals.Hide();
             Spammer.Hide();
             Settings.Hide();
         }
