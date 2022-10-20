@@ -30,10 +30,10 @@ namespace FreeZeHAX_Trainer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI2.AnimatorNS.Animation animation4 = new Guna.UI2.AnimatorNS.Animation();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Trainer));
             Guna.UI2.AnimatorNS.Animation animation5 = new Guna.UI2.AnimatorNS.Animation();
             Guna.UI2.AnimatorNS.Animation animation6 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation4 = new Guna.UI2.AnimatorNS.Animation();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Trainer));
             this.FormElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.Background_Panel = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.Settings_Button = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -52,6 +52,8 @@ namespace FreeZeHAX_Trainer
             this.Cold1 = new System.Windows.Forms.PictureBox();
             this.CheatAddresses = new System.Windows.Forms.ListBox();
             this.Settings = new Guna.UI2.WinForms.Guna2Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.TrackbarText = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.RestartTrainer = new Guna.UI2.WinForms.Guna2Button();
             this.label23 = new System.Windows.Forms.Label();
@@ -129,8 +131,6 @@ namespace FreeZeHAX_Trainer
             this.PanelTransition = new Guna.UI2.WinForms.Guna2Transition();
             this.ButtonTransition = new Guna.UI2.WinForms.Guna2Transition();
             this.StartupTransition = new Guna.UI2.WinForms.Guna2Transition();
-            this.label22 = new System.Windows.Forms.Label();
-            this.TrackbarText = new System.Windows.Forms.Label();
             this.Background_Panel.SuspendLayout();
             this.TopBar.SuspendLayout();
             this.About.SuspendLayout();
@@ -355,11 +355,11 @@ namespace FreeZeHAX_Trainer
             this.ButtonTransition.SetDecoration(this.Exit, Guna.UI2.AnimatorNS.DecorationType.None);
             this.PanelTransition.SetDecoration(this.Exit, Guna.UI2.AnimatorNS.DecorationType.None);
             this.Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Exit.Font = new System.Drawing.Font("Arial", 19F, System.Drawing.FontStyle.Bold);
+            this.Exit.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold);
             this.Exit.ForeColor = System.Drawing.Color.White;
-            this.Exit.Location = new System.Drawing.Point(638, 10);
+            this.Exit.Location = new System.Drawing.Point(639, 10);
             this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(30, 30);
+            this.Exit.Size = new System.Drawing.Size(29, 29);
             this.Exit.TabIndex = 7;
             this.Exit.Text = "X";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
@@ -372,11 +372,11 @@ namespace FreeZeHAX_Trainer
             this.ButtonTransition.SetDecoration(this.Minimize, Guna.UI2.AnimatorNS.DecorationType.None);
             this.PanelTransition.SetDecoration(this.Minimize, Guna.UI2.AnimatorNS.DecorationType.None);
             this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimize.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Minimize.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.Minimize.ForeColor = System.Drawing.Color.White;
-            this.Minimize.Location = new System.Drawing.Point(575, 9);
+            this.Minimize.Location = new System.Drawing.Point(583, 9);
             this.Minimize.Name = "Minimize";
-            this.Minimize.Size = new System.Drawing.Size(27, 19);
+            this.Minimize.Size = new System.Drawing.Size(24, 18);
             this.Minimize.TabIndex = 8;
             this.Minimize.Text = "__";
             this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
@@ -516,6 +516,36 @@ namespace FreeZeHAX_Trainer
             this.Settings.Size = new System.Drawing.Size(526, 331);
             this.Settings.TabIndex = 33;
             this.Settings.Visible = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label22, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label22, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label22, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label22.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(213, 279);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(77, 19);
+            this.label22.TabIndex = 22;
+            this.label22.Text = "Opacity :";
+            // 
+            // TrackbarText
+            // 
+            this.TrackbarText.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.TrackbarText, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.TrackbarText, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.TrackbarText, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.TrackbarText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TrackbarText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.TrackbarText.ForeColor = System.Drawing.Color.White;
+            this.TrackbarText.Location = new System.Drawing.Point(287, 280);
+            this.TrackbarText.Name = "TrackbarText";
+            this.TrackbarText.Size = new System.Drawing.Size(27, 19);
+            this.TrackbarText.TabIndex = 21;
+            this.TrackbarText.Text = "90";
             // 
             // label1
             // 
@@ -1682,6 +1712,51 @@ namespace FreeZeHAX_Trainer
             // 
             this.PanelTransition.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Transparent;
             this.PanelTransition.Cursor = null;
+            animation5.AnimateOnlyDifferences = true;
+            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
+            animation5.LeafCoeff = 0F;
+            animation5.MaxTime = 1F;
+            animation5.MinTime = 0F;
+            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
+            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
+            animation5.MosaicSize = 0;
+            animation5.Padding = new System.Windows.Forms.Padding(0);
+            animation5.RotateCoeff = 0F;
+            animation5.RotateLimit = 0F;
+            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
+            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
+            animation5.TimeCoeff = 0F;
+            animation5.TransparencyCoeff = 1F;
+            this.PanelTransition.DefaultAnimation = animation5;
+            this.PanelTransition.Interval = 5;
+            // 
+            // ButtonTransition
+            // 
+            this.ButtonTransition.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Scale;
+            this.ButtonTransition.Cursor = null;
+            animation6.AnimateOnlyDifferences = true;
+            animation6.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.BlindCoeff")));
+            animation6.LeafCoeff = 0F;
+            animation6.MaxTime = 1F;
+            animation6.MinTime = 0F;
+            animation6.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicCoeff")));
+            animation6.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicShift")));
+            animation6.MosaicSize = 0;
+            animation6.Padding = new System.Windows.Forms.Padding(0);
+            animation6.RotateCoeff = 0F;
+            animation6.RotateLimit = 0F;
+            animation6.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.ScaleCoeff")));
+            animation6.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.SlideCoeff")));
+            animation6.TimeCoeff = 0F;
+            animation6.TransparencyCoeff = 0F;
+            this.ButtonTransition.DefaultAnimation = animation6;
+            this.ButtonTransition.Interval = 5;
+            this.ButtonTransition.TimeStep = 0.01F;
+            // 
+            // StartupTransition
+            // 
+            this.StartupTransition.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Transparent;
+            this.StartupTransition.Cursor = null;
             animation4.AnimateOnlyDifferences = true;
             animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
             animation4.LeafCoeff = 0F;
@@ -1697,84 +1772,9 @@ namespace FreeZeHAX_Trainer
             animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
             animation4.TimeCoeff = 0F;
             animation4.TransparencyCoeff = 1F;
-            this.PanelTransition.DefaultAnimation = animation4;
-            this.PanelTransition.Interval = 5;
-            // 
-            // ButtonTransition
-            // 
-            this.ButtonTransition.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Scale;
-            this.ButtonTransition.Cursor = null;
-            animation5.AnimateOnlyDifferences = true;
-            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
-            animation5.LeafCoeff = 0F;
-            animation5.MaxTime = 1F;
-            animation5.MinTime = 0F;
-            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
-            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
-            animation5.MosaicSize = 0;
-            animation5.Padding = new System.Windows.Forms.Padding(0);
-            animation5.RotateCoeff = 0F;
-            animation5.RotateLimit = 0F;
-            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
-            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
-            animation5.TimeCoeff = 0F;
-            animation5.TransparencyCoeff = 0F;
-            this.ButtonTransition.DefaultAnimation = animation5;
-            this.ButtonTransition.Interval = 5;
-            this.ButtonTransition.TimeStep = 0.01F;
-            // 
-            // StartupTransition
-            // 
-            this.StartupTransition.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Transparent;
-            this.StartupTransition.Cursor = null;
-            animation6.AnimateOnlyDifferences = true;
-            animation6.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.BlindCoeff")));
-            animation6.LeafCoeff = 0F;
-            animation6.MaxTime = 1F;
-            animation6.MinTime = 0F;
-            animation6.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicCoeff")));
-            animation6.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicShift")));
-            animation6.MosaicSize = 0;
-            animation6.Padding = new System.Windows.Forms.Padding(0);
-            animation6.RotateCoeff = 0F;
-            animation6.RotateLimit = 0F;
-            animation6.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.ScaleCoeff")));
-            animation6.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.SlideCoeff")));
-            animation6.TimeCoeff = 0F;
-            animation6.TransparencyCoeff = 1F;
-            this.StartupTransition.DefaultAnimation = animation6;
+            this.StartupTransition.DefaultAnimation = animation4;
             this.StartupTransition.Interval = 5;
             this.StartupTransition.TimeStep = 0.01F;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.StartupTransition.SetDecoration(this.label22, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.label22, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.label22, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label22.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(213, 279);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(77, 19);
-            this.label22.TabIndex = 22;
-            this.label22.Text = "Opacity :";
-            // 
-            // TrackbarText
-            // 
-            this.TrackbarText.AutoSize = true;
-            this.StartupTransition.SetDecoration(this.TrackbarText, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.TrackbarText, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.TrackbarText, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.TrackbarText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TrackbarText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.TrackbarText.ForeColor = System.Drawing.Color.White;
-            this.TrackbarText.Location = new System.Drawing.Point(287, 280);
-            this.TrackbarText.Name = "TrackbarText";
-            this.TrackbarText.Size = new System.Drawing.Size(27, 19);
-            this.TrackbarText.TabIndex = 21;
-            this.TrackbarText.Text = "90";
             // 
             // Trainer
             // 
@@ -1793,6 +1793,7 @@ namespace FreeZeHAX_Trainer
             this.Name = "Trainer";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "FreeZeHAX Trainer";
             this.Load += new System.EventHandler(this.Trainer_Load);
             this.Background_Panel.ResumeLayout(false);
             this.TopBar.ResumeLayout(false);
