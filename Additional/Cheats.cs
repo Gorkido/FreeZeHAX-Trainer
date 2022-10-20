@@ -26,16 +26,18 @@
             "74 ? e8 ? ? ? ? 48 8b ce e8 ? ? ? ? 48 83 be", // Ghost Mode | 19 Y
             "0f 84 ? ? ? ? 80 bb ? ? ? ? ? f3 0f 10 05", // Gravity Mode | 20 Y
             "74 ? 0f 29 74 24 ? 0f 57 f6", // Fast Drop | 21 Y
-            //"66 70 ? 3a 20" // FPS String | 22 Y
+            "74 ? 0f b7 46 ? 41 39 86 ? ? ? ? 0f 84" // Anti Checkpoint | 22 Y
         };
 
         public string[] GTCheatsFirst =
         { // These cheats require MemoryScanFirst
-            "0f 85 ? ? ? ? c7 86", // Pos Bypass | 1st Result
-            "74 ? 8b 4f ? 83 f9", // Mod Fly V1 | 1st Result
-            "f3 0f 5c d1 0f 28 f2", // Growz | 1st Result
-            "0f 85 ? ? ? ? 48 85 d2 74 ? 48 8b ca", // Anti Lgrid | 1st Result
-            "73 ? 80 63", // Fast Pickup | 1st Result
+            "0f 85 ? ? ? ? c7 86", // Pos Bypass | 23 Y | 1st Result
+            "74 ? 8b 4f ? 83 f9", // Mod Fly V1 | 24 Y | 1st Result
+            "f3 0f 5c d1 0f 28 f2", // Growz | 25 Y | 1st Result
+            "0f 85 ? ? ? ? 48 85 d2 74 ? 48 8b ca", // Anti Lgrid | 26 Y | 1st Result
+            "73 ? 80 63", // Fast Pickup | 27 Y | 1st Result
+            "0f 84 ? ? ? ? 48 8b d6 48 8b c8 e8 ? ? ? ? e9" // Anti State | 28 Y
+            //"66 70 ? 3a 20" // FPS String | 29 Y
         };
     }
 }

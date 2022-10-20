@@ -39,25 +39,51 @@ namespace FreeZeHAX_Trainer
             this.Settings_Button = new Guna.UI2.WinForms.Guna2GradientButton();
             this.Unbanner_Button = new Guna.UI2.WinForms.Guna2GradientButton();
             this.Spammer_Button = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.Changers_Button = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.Visuals_Button = new Guna.UI2.WinForms.Guna2GradientButton();
             this.Cheat_Button = new Guna.UI2.WinForms.Guna2GradientButton();
             this.About_Button = new Guna.UI2.WinForms.Guna2GradientButton();
             this.TopBar = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.Exit = new System.Windows.Forms.Label();
             this.Minimize = new System.Windows.Forms.Label();
             this.FocusText = new System.Windows.Forms.Label();
-            this.Spammer = new Guna.UI2.WinForms.Guna2Panel();
-            this.IntervalValue = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.SetInterval = new Guna.UI2.WinForms.Guna2Button();
-            this.Spammer_Interval = new Guna.UI2.WinForms.Guna2TextBox();
-            this.Spammer_Interval_Label = new System.Windows.Forms.Label();
-            this.Spammer_Status_Label = new System.Windows.Forms.Label();
-            this.Spammer_Status = new System.Windows.Forms.Button();
-            this.Input = new Guna.UI2.WinForms.Guna2TextBox();
-            this.Changers = new Guna.UI2.WinForms.Guna2Panel();
-            this.CheatAddresses = new System.Windows.Forms.ListBox();
+            this.Visuals = new Guna.UI2.WinForms.Guna2Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.CheatAddresses = new System.Windows.Forms.ListBox();
             this.Cheats = new Guna.UI2.WinForms.Guna2Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -68,8 +94,8 @@ namespace FreeZeHAX_Trainer
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.ModZoom = new System.Windows.Forms.Button();
-            this.FastPickupDrop = new System.Windows.Forms.Button();
+            this.AntiState = new System.Windows.Forms.Button();
+            this.AntiCheckpoint = new System.Windows.Forms.Button();
             this.AntiGravityWell = new System.Windows.Forms.Button();
             this.AntiPlatform = new System.Windows.Forms.Button();
             this.SystemSpeed = new System.Windows.Forms.Button();
@@ -123,6 +149,15 @@ namespace FreeZeHAX_Trainer
             this.AdaptersComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.UnbanLog = new Guna.UI2.WinForms.Guna2TextBox();
             this.Unban = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.Spammer = new Guna.UI2.WinForms.Guna2Panel();
+            this.IntervalValue = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.SetInterval = new Guna.UI2.WinForms.Guna2Button();
+            this.Spammer_Interval = new Guna.UI2.WinForms.Guna2TextBox();
+            this.Spammer_Interval_Label = new System.Windows.Forms.Label();
+            this.Spammer_Status_Label = new System.Windows.Forms.Label();
+            this.Spammer_Status = new System.Windows.Forms.Button();
+            this.Input = new Guna.UI2.WinForms.Guna2TextBox();
             this.Spammer_Elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.Host_File_Editor_Elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.GiveawayMode_Timer = new System.Windows.Forms.Timer(this.components);
@@ -136,14 +171,14 @@ namespace FreeZeHAX_Trainer
             this.StartupTransition = new Guna.UI2.WinForms.Guna2Transition();
             this.Background_Panel.SuspendLayout();
             this.TopBar.SuspendLayout();
-            this.Spammer.SuspendLayout();
-            this.Changers.SuspendLayout();
+            this.Visuals.SuspendLayout();
             this.Cheats.SuspendLayout();
             this.About.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Cold2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cold1)).BeginInit();
             this.Settings.SuspendLayout();
             this.Unbanner.SuspendLayout();
+            this.Spammer.SuspendLayout();
             this.SuspendLayout();
             // 
             // FormElipse
@@ -158,7 +193,7 @@ namespace FreeZeHAX_Trainer
             this.Background_Panel.Controls.Add(this.Settings_Button);
             this.Background_Panel.Controls.Add(this.Unbanner_Button);
             this.Background_Panel.Controls.Add(this.Spammer_Button);
-            this.Background_Panel.Controls.Add(this.Changers_Button);
+            this.Background_Panel.Controls.Add(this.Visuals_Button);
             this.Background_Panel.Controls.Add(this.Cheat_Button);
             this.Background_Panel.Controls.Add(this.About_Button);
             this.Background_Panel.Controls.Add(this.TopBar);
@@ -166,7 +201,7 @@ namespace FreeZeHAX_Trainer
             this.Background_Panel.Controls.Add(this.Settings);
             this.Background_Panel.Controls.Add(this.Unbanner);
             this.Background_Panel.Controls.Add(this.Spammer);
-            this.Background_Panel.Controls.Add(this.Changers);
+            this.Background_Panel.Controls.Add(this.Visuals);
             this.Background_Panel.Controls.Add(this.Cheats);
             this.Background_Panel.CustomBorderColor = System.Drawing.Color.White;
             this.PanelTransition.SetDecoration(this.Background_Panel, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -269,33 +304,33 @@ namespace FreeZeHAX_Trainer
             this.Spammer_Button.Visible = false;
             this.Spammer_Button.Click += new System.EventHandler(this.Spammer_Button_Click);
             // 
-            // Changers_Button
+            // Visuals_Button
             // 
-            this.Changers_Button.Animated = true;
-            this.Changers_Button.BorderColor = System.Drawing.Color.White;
-            this.Changers_Button.BorderThickness = 1;
-            this.PanelTransition.SetDecoration(this.Changers_Button, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.Changers_Button, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.StartupTransition.SetDecoration(this.Changers_Button, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Changers_Button.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.Changers_Button.DisabledState.CustomBorderColor = System.Drawing.Color.White;
-            this.Changers_Button.DisabledState.FillColor = System.Drawing.Color.MidnightBlue;
-            this.Changers_Button.DisabledState.FillColor2 = System.Drawing.Color.LightSkyBlue;
-            this.Changers_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Changers_Button.FillColor = System.Drawing.Color.MidnightBlue;
-            this.Changers_Button.FillColor2 = System.Drawing.Color.LightSkyBlue;
-            this.Changers_Button.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Changers_Button.ForeColor = System.Drawing.Color.White;
-            this.Changers_Button.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.Changers_Button.Location = new System.Drawing.Point(0, 182);
-            this.Changers_Button.Name = "Changers_Button";
-            this.Changers_Button.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.Changers_Button.PressedDepth = 10;
-            this.Changers_Button.Size = new System.Drawing.Size(155, 66);
-            this.Changers_Button.TabIndex = 23;
-            this.Changers_Button.Text = "Changers";
-            this.Changers_Button.Visible = false;
-            this.Changers_Button.Click += new System.EventHandler(this.Changers_Button_Click);
+            this.Visuals_Button.Animated = true;
+            this.Visuals_Button.BorderColor = System.Drawing.Color.White;
+            this.Visuals_Button.BorderThickness = 1;
+            this.PanelTransition.SetDecoration(this.Visuals_Button, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.Visuals_Button, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.StartupTransition.SetDecoration(this.Visuals_Button, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.Visuals_Button.DisabledState.BorderColor = System.Drawing.Color.White;
+            this.Visuals_Button.DisabledState.CustomBorderColor = System.Drawing.Color.White;
+            this.Visuals_Button.DisabledState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.Visuals_Button.DisabledState.FillColor2 = System.Drawing.Color.LightSkyBlue;
+            this.Visuals_Button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Visuals_Button.FillColor = System.Drawing.Color.MidnightBlue;
+            this.Visuals_Button.FillColor2 = System.Drawing.Color.LightSkyBlue;
+            this.Visuals_Button.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Visuals_Button.ForeColor = System.Drawing.Color.White;
+            this.Visuals_Button.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.Visuals_Button.Location = new System.Drawing.Point(0, 182);
+            this.Visuals_Button.Name = "Visuals_Button";
+            this.Visuals_Button.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.Visuals_Button.PressedDepth = 10;
+            this.Visuals_Button.Size = new System.Drawing.Size(155, 66);
+            this.Visuals_Button.TabIndex = 23;
+            this.Visuals_Button.Text = "Visuals";
+            this.Visuals_Button.Visible = false;
+            this.Visuals_Button.Click += new System.EventHandler(this.Changers_Button_Click);
             // 
             // Cheat_Button
             // 
@@ -434,196 +469,563 @@ namespace FreeZeHAX_Trainer
             this.FocusText.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FocusText_MouseMove);
             this.FocusText.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FocusText_MouseUp);
             // 
-            // Spammer
+            // Visuals
             // 
-            this.Spammer.BackColor = System.Drawing.Color.Transparent;
-            this.Spammer.BorderColor = System.Drawing.Color.White;
-            this.Spammer.BorderThickness = 1;
-            this.Spammer.Controls.Add(this.IntervalValue);
-            this.Spammer.Controls.Add(this.label2);
-            this.Spammer.Controls.Add(this.SetInterval);
-            this.Spammer.Controls.Add(this.Spammer_Interval);
-            this.Spammer.Controls.Add(this.Spammer_Interval_Label);
-            this.Spammer.Controls.Add(this.Spammer_Status_Label);
-            this.Spammer.Controls.Add(this.Spammer_Status);
-            this.Spammer.Controls.Add(this.Input);
-            this.PanelTransition.SetDecoration(this.Spammer, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.Spammer, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.StartupTransition.SetDecoration(this.Spammer, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Spammer.Location = new System.Drawing.Point(155, 50);
-            this.Spammer.Name = "Spammer";
-            this.Spammer.Size = new System.Drawing.Size(640, 397);
-            this.Spammer.TabIndex = 31;
-            this.Spammer.Visible = false;
+            this.Visuals.BackColor = System.Drawing.Color.Transparent;
+            this.Visuals.BorderColor = System.Drawing.Color.White;
+            this.Visuals.BorderThickness = 1;
+            this.Visuals.Controls.Add(this.label3);
+            this.Visuals.Controls.Add(this.label24);
+            this.Visuals.Controls.Add(this.label25);
+            this.Visuals.Controls.Add(this.label26);
+            this.Visuals.Controls.Add(this.label27);
+            this.Visuals.Controls.Add(this.label28);
+            this.Visuals.Controls.Add(this.label29);
+            this.Visuals.Controls.Add(this.label30);
+            this.Visuals.Controls.Add(this.label31);
+            this.Visuals.Controls.Add(this.button1);
+            this.Visuals.Controls.Add(this.button2);
+            this.Visuals.Controls.Add(this.button3);
+            this.Visuals.Controls.Add(this.button4);
+            this.Visuals.Controls.Add(this.button5);
+            this.Visuals.Controls.Add(this.button6);
+            this.Visuals.Controls.Add(this.button7);
+            this.Visuals.Controls.Add(this.button8);
+            this.Visuals.Controls.Add(this.button9);
+            this.Visuals.Controls.Add(this.label32);
+            this.Visuals.Controls.Add(this.label33);
+            this.Visuals.Controls.Add(this.label34);
+            this.Visuals.Controls.Add(this.label35);
+            this.Visuals.Controls.Add(this.label36);
+            this.Visuals.Controls.Add(this.label37);
+            this.Visuals.Controls.Add(this.label38);
+            this.Visuals.Controls.Add(this.label39);
+            this.Visuals.Controls.Add(this.label40);
+            this.Visuals.Controls.Add(this.button10);
+            this.Visuals.Controls.Add(this.button11);
+            this.Visuals.Controls.Add(this.button12);
+            this.Visuals.Controls.Add(this.button13);
+            this.Visuals.Controls.Add(this.button14);
+            this.Visuals.Controls.Add(this.button15);
+            this.Visuals.Controls.Add(this.button16);
+            this.Visuals.Controls.Add(this.button17);
+            this.Visuals.Controls.Add(this.button18);
+            this.Visuals.Controls.Add(this.CheatAddresses);
+            this.Visuals.CustomizableEdges.BottomLeft = false;
+            this.Visuals.CustomizableEdges.TopLeft = false;
+            this.Visuals.CustomizableEdges.TopRight = false;
+            this.PanelTransition.SetDecoration(this.Visuals, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.Visuals, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.StartupTransition.SetDecoration(this.Visuals, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.Visuals.Location = new System.Drawing.Point(155, 50);
+            this.Visuals.Name = "Visuals";
+            this.Visuals.Size = new System.Drawing.Size(640, 397);
+            this.Visuals.TabIndex = 30;
+            this.Visuals.Visible = false;
             // 
-            // IntervalValue
+            // label3
             // 
-            this.StartupTransition.SetDecoration(this.IntervalValue, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.IntervalValue, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.IntervalValue, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.IntervalValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IntervalValue.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.IntervalValue.ForeColor = System.Drawing.Color.White;
-            this.IntervalValue.Location = new System.Drawing.Point(164, 33);
-            this.IntervalValue.Name = "IntervalValue";
-            this.IntervalValue.Size = new System.Drawing.Size(72, 21);
-            this.IntervalValue.TabIndex = 18;
-            this.IntervalValue.Text = "0";
-            this.IntervalValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label3, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label3, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label3, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label3.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(326, 363);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 21);
+            this.label3.TabIndex = 89;
+            this.label3.Text = "(None)";
             // 
-            // label2
+            // label24
             // 
-            this.label2.AutoSize = true;
-            this.StartupTransition.SetDecoration(this.label2, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.label2, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.label2, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(11, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 21);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Current Interval:";
+            this.label24.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label24, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label24, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label24, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label24.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label24.ForeColor = System.Drawing.Color.White;
+            this.label24.Location = new System.Drawing.Point(326, 318);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(68, 21);
+            this.label24.TabIndex = 88;
+            this.label24.Text = "(None)";
             // 
-            // SetInterval
+            // label25
             // 
-            this.SetInterval.BackColor = System.Drawing.Color.Transparent;
-            this.SetInterval.BorderColor = System.Drawing.Color.DarkBlue;
-            this.SetInterval.BorderThickness = 1;
-            this.PanelTransition.SetDecoration(this.SetInterval, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.SetInterval, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.StartupTransition.SetDecoration(this.SetInterval, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.SetInterval.FillColor = System.Drawing.Color.White;
-            this.SetInterval.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.SetInterval.ForeColor = System.Drawing.Color.White;
-            this.SetInterval.Location = new System.Drawing.Point(415, 6);
-            this.SetInterval.Name = "SetInterval";
-            this.SetInterval.Size = new System.Drawing.Size(34, 34);
-            this.SetInterval.TabIndex = 16;
-            this.SetInterval.Click += new System.EventHandler(this.SetInterval_Click);
+            this.label25.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label25, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label25, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label25, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label25.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Location = new System.Drawing.Point(326, 274);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(68, 21);
+            this.label25.TabIndex = 87;
+            this.label25.Text = "(None)";
             // 
-            // Spammer_Interval
+            // label26
             // 
-            this.Spammer_Interval.BorderColor = System.Drawing.Color.White;
-            this.Spammer_Interval.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PanelTransition.SetDecoration(this.Spammer_Interval, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.Spammer_Interval, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.StartupTransition.SetDecoration(this.Spammer_Interval, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Spammer_Interval.DefaultText = "";
-            this.Spammer_Interval.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Spammer_Interval.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.Spammer_Interval.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Spammer_Interval.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Spammer_Interval.FillColor = System.Drawing.Color.SteelBlue;
-            this.Spammer_Interval.FocusedState.BorderColor = System.Drawing.Color.White;
-            this.Spammer_Interval.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Spammer_Interval.ForeColor = System.Drawing.Color.White;
-            this.Spammer_Interval.HoverState.BorderColor = System.Drawing.Color.White;
-            this.Spammer_Interval.Location = new System.Drawing.Point(319, 6);
-            this.Spammer_Interval.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Spammer_Interval.Name = "Spammer_Interval";
-            this.Spammer_Interval.PasswordChar = '\0';
-            this.Spammer_Interval.PlaceholderForeColor = System.Drawing.Color.White;
-            this.Spammer_Interval.PlaceholderText = "";
-            this.Spammer_Interval.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.Spammer_Interval.SelectedText = "";
-            this.Spammer_Interval.Size = new System.Drawing.Size(93, 34);
-            this.Spammer_Interval.TabIndex = 15;
+            this.label26.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label26, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label26, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label26, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label26.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label26.ForeColor = System.Drawing.Color.White;
+            this.label26.Location = new System.Drawing.Point(326, 229);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(68, 21);
+            this.label26.TabIndex = 86;
+            this.label26.Text = "(None)";
             // 
-            // Spammer_Interval_Label
+            // label27
             // 
-            this.Spammer_Interval_Label.AutoSize = true;
-            this.StartupTransition.SetDecoration(this.Spammer_Interval_Label, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.Spammer_Interval_Label, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.Spammer_Interval_Label, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Spammer_Interval_Label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Spammer_Interval_Label.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.Spammer_Interval_Label.ForeColor = System.Drawing.Color.White;
-            this.Spammer_Interval_Label.Location = new System.Drawing.Point(235, 12);
-            this.Spammer_Interval_Label.Name = "Spammer_Interval_Label";
-            this.Spammer_Interval_Label.Size = new System.Drawing.Size(83, 21);
-            this.Spammer_Interval_Label.TabIndex = 14;
-            this.Spammer_Interval_Label.Text = "Interval:";
+            this.label27.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label27, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label27, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label27, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label27.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label27.ForeColor = System.Drawing.Color.White;
+            this.label27.Location = new System.Drawing.Point(326, 185);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(68, 21);
+            this.label27.TabIndex = 85;
+            this.label27.Text = "(None)";
             // 
-            // Spammer_Status_Label
+            // label28
             // 
-            this.Spammer_Status_Label.AutoSize = true;
-            this.StartupTransition.SetDecoration(this.Spammer_Status_Label, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.Spammer_Status_Label, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.Spammer_Status_Label, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Spammer_Status_Label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Spammer_Status_Label.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.Spammer_Status_Label.ForeColor = System.Drawing.Color.White;
-            this.Spammer_Status_Label.Location = new System.Drawing.Point(244, 48);
-            this.Spammer_Status_Label.Name = "Spammer_Status_Label";
-            this.Spammer_Status_Label.Size = new System.Drawing.Size(72, 21);
-            this.Spammer_Status_Label.TabIndex = 13;
-            this.Spammer_Status_Label.Text = "Status:";
+            this.label28.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label28, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label28, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label28, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label28.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Location = new System.Drawing.Point(326, 140);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(68, 21);
+            this.label28.TabIndex = 84;
+            this.label28.Text = "(None)";
             // 
-            // Spammer_Status
+            // label29
             // 
-            this.Spammer_Status.BackColor = System.Drawing.Color.White;
-            this.StartupTransition.SetDecoration(this.Spammer_Status, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.Spammer_Status, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.Spammer_Status, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Spammer_Status.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
-            this.Spammer_Status.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Spammer_Status.Location = new System.Drawing.Point(319, 43);
-            this.Spammer_Status.Name = "Spammer_Status";
-            this.Spammer_Status.Size = new System.Drawing.Size(34, 34);
-            this.Spammer_Status.TabIndex = 12;
-            this.Spammer_Status.UseVisualStyleBackColor = false;
-            this.Spammer_Status.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Spammer_Status_MouseDown);
+            this.label29.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label29, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label29, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label29, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label29.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label29.ForeColor = System.Drawing.Color.White;
+            this.label29.Location = new System.Drawing.Point(326, 97);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(68, 21);
+            this.label29.TabIndex = 83;
+            this.label29.Text = "(None)";
             // 
-            // Input
+            // label30
             // 
-            this.Input.BackColor = System.Drawing.Color.Transparent;
-            this.Input.BorderColor = System.Drawing.Color.Black;
-            this.Input.BorderThickness = 0;
-            this.Input.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PanelTransition.SetDecoration(this.Input, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.Input, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.StartupTransition.SetDecoration(this.Input, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Input.DefaultText = "";
-            this.Input.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Input.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.Input.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Input.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.Input.FillColor = System.Drawing.Color.SteelBlue;
-            this.Input.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Input.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Input.ForeColor = System.Drawing.Color.White;
-            this.Input.HoverState.BorderColor = System.Drawing.Color.White;
-            this.Input.Location = new System.Drawing.Point(13, 83);
-            this.Input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Input.Multiline = true;
-            this.Input.Name = "Input";
-            this.Input.PasswordChar = '\0';
-            this.Input.PlaceholderText = "";
-            this.Input.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.Input.SelectedText = "";
-            this.Input.Size = new System.Drawing.Size(616, 299);
-            this.Input.TabIndex = 0;
+            this.label30.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label30, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label30, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label30, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label30.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label30.ForeColor = System.Drawing.Color.White;
+            this.label30.Location = new System.Drawing.Point(326, 55);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(68, 21);
+            this.label30.TabIndex = 82;
+            this.label30.Text = "(None)";
             // 
-            // Changers
+            // label31
             // 
-            this.Changers.BackColor = System.Drawing.Color.Transparent;
-            this.Changers.BorderColor = System.Drawing.Color.White;
-            this.Changers.BorderThickness = 1;
-            this.Changers.Controls.Add(this.CheatAddresses);
-            this.Changers.Controls.Add(this.label3);
-            this.Changers.CustomizableEdges.BottomLeft = false;
-            this.Changers.CustomizableEdges.TopLeft = false;
-            this.Changers.CustomizableEdges.TopRight = false;
-            this.PanelTransition.SetDecoration(this.Changers, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.Changers, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.StartupTransition.SetDecoration(this.Changers, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Changers.Location = new System.Drawing.Point(155, 50);
-            this.Changers.Name = "Changers";
-            this.Changers.Size = new System.Drawing.Size(640, 397);
-            this.Changers.TabIndex = 30;
-            this.Changers.Visible = false;
+            this.label31.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label31, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label31, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label31, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label31.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label31.ForeColor = System.Drawing.Color.White;
+            this.label31.Location = new System.Drawing.Point(326, 12);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(68, 21);
+            this.label31.TabIndex = 81;
+            this.label31.Text = "(None)";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button1, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button1, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button1, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(289, 357);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 34);
+            this.button1.TabIndex = 80;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button2, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button2, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button2, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(289, 312);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(34, 34);
+            this.button2.TabIndex = 79;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button3, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button3, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button3, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(289, 268);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(34, 34);
+            this.button3.TabIndex = 78;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button4, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button4, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button4, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(289, 223);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(34, 34);
+            this.button4.TabIndex = 77;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button5, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button5, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button5, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(289, 179);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(34, 34);
+            this.button5.TabIndex = 76;
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button6, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button6, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button6, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(289, 134);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(34, 34);
+            this.button6.TabIndex = 75;
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button7, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button7, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button7, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(289, 91);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(34, 34);
+            this.button7.TabIndex = 74;
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button8, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button8, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button8, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Location = new System.Drawing.Point(289, 49);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(34, 34);
+            this.button8.TabIndex = 73;
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button9, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button9, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button9, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(289, 6);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(34, 34);
+            this.button9.TabIndex = 72;
+            this.button9.UseVisualStyleBackColor = false;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label32, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label32, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label32, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label32.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label32.ForeColor = System.Drawing.Color.White;
+            this.label32.Location = new System.Drawing.Point(44, 363);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(68, 21);
+            this.label32.TabIndex = 71;
+            this.label32.Text = "(None)";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label33, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label33, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label33, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label33.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label33.ForeColor = System.Drawing.Color.White;
+            this.label33.Location = new System.Drawing.Point(44, 318);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(68, 21);
+            this.label33.TabIndex = 70;
+            this.label33.Text = "(None)";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label34, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label34, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label34, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label34.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label34.ForeColor = System.Drawing.Color.White;
+            this.label34.Location = new System.Drawing.Point(44, 275);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(68, 21);
+            this.label34.TabIndex = 69;
+            this.label34.Text = "(None)";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label35, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label35, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label35, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label35.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label35.ForeColor = System.Drawing.Color.White;
+            this.label35.Location = new System.Drawing.Point(44, 229);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(68, 21);
+            this.label35.TabIndex = 68;
+            this.label35.Text = "(None)";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label36, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label36, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label36, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label36.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label36.ForeColor = System.Drawing.Color.White;
+            this.label36.Location = new System.Drawing.Point(44, 184);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(68, 21);
+            this.label36.TabIndex = 67;
+            this.label36.Text = "(None)";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label37, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label37, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label37, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label37.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label37.ForeColor = System.Drawing.Color.White;
+            this.label37.Location = new System.Drawing.Point(44, 140);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(68, 21);
+            this.label37.TabIndex = 66;
+            this.label37.Text = "(None)";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label38, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label38, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label38, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label38.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label38.ForeColor = System.Drawing.Color.White;
+            this.label38.Location = new System.Drawing.Point(44, 97);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(68, 21);
+            this.label38.TabIndex = 65;
+            this.label38.Text = "(None)";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label39, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label39, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label39, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label39.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label39.ForeColor = System.Drawing.Color.White;
+            this.label39.Location = new System.Drawing.Point(44, 55);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(68, 21);
+            this.label39.TabIndex = 64;
+            this.label39.Text = "(None)";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label40, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label40, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label40, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label40.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label40.ForeColor = System.Drawing.Color.White;
+            this.label40.Location = new System.Drawing.Point(44, 13);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(68, 21);
+            this.label40.TabIndex = 63;
+            this.label40.Text = "(None)";
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button10, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button10, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button10, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button10.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Location = new System.Drawing.Point(7, 357);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(34, 34);
+            this.button10.TabIndex = 62;
+            this.button10.UseVisualStyleBackColor = false;
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button11, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button11, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button11, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button11.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Location = new System.Drawing.Point(7, 312);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(34, 34);
+            this.button11.TabIndex = 61;
+            this.button11.UseVisualStyleBackColor = false;
+            // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button12, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button12, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button12, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button12.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Location = new System.Drawing.Point(7, 268);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(34, 34);
+            this.button12.TabIndex = 60;
+            this.button12.UseVisualStyleBackColor = false;
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button13, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button13, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button13, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button13.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Location = new System.Drawing.Point(7, 223);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(34, 34);
+            this.button13.TabIndex = 59;
+            this.button13.UseVisualStyleBackColor = false;
+            // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button14, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button14, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button14, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button14.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Location = new System.Drawing.Point(7, 178);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(34, 34);
+            this.button14.TabIndex = 58;
+            this.button14.UseVisualStyleBackColor = false;
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button15, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button15, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button15, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button15.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Location = new System.Drawing.Point(7, 134);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(34, 34);
+            this.button15.TabIndex = 57;
+            this.button15.UseVisualStyleBackColor = false;
+            // 
+            // button16
+            // 
+            this.button16.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button16, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button16, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button16, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button16.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button16.Location = new System.Drawing.Point(7, 91);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(34, 34);
+            this.button16.TabIndex = 56;
+            this.button16.UseVisualStyleBackColor = false;
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button17, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button17, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button17, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button17.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button17.Location = new System.Drawing.Point(7, 49);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(34, 34);
+            this.button17.TabIndex = 55;
+            this.button17.UseVisualStyleBackColor = false;
+            // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.button18, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.button18, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.button18, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button18.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.Location = new System.Drawing.Point(7, 7);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(34, 34);
+            this.button18.TabIndex = 54;
+            this.button18.UseVisualStyleBackColor = false;
             // 
             // CheatAddresses
             // 
@@ -636,27 +1038,12 @@ namespace FreeZeHAX_Trainer
             this.CheatAddresses.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.CheatAddresses.FormattingEnabled = true;
             this.CheatAddresses.ItemHeight = 16;
-            this.CheatAddresses.Location = new System.Drawing.Point(619, 2);
+            this.CheatAddresses.Location = new System.Drawing.Point(623, 2);
             this.CheatAddresses.MultiColumn = true;
             this.CheatAddresses.Name = "CheatAddresses";
-            this.CheatAddresses.Size = new System.Drawing.Size(19, 16);
+            this.CheatAddresses.Size = new System.Drawing.Size(15, 16);
             this.CheatAddresses.TabIndex = 20;
             this.CheatAddresses.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.StartupTransition.SetDecoration(this.label3, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.label3, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.label3, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(298, 188);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 21);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Soon";
             // 
             // Cheats
             // 
@@ -672,8 +1059,8 @@ namespace FreeZeHAX_Trainer
             this.Cheats.Controls.Add(this.label19);
             this.Cheats.Controls.Add(this.label20);
             this.Cheats.Controls.Add(this.label21);
-            this.Cheats.Controls.Add(this.ModZoom);
-            this.Cheats.Controls.Add(this.FastPickupDrop);
+            this.Cheats.Controls.Add(this.AntiState);
+            this.Cheats.Controls.Add(this.AntiCheckpoint);
             this.Cheats.Controls.Add(this.AntiGravityWell);
             this.Cheats.Controls.Add(this.AntiPlatform);
             this.Cheats.Controls.Add(this.SystemSpeed);
@@ -719,9 +1106,9 @@ namespace FreeZeHAX_Trainer
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(325, 363);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(101, 21);
+            this.label13.Size = new System.Drawing.Size(95, 21);
             this.label13.TabIndex = 53;
-            this.label13.Text = "Mod Zoom";
+            this.label13.Text = "Anti State";
             // 
             // label14
             // 
@@ -733,9 +1120,9 @@ namespace FreeZeHAX_Trainer
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(325, 318);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(168, 21);
+            this.label14.Size = new System.Drawing.Size(149, 21);
             this.label14.TabIndex = 52;
-            this.label14.Text = "Fast Pickup / Drop";
+            this.label14.Text = "Anti Checkpoint";
             // 
             // label15
             // 
@@ -835,35 +1222,35 @@ namespace FreeZeHAX_Trainer
             this.label21.TabIndex = 45;
             this.label21.Text = "Anti Lgrid";
             // 
-            // ModZoom
+            // AntiState
             // 
-            this.ModZoom.BackColor = System.Drawing.Color.White;
-            this.StartupTransition.SetDecoration(this.ModZoom, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.ModZoom, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.ModZoom, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ModZoom.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
-            this.ModZoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ModZoom.Location = new System.Drawing.Point(288, 357);
-            this.ModZoom.Name = "ModZoom";
-            this.ModZoom.Size = new System.Drawing.Size(34, 34);
-            this.ModZoom.TabIndex = 44;
-            this.ModZoom.UseVisualStyleBackColor = false;
-            this.ModZoom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ModZoom_MouseDown);
+            this.AntiState.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.AntiState, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.AntiState, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.AntiState, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.AntiState.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.AntiState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AntiState.Location = new System.Drawing.Point(288, 357);
+            this.AntiState.Name = "AntiState";
+            this.AntiState.Size = new System.Drawing.Size(34, 34);
+            this.AntiState.TabIndex = 44;
+            this.AntiState.UseVisualStyleBackColor = false;
+            this.AntiState.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AntiState_MouseDown);
             // 
-            // FastPickupDrop
+            // AntiCheckpoint
             // 
-            this.FastPickupDrop.BackColor = System.Drawing.Color.White;
-            this.StartupTransition.SetDecoration(this.FastPickupDrop, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.ButtonTransition.SetDecoration(this.FastPickupDrop, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.PanelTransition.SetDecoration(this.FastPickupDrop, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.FastPickupDrop.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
-            this.FastPickupDrop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FastPickupDrop.Location = new System.Drawing.Point(288, 312);
-            this.FastPickupDrop.Name = "FastPickupDrop";
-            this.FastPickupDrop.Size = new System.Drawing.Size(34, 34);
-            this.FastPickupDrop.TabIndex = 43;
-            this.FastPickupDrop.UseVisualStyleBackColor = false;
-            this.FastPickupDrop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FastPickupDrop_MouseDown);
+            this.AntiCheckpoint.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.AntiCheckpoint, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.AntiCheckpoint, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.AntiCheckpoint, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.AntiCheckpoint.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.AntiCheckpoint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AntiCheckpoint.Location = new System.Drawing.Point(288, 312);
+            this.AntiCheckpoint.Name = "AntiCheckpoint";
+            this.AntiCheckpoint.Size = new System.Drawing.Size(34, 34);
+            this.AntiCheckpoint.TabIndex = 43;
+            this.AntiCheckpoint.UseVisualStyleBackColor = false;
+            this.AntiCheckpoint.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AntiCheckpoint_MouseDown);
             // 
             // AntiGravityWell
             // 
@@ -1359,7 +1746,7 @@ namespace FreeZeHAX_Trainer
             this.RestartTrainer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.RestartTrainer.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RestartTrainer.ForeColor = System.Drawing.Color.White;
-            this.RestartTrainer.Location = new System.Drawing.Point(487, 36);
+            this.RestartTrainer.Location = new System.Drawing.Point(490, 36);
             this.RestartTrainer.Name = "RestartTrainer";
             this.RestartTrainer.Size = new System.Drawing.Size(139, 45);
             this.RestartTrainer.TabIndex = 15;
@@ -1735,6 +2122,178 @@ namespace FreeZeHAX_Trainer
             this.Unban.Text = "Unban";
             this.Unban.Click += new System.EventHandler(this.Unban_Click);
             // 
+            // Spammer
+            // 
+            this.Spammer.BackColor = System.Drawing.Color.Transparent;
+            this.Spammer.BorderColor = System.Drawing.Color.White;
+            this.Spammer.BorderThickness = 1;
+            this.Spammer.Controls.Add(this.IntervalValue);
+            this.Spammer.Controls.Add(this.label2);
+            this.Spammer.Controls.Add(this.SetInterval);
+            this.Spammer.Controls.Add(this.Spammer_Interval);
+            this.Spammer.Controls.Add(this.Spammer_Interval_Label);
+            this.Spammer.Controls.Add(this.Spammer_Status_Label);
+            this.Spammer.Controls.Add(this.Spammer_Status);
+            this.Spammer.Controls.Add(this.Input);
+            this.PanelTransition.SetDecoration(this.Spammer, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.Spammer, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.StartupTransition.SetDecoration(this.Spammer, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.Spammer.Location = new System.Drawing.Point(155, 50);
+            this.Spammer.Name = "Spammer";
+            this.Spammer.Size = new System.Drawing.Size(640, 397);
+            this.Spammer.TabIndex = 31;
+            this.Spammer.Visible = false;
+            // 
+            // IntervalValue
+            // 
+            this.StartupTransition.SetDecoration(this.IntervalValue, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.IntervalValue, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.IntervalValue, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.IntervalValue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IntervalValue.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.IntervalValue.ForeColor = System.Drawing.Color.White;
+            this.IntervalValue.Location = new System.Drawing.Point(164, 33);
+            this.IntervalValue.Name = "IntervalValue";
+            this.IntervalValue.Size = new System.Drawing.Size(72, 21);
+            this.IntervalValue.TabIndex = 18;
+            this.IntervalValue.Text = "0";
+            this.IntervalValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.label2, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.label2, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.label2, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(11, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 21);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Current Interval:";
+            // 
+            // SetInterval
+            // 
+            this.SetInterval.BackColor = System.Drawing.Color.Transparent;
+            this.SetInterval.BorderColor = System.Drawing.Color.DarkBlue;
+            this.SetInterval.BorderThickness = 1;
+            this.PanelTransition.SetDecoration(this.SetInterval, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.SetInterval, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.StartupTransition.SetDecoration(this.SetInterval, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.SetInterval.FillColor = System.Drawing.Color.White;
+            this.SetInterval.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SetInterval.ForeColor = System.Drawing.Color.White;
+            this.SetInterval.Location = new System.Drawing.Point(415, 6);
+            this.SetInterval.Name = "SetInterval";
+            this.SetInterval.Size = new System.Drawing.Size(34, 34);
+            this.SetInterval.TabIndex = 16;
+            this.SetInterval.Click += new System.EventHandler(this.SetInterval_Click);
+            // 
+            // Spammer_Interval
+            // 
+            this.Spammer_Interval.BorderColor = System.Drawing.Color.White;
+            this.Spammer_Interval.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PanelTransition.SetDecoration(this.Spammer_Interval, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.Spammer_Interval, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.StartupTransition.SetDecoration(this.Spammer_Interval, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.Spammer_Interval.DefaultText = "";
+            this.Spammer_Interval.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Spammer_Interval.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.Spammer_Interval.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Spammer_Interval.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Spammer_Interval.FillColor = System.Drawing.Color.SteelBlue;
+            this.Spammer_Interval.FocusedState.BorderColor = System.Drawing.Color.White;
+            this.Spammer_Interval.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Spammer_Interval.ForeColor = System.Drawing.Color.White;
+            this.Spammer_Interval.HoverState.BorderColor = System.Drawing.Color.White;
+            this.Spammer_Interval.Location = new System.Drawing.Point(319, 6);
+            this.Spammer_Interval.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Spammer_Interval.Name = "Spammer_Interval";
+            this.Spammer_Interval.PasswordChar = '\0';
+            this.Spammer_Interval.PlaceholderForeColor = System.Drawing.Color.White;
+            this.Spammer_Interval.PlaceholderText = "";
+            this.Spammer_Interval.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.Spammer_Interval.SelectedText = "";
+            this.Spammer_Interval.Size = new System.Drawing.Size(93, 34);
+            this.Spammer_Interval.TabIndex = 15;
+            // 
+            // Spammer_Interval_Label
+            // 
+            this.Spammer_Interval_Label.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.Spammer_Interval_Label, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.Spammer_Interval_Label, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.Spammer_Interval_Label, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.Spammer_Interval_Label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Spammer_Interval_Label.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.Spammer_Interval_Label.ForeColor = System.Drawing.Color.White;
+            this.Spammer_Interval_Label.Location = new System.Drawing.Point(235, 12);
+            this.Spammer_Interval_Label.Name = "Spammer_Interval_Label";
+            this.Spammer_Interval_Label.Size = new System.Drawing.Size(83, 21);
+            this.Spammer_Interval_Label.TabIndex = 14;
+            this.Spammer_Interval_Label.Text = "Interval:";
+            // 
+            // Spammer_Status_Label
+            // 
+            this.Spammer_Status_Label.AutoSize = true;
+            this.StartupTransition.SetDecoration(this.Spammer_Status_Label, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.Spammer_Status_Label, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.Spammer_Status_Label, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.Spammer_Status_Label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Spammer_Status_Label.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.Spammer_Status_Label.ForeColor = System.Drawing.Color.White;
+            this.Spammer_Status_Label.Location = new System.Drawing.Point(244, 48);
+            this.Spammer_Status_Label.Name = "Spammer_Status_Label";
+            this.Spammer_Status_Label.Size = new System.Drawing.Size(72, 21);
+            this.Spammer_Status_Label.TabIndex = 13;
+            this.Spammer_Status_Label.Text = "Status:";
+            // 
+            // Spammer_Status
+            // 
+            this.Spammer_Status.BackColor = System.Drawing.Color.White;
+            this.StartupTransition.SetDecoration(this.Spammer_Status, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.Spammer_Status, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.PanelTransition.SetDecoration(this.Spammer_Status, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.Spammer_Status.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.Spammer_Status.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Spammer_Status.Location = new System.Drawing.Point(319, 43);
+            this.Spammer_Status.Name = "Spammer_Status";
+            this.Spammer_Status.Size = new System.Drawing.Size(34, 34);
+            this.Spammer_Status.TabIndex = 12;
+            this.Spammer_Status.UseVisualStyleBackColor = false;
+            this.Spammer_Status.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Spammer_Status_MouseDown);
+            // 
+            // Input
+            // 
+            this.Input.BackColor = System.Drawing.Color.Transparent;
+            this.Input.BorderColor = System.Drawing.Color.Black;
+            this.Input.BorderThickness = 0;
+            this.Input.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PanelTransition.SetDecoration(this.Input, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.ButtonTransition.SetDecoration(this.Input, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.StartupTransition.SetDecoration(this.Input, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.Input.DefaultText = "";
+            this.Input.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Input.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.Input.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Input.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Input.FillColor = System.Drawing.Color.SteelBlue;
+            this.Input.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Input.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Input.ForeColor = System.Drawing.Color.White;
+            this.Input.HoverState.BorderColor = System.Drawing.Color.White;
+            this.Input.Location = new System.Drawing.Point(13, 83);
+            this.Input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Input.Multiline = true;
+            this.Input.Name = "Input";
+            this.Input.PasswordChar = '\0';
+            this.Input.PlaceholderText = "";
+            this.Input.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.Input.SelectedText = "";
+            this.Input.Size = new System.Drawing.Size(616, 299);
+            this.Input.TabIndex = 0;
+            // 
             // Spammer_Elipse
             // 
             this.Spammer_Elipse.BorderRadius = 25;
@@ -1866,10 +2425,8 @@ namespace FreeZeHAX_Trainer
             this.Background_Panel.ResumeLayout(false);
             this.TopBar.ResumeLayout(false);
             this.TopBar.PerformLayout();
-            this.Spammer.ResumeLayout(false);
-            this.Spammer.PerformLayout();
-            this.Changers.ResumeLayout(false);
-            this.Changers.PerformLayout();
+            this.Visuals.ResumeLayout(false);
+            this.Visuals.PerformLayout();
             this.Cheats.ResumeLayout(false);
             this.Cheats.PerformLayout();
             this.About.ResumeLayout(false);
@@ -1880,6 +2437,8 @@ namespace FreeZeHAX_Trainer
             this.Settings.PerformLayout();
             this.Unbanner.ResumeLayout(false);
             this.Unbanner.PerformLayout();
+            this.Spammer.ResumeLayout(false);
+            this.Spammer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1899,7 +2458,7 @@ namespace FreeZeHAX_Trainer
         private Guna.UI2.WinForms.Guna2Panel Unbanner;
         private Guna.UI2.WinForms.Guna2Panel Spammer;
         private Guna.UI2.WinForms.Guna2Panel Cheats;
-        private Guna.UI2.WinForms.Guna2Panel Changers;
+        private Guna.UI2.WinForms.Guna2Panel Visuals;
         private System.Windows.Forms.Button GiveawayMode;
         private System.Windows.Forms.Button Growz;
         private System.Windows.Forms.Button ModFlyV2;
@@ -1922,7 +2481,7 @@ namespace FreeZeHAX_Trainer
         private Guna.UI2.WinForms.Guna2GradientButton Settings_Button;
         private Guna.UI2.WinForms.Guna2GradientButton Unbanner_Button;
         private Guna.UI2.WinForms.Guna2GradientButton Spammer_Button;
-        private Guna.UI2.WinForms.Guna2GradientButton Changers_Button;
+        private Guna.UI2.WinForms.Guna2GradientButton Visuals_Button;
         private Guna.UI2.WinForms.Guna2TextBox Input;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label TrackbarText;
@@ -1942,8 +2501,8 @@ namespace FreeZeHAX_Trainer
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button ModZoom;
-        private System.Windows.Forms.Button FastPickupDrop;
+        private System.Windows.Forms.Button AntiState;
+        private System.Windows.Forms.Button AntiCheckpoint;
         private System.Windows.Forms.Button AntiGravityWell;
         private System.Windows.Forms.Button AntiPlatform;
         private System.Windows.Forms.Button SystemSpeed;
@@ -1976,7 +2535,6 @@ namespace FreeZeHAX_Trainer
         private System.Windows.Forms.Label shortkey;
         private Guna.UI2.WinForms.Guna2Button RestartTrainer;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox Cold2;
         private System.Windows.Forms.PictureBox Cold1;
         private System.Windows.Forms.Timer CETimer;
@@ -1986,5 +2544,41 @@ namespace FreeZeHAX_Trainer
         private Guna.UI2.WinForms.Guna2Transition PanelTransition;
         private Guna.UI2.WinForms.Guna2Transition ButtonTransition;
         private Guna.UI2.WinForms.Guna2Transition StartupTransition;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button18;
     }
 }
