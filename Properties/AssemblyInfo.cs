@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("FreeZeHAX Trainer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Auto Updating Growtopia Trainer.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("FreeZeHAX")]
 [assembly: AssemblyProduct("FreeZeHAX Trainer")]
 [assembly: AssemblyCopyright("Copyright © 2022 FreeZeHAX")]
 [assembly: AssemblyTrademark("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c03b4624-28b6-48e0-9641-8dbbdb8dfe53")]
+[assembly: Guid("00000000-0000-0000-0000-000000000000")]
 
 // Version information for an assembly consists of the following four values:
 //

