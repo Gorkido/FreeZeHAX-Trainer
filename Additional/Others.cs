@@ -115,14 +115,7 @@ namespace FreeZeHAX_Trainer
                     if (key != null)
                     {
                         object o = key.GetValue("path");
-                        if (o != null)
-                        {
-                            Result = o.ToString();
-                        }
-                        else
-                        {
-                            Result = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia";
-                        }
+                        Result = o != null ? o.ToString() : Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Growtopia";
                     }
                     else
                     {
