@@ -90,7 +90,7 @@ namespace FreeZeHAX_Trainer
                         _ = mem.WriteMemory(GetCheat(2), "bytes", "90 90"); // Anti Int Check
                         _ = mem.WriteMemory(GetCheat(23), "bytes", "E9 19 01 00 00"); // Pos Bypass
                         _ = mem.WriteMemory(GetCheat(0), "bytes", "0F 85 9E 01 00 00"); // Force FPS
-                        _ = mem.WriteMemory(GetCheat(8), "bytes", "80 B8 00 00 00 00 00"); // Mod Zoom
+                        _ = mem.WriteMemory(GetCheat(8), "bytes", "90 90 90 90 90 90 90"); // Mod Zoom
                         _ = mem.WriteMemory(GetCheat(27), "bytes", "90 90"); // Fast Pickup
                         _ = mem.WriteMemory(GetCheat(21), "bytes", "75 90"); // Fast Drop
 
@@ -728,14 +728,14 @@ namespace FreeZeHAX_Trainer
         {
             if (AntiState.BackColor == Color.White)
             {
-                _ = mem.WriteMemory(GetCheat(28), "bytes", "0F 85 6A 16 00 00");
+                _ = mem.WriteMemory(GetCheat(28), "bytes", "0F 85 71 16 00 00");
                 _ = FocusText.Focus();
                 AntiState.BackColor = Color.Blue;
                 AntiState.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
-                _ = mem.WriteMemory(GetCheat(28), "bytes", "0F 84 6A 16 00 00");
+                _ = mem.WriteMemory(GetCheat(28), "bytes", "0F 84 71 16 00 00");
                 _ = FocusText.Focus();
                 AntiState.BackColor = Color.White;
                 AntiState.FlatAppearance.BorderColor = Color.Black;
@@ -972,7 +972,7 @@ namespace FreeZeHAX_Trainer
 
             public static string GetNewMac()
             {
-                System.Random r = new System.Random();
+                Random r = new Random();
 
                 byte[] bytes = new byte[6];
                 r.NextBytes(bytes);
